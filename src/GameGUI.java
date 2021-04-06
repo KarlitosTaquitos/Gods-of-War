@@ -18,16 +18,8 @@ public class GameGUI {
 	public static void main(String[] args) throws IOException {
 		new GameGUI();
 		
-		//loads UserPass.txt file
-		try {
-			FileReader reader = new FileReader("src/UserPass.txt");
-			
-			reader.close();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-			
-		}
+		//loads UserPass.txt, which contains user's usernames and passwords in "username password" format
+		UserPassBackEnd.loadUserPassFile();
 		
 	}
 	
@@ -155,7 +147,7 @@ public class GameGUI {
 		register_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//registration things
-				
+				UserPassBackEnd.register(username_t, password_t);
 			}
 		});
 		
