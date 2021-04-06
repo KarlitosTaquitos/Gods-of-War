@@ -38,6 +38,13 @@ public class GameGUI {
 			}
 		});
 		
+		//Register button listener
+		register_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				registerScreen();
+			}
+		});
+		
 		//-----------------------------------------------------
 		
 		//Add components to frame
@@ -99,5 +106,54 @@ public class GameGUI {
 		frame.add(password_l);
 		frame.add(password_t);
 		frame.add(login_b);
+	}
+
+	private void registerScreen() {
+		//Clear frame
+		clearFrame();
+		
+		//Create buttons, text fields, and labels
+		JButton back_b = new JButton("Back");
+		back_b.setBounds(50, 50, 100, 50);
+		
+		JLabel username_l = new JLabel("Username:");
+		username_l.setBounds(150, 200, 100, 30);
+		JTextField username_t = new JTextField();
+		username_t.setBounds(300, 200, 200, 30);
+		
+		JLabel password_l = new JLabel("Password");
+		password_l.setBounds(150, 285, 100, 30);
+		JPasswordField password_t = new JPasswordField();
+		password_t.setBounds(300, 285, 200, 30);
+		
+		JButton register_b = new JButton("Register");
+		register_b.setBounds(550, 285, 200, 30);
+		
+		//-----------------------------------------------------
+		
+		//Back button to main screen
+		back_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mainScreen();
+			}
+		});
+		
+		//Register button listener
+		register_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//registration things
+			}
+		});
+		
+		//-----------------------------------------------------
+		
+		
+		frame.add(back_b);
+		frame.add(username_l);
+		frame.add(username_t);
+		frame.add(password_l);
+		frame.add(password_t);
+		frame.add(register_b);
+
 	}
 }
