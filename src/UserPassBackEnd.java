@@ -5,7 +5,7 @@ import javax.swing.JTextField;
 
 public class UserPassBackEnd {
 
-	static void loadUserPassFile() {
+	public static void loadUserPassFile() {
 		FileReader reader;
 		
 		try {
@@ -92,6 +92,66 @@ public class UserPassBackEnd {
 			
 		}
 		
+	}
+
+	public static boolean login(JTextField username_t, JPasswordField password_t) {
+		BufferedReader bufferedReader;
+		
+		String line;
+		String username;
+		String password;
+		
+		char[] passwordarray;
+		String[] tokens;
+		
+		//Opens UserPass.txt--------------------------------------------------------
+		try {
+			bufferedReader = new BufferedReader(new FileReader("src/UserPass.txt"));
+			
+			username = username_t.getText();
+			passwordarray = password_t.getPassword();
+			
+			password = "";
+			
+			for (int i = 0; i < passwordarray.length; i++)
+			{
+				password += passwordarray[i];
+			}
+			
+			//searches UserPass.txt for matching username and password---------
+			while((line = bufferedReader.readLine()) != null) {
+				tokens = line.split(" ");
+				
+				//if correct username and password, function returns true
+				if (tokens[0].equals(username) && tokens[1].equals(password)) {
+					
+					bufferedReader.close();
+					
+					System.out.println("Login Successful!");
+					
+					return true;
+				}
+				
+				//else incorrect credentials, returns false-----------------------------------------------
+				else {
+					bufferedReader.close();
+					
+					System.out.println("Login Unsuccessful. Please enter a valid username and password.");
+					
+					return false;
+				}
+			}
+		
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return false;
 	}
 	
 }

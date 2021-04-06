@@ -5,7 +5,6 @@ import java.io.*;
 public class GameGUI {
 	private JFrame frame;
 	
-	
 	public GameGUI() {
 		frame = new JFrame("Gods of War");
 		frame.setSize(800, 600);
@@ -97,8 +96,8 @@ public class GameGUI {
 		//Login button listener
 		login_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//logging in stuff
-				//Possibly call to another function
+				//logging in things
+				UserPassBackEnd.login(username_t, password_t);
 			}
 		});
 		
