@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class GameGUI {
 	private JFrame frame;
@@ -14,8 +15,20 @@ public class GameGUI {
 		mainScreen();
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		new GameGUI();
+		
+		//loads UserPass.txt file
+		try {
+			FileReader reader = new FileReader("src/UserPass.txt");
+			
+			reader.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			
+		}
+		
 	}
 	
 	private void mainScreen() {
@@ -142,6 +155,7 @@ public class GameGUI {
 		register_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//registration things
+				
 			}
 		});
 		
