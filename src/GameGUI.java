@@ -163,7 +163,7 @@ public class GameGUI {
 				//registration things
 				if (UserPassBackEnd.register(username_t, password_t, warning_l))
 					// next screen
-					;
+					loggedInScreen();
 			}
 		});
 		
