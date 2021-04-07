@@ -6,16 +6,16 @@ public class Area{
 	        yPos = yPosition;
 	    }
 	    
-	    public void addEnemy(Enemy) {
-	    	Enemy.add(e);
+	    public void addEnemies(Enemies e) {
+	    	Enemies.add(e);
 	    }
 	    
-	    public void additem(item) {
-	    	item.add(e);
+	    public void addConsumables(Consumables e) {
+	    	Consumables.add(e);
 	    }
 	    
-	    public void addRestArea(RestArea) {
+	    public void addRestArea(RestArea e) {
 	    	RestArea.add(e);
 	    }
-}
+
 }
