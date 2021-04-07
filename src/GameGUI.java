@@ -305,5 +305,25 @@ public class GameGUI {
 		clearFrame();
 		
 		//Add things
+		JButton spend_b = new JButton("Spend AP");
+		spend_b.setBounds(50, 50, 100, 50);
+		
+		JButton save_b = new JButton("Save");
+		save_b.setBounds(650, 50, 100, 50);
+		
+		JButton use_b = new JButton("Use Item");
+		use_b.setBounds(50, 500, 100, 50);
+		
+		JButton quit_b = new JButton("Quit");
+		quit_b.setBounds(650, 500, 100, 50);
+		
+		//------------------------------------------------------
+		
+		//------------------------------------------------------
+		
+		frame.add(spend_b);
+		frame.add(save_b);
+		frame.add(use_b);
+		frame.add(quit_b);
 	}
 }
