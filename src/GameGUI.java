@@ -251,9 +251,41 @@ public class GameGUI {
 		
 		//--------------------------------------------------------
 		
+		// back button
 		back_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// go back to login screen
 				loggedInScreen();
+			}
+		});
+		
+		// small button
+		small_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// create new small map game
+				
+				// go to explore screen
+				explore();
+			}
+		});
+		
+		// medium button
+		medium_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// create new medium map game
+				
+				// go to explore screen
+				explore();
+			}
+		});
+		
+		//large button
+		large_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// create new large map game
+				
+				//go to explore screen
+				explore();
 			}
 		});
 		
@@ -266,5 +298,12 @@ public class GameGUI {
 		frame.add(medium_b);
 		frame.add(large_b);
 		frame.add(back_b);
+	}
+	
+	private void explore() {
+		//Clear the frame
+		clearFrame();
+		
+		//Add things
 	}
 }
