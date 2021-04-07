@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 import java.awt.event.*;
 import java.io.*;
 
@@ -10,6 +11,7 @@ public class GameGUI {
 		frame.setSize(800, 600);
 		frame.setLayout(null);
 		frame.setVisible(true);
+		
 		
 		mainScreen();
 	}
@@ -84,6 +86,11 @@ public class GameGUI {
 		JButton login_b = new JButton("Login");
 		login_b.setBounds(550, 285, 200, 30);
 		
+		JTextArea warning_l = new JTextArea();
+		warning_l.setBounds(300, 100, 200, 100);
+		warning_l.setLineWrap(true);
+		warning_l.setOpaque(false);
+		
 		//-----------------------------------------------------
 		
 		//Back button to main screen
@@ -97,7 +104,9 @@ public class GameGUI {
 		login_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//logging in things
-				UserPassBackEnd.login(username_t, password_t);
+				if (UserPassBackEnd.login(username_t, password_t, warning_l))
+					// if successful next screen
+					;
 			}
 		});
 		
@@ -110,6 +119,7 @@ public class GameGUI {
 		frame.add(password_l);
 		frame.add(password_t);
 		frame.add(login_b);
+		frame.add(warning_l);
 	}
 
 	private void registerScreen() {
@@ -133,6 +143,11 @@ public class GameGUI {
 		JButton register_b = new JButton("Register");
 		register_b.setBounds(550, 285, 200, 30);
 		
+		JTextArea warning_l = new JTextArea();
+		warning_l.setBounds(300, 100, 200, 100);
+		warning_l.setLineWrap(true);
+		warning_l.setOpaque(false);
+		
 		//-----------------------------------------------------
 		
 		//Back button to main screen
@@ -146,7 +161,9 @@ public class GameGUI {
 		register_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//registration things
-				UserPassBackEnd.register(username_t, password_t);
+				if (UserPassBackEnd.register(username_t, password_t, warning_l))
+					// next screen
+					;
 			}
 		});
 		
@@ -159,6 +176,7 @@ public class GameGUI {
 		frame.add(password_l);
 		frame.add(password_t);
 		frame.add(register_b);
+		frame.add(warning_l);
 
 	}
 }

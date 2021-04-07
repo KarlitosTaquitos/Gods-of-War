@@ -1,6 +1,8 @@
 import java.io.*;
 
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class UserPassBackEnd {
@@ -18,7 +20,7 @@ public class UserPassBackEnd {
 		}
 	}
 
-	public static void register(JTextField username_t, JPasswordField password_t) {
+	public static boolean register(JTextField username_t, JPasswordField password_t, JTextArea warning_l) {
 		BufferedReader bufferedReader;
 		BufferedWriter bufferedWriter;
 		
@@ -40,11 +42,11 @@ public class UserPassBackEnd {
 			
 			//checks if username field is empty
 			if (username.equals("")) {
-				System.out.println("Username cannot be empty.");
+				warning_l.setText("Username cannot be empty.");
 				
 				bufferedReader.close();
 				
-				return;
+				return false;	// since it was unable to register
 			}
 			
 			userExists = false;
@@ -62,11 +64,11 @@ public class UserPassBackEnd {
 			
 			//checks if given username is already taken---------------------------------
 			if (userExists) {
-				System.out.println("Username exists. Please use a different username.");
+				warning_l.setText("Username exists. Please use a different username.");
 				
 				bufferedReader.close();
 				
-				return;
+				return false;	// since it was unable to register
 			}
 			
 			bufferedWriter = new BufferedWriter(new FileWriter("src/UserPass.txt", true));
@@ -80,7 +82,7 @@ public class UserPassBackEnd {
 			//prints valid username and password in UserPass.txt---
 			bufferedWriter.write("\n" + username + " " + password);
 			
-			System.out.println("User created!");
+			warning_l.setText("User created!");
 			
 			bufferedWriter.close();
 			
@@ -92,9 +94,10 @@ public class UserPassBackEnd {
 			
 		}
 		
+		return true; //returns true if it was able to register and reach the end
 	}
 
-	public static boolean login(JTextField username_t, JPasswordField password_t) {
+	public static boolean login(JTextField username_t, JPasswordField password_t, JTextArea warning_l) {
 		BufferedReader bufferedReader;
 		
 		String line;
@@ -127,7 +130,7 @@ public class UserPassBackEnd {
 					
 					bufferedReader.close();
 					
-					System.out.println("Login Successful!");
+					warning_l.setText("Login Successful!");
 					
 					return true;
 				}
@@ -136,7 +139,7 @@ public class UserPassBackEnd {
 				else {
 					bufferedReader.close();
 					
-					System.out.println("Login Unsuccessful. Please enter a valid username and password.");
+					warning_l.setText("Login Unsuccessful. Please enter a valid username and password.");
 					
 					return false;
 				}
