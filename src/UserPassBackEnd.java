@@ -134,7 +134,8 @@ public class UserPassBackEnd {
 					
 					return true;
 				}
-			}	
+			}
+			
 			//reaches the end without matching credentials, returns false-----------------------------------------------
 			bufferedReader.close();
 					
