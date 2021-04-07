@@ -134,24 +134,16 @@ public class UserPassBackEnd {
 					
 					return true;
 				}
-				
-				//else incorrect credentials, returns false-----------------------------------------------
-				else {
-					bufferedReader.close();
+			}	
+			//reaches the end without matching credentials, returns false-----------------------------------------------
+			bufferedReader.close();
 					
-					warning_l.setText("Login Unsuccessful. Please enter a valid username and password.");
-					
-					return false;
-				}
-			}
-		
-			
+			warning_l.setText("Login Unsuccessful. Please enter a valid username and password.");
+							
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			
 		} catch (IOException e) {
-			e.printStackTrace();
-			
+			e.printStackTrace();	
 		}
 		
 		return false;

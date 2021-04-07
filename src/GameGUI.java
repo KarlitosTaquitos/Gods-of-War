@@ -106,7 +106,7 @@ public class GameGUI {
 				//logging in things
 				if (UserPassBackEnd.login(username_t, password_t, warning_l))
 					// if successful next screen
-					;
+					loggedInScreen();
 			}
 		});
 		
@@ -178,5 +178,22 @@ public class GameGUI {
 		frame.add(register_b);
 		frame.add(warning_l);
 
+	}
+
+	private void loggedInScreen() {
+		//Clear the frame
+		clearFrame();
+		
+		//create labels, buttons
+		JLabel welcome_l = new JLabel("Welcome, Warrior");
+		welcome_l.setBounds(0, 0, 800, 300);
+		welcome_l.setVerticalAlignment(JLabel.CENTER);
+		welcome_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		//--------------------------------------------------------
+		
+		//--------------------------------------------------------
+		
+		frame.add(welcome_l);
 	}
 }
