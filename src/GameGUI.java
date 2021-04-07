@@ -190,10 +190,81 @@ public class GameGUI {
 		welcome_l.setVerticalAlignment(JLabel.CENTER);
 		welcome_l.setHorizontalAlignment(JLabel.CENTER);
 		
-		//--------------------------------------------------------
+		JButton load_b = new JButton("Load Game");
+		load_b.setBounds(200, 375, 100, 30);
+		
+		JButton new_b = new JButton("New Game");
+		new_b.setBounds(500, 375, 100, 30);
 		
 		//--------------------------------------------------------
 		
+		//Load game button
+		load_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// load file
+				
+				// explore screen
+			}
+		});
+		
+		new_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// new game screen
+				newGame();
+			}
+		});
+		
+		//--------------------------------------------------------
+		
+		//Add stuff to frame
 		frame.add(welcome_l);
+		frame.add(load_b);
+		frame.add(new_b);
+	}
+	
+	private void newGame() {
+		//Clear the screen
+		clearFrame();
+		
+		//Create labels and buttons
+		JLabel title_l = new JLabel("New Game");
+		title_l.setBounds(0, 0, 800, 100);
+		title_l.setVerticalAlignment(JLabel.CENTER);
+		title_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		JLabel size_l = new JLabel("Select World Size:");
+		size_l.setBounds(0, 100, 800, 100);
+		size_l.setVerticalAlignment(JLabel.CENTER);
+		size_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		JButton small_b = new JButton("Small");
+		small_b.setBounds(150, 350, 100, 30);
+		
+		JButton medium_b = new JButton("Medium");
+		medium_b.setBounds(350, 350, 100, 30);
+		
+		JButton large_b = new JButton("Large");
+		large_b.setBounds(550, 350, 100, 30);
+		
+		JButton back_b = new JButton("Back");
+		back_b.setBounds(50, 50, 100, 50);
+		
+		//--------------------------------------------------------
+		
+		back_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				loggedInScreen();
+			}
+		});
+		
+		//--------------------------------------------------------
+		
+		//Add stuff to frame
+		frame.add(title_l);
+		frame.add(size_l);
+		frame.add(small_b);
+		frame.add(medium_b);
+		frame.add(large_b);
+		frame.add(back_b);
 	}
 }
