@@ -5,6 +5,7 @@ public class Player implements GameElement{
 	int[] position = new int[2];
 	public int hp; //health points
 	public int bd; //base damage
+	public int APpool; //attribute pool
 	public int STR; //strength
 	public int INT; //intelligence
 	public int CON; //constitution
@@ -21,10 +22,11 @@ public class Player implements GameElement{
 		this.position[1] =1;
 		this.hp = 100;
 		this.bd = 10;
-		this.STR = 10;
-		this.INT = 10;
-		this.CON = 10;
-		this.SPD = 10;
+		this.APpool = 0;
+		this.STR = 5;
+		this.INT = 5;
+		this.CON = 5;
+		this.SPD = 5;
 		this.food = 0;
 		this.smPot = 0;
 		this.lgPot = 0;

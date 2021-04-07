@@ -1,13 +1,12 @@
 
-public class Consumables implements GameElement{
+public class Enemies extends Player implements GameElement {
 	
-	public int healingpower;
+
 
 	@Override
 	public void write() {
 		// TODO Auto-generated method stub
 		
 	}
-	
 
 }
