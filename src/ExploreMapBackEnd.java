@@ -1,7 +1,7 @@
 
-public class ExploreBackEnd {
-
-	public boolean moveUp(Player player) {
+public class ExploreMapBackEnd {
+	
+	public boolean moveUp(Player player, Map map) {
 		
 		//checks map size
 		
@@ -13,7 +13,7 @@ public class ExploreBackEnd {
 		return true;
 	}
 	
-	public boolean moveDown(Player player) {
+	public boolean moveDown(Player player, Map map) {
 		
 		//checks map size
 		
@@ -25,7 +25,7 @@ public class ExploreBackEnd {
 		return true;
 	}
 	
-	public boolean moveLeft(Player player) {
+	public boolean moveLeft(Player player, Map map) {
 		
 		//checks map size
 		
@@ -37,7 +37,7 @@ public class ExploreBackEnd {
 		return true;
 	}
 	
-	public boolean moveRight(Player player) {
+	public boolean moveRight(Player player, Map map) {
 		
 		//checks map size
 		
@@ -47,6 +47,16 @@ public class ExploreBackEnd {
 		player.position[0] += 1;
 		
 		return true;
+	}
+
+	public static void fillMapEnemies(Map map) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void fillMapConsumables(Map map) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

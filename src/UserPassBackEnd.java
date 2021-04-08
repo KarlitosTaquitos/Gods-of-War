@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 
 public class UserPassBackEnd {
 
+	//function that loads UserPass.txt
 	public static void loadUserPassFile() {
 		FileReader reader;
 		
@@ -20,6 +21,7 @@ public class UserPassBackEnd {
 		}
 	}
 
+	//register function
 	public static boolean register(JTextField username_t, JPasswordField password_t, JTextArea warning_l) {
 		BufferedReader bufferedReader;
 		BufferedWriter bufferedWriter;
@@ -97,6 +99,7 @@ public class UserPassBackEnd {
 		return true; //returns true if it was able to register and reach the end
 	}
 
+	//login function
 	public static boolean login(JTextField username_t, JPasswordField password_t, JTextArea warning_l) {
 		BufferedReader bufferedReader;
 		
