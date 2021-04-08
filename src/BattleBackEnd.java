@@ -41,15 +41,21 @@ public class BattleBackEnd {
 		return false;
 	}
 	
-	//function that calculates player's damage------
+	//function that calculates player's attack damage
 	public int playerDMG(Player player) {
+		//checks if attack was a critical hit
+		
+		//calculates damage dealt
 		int dmgDealt = player.bd + (player.STR * 1); 
 		
 		return dmgDealt;
 	}
 	
-	//function that calculates enemy's damage-----
+	//function that calculates enemy's attack damage
 	public int enemyDMG(Enemies enemy) {
+		//checks if attack was a critical hit
+		
+		//calculates damage dealt
 		int dmgDealt = enemy.bd + (enemy.STR * 1);
 		
 		return dmgDealt;
