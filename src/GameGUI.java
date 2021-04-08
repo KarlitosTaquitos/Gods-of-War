@@ -196,4 +196,5 @@ public class GameGUI {
 		
 		frame.add(welcome_l);
 	}
+
 }

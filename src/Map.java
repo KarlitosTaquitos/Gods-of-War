@@ -20,12 +20,9 @@ public class Map {
 		//sets map's size
 		this.size = size;
 		
-		//creates the size x size grid
+		//for loops that create the size x size grid
 		// minus 1 because arrays start at 0,
 		// which would create maps of undesired size
-		map = new Area[size - 1][size - 1];
-		
-		//for loops that construct Areas within the size x size grid
 		for (int i = 0; i < size - 1; i++) {
 			for (int j = 0; j < size - 1; j++) {
 				
