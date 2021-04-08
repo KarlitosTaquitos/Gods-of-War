@@ -1,5 +1,5 @@
 
-public class Enemies extends Player implements GameElement {
+public class Animals extends Player implements GameElement {
 	
 
 
