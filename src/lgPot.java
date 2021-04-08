@@ -2,6 +2,8 @@
 public class lgPot extends Consumables{
 	
 	public lgPot() {
+		
+		this.name = "Large Potion";
 		this.healingpower = 75;
 	}
 	

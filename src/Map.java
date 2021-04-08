@@ -42,7 +42,8 @@ public class Map {
 	@SuppressWarnings("unused")
 	//function that constructs a map from given size
 	void makeMap(int size) {
-	//	map = new Area[size][size];
+		//Not sure if this is necessary
+		//map = new Area[size][size];
 		
 		Map gameMap = new Map(size);
 	}
@@ -55,8 +56,7 @@ public class Map {
 		
 		ExploreMapBackEnd.fillMapConsumables(map);
 		
-		//TODO function below requires RestArea class to work
-		//ExploreMapBackEnd.fillMapRestAreas(map);
+		ExploreMapBackEnd.fillMapRestAreas(map);
 	}
 	
 }

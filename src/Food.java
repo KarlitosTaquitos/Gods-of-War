@@ -2,6 +2,8 @@
 public class Food extends Consumables{
 	
 	public Food() {
+		
+		this.name = "Food";
 		this.healingpower = 25;
 	}
 	

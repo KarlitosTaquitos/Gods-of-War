@@ -2,7 +2,7 @@
 public class Player implements GameElement {
 	
 	//string that stores the player's name
-	String username;
+	String name;
 	
 	//array that holds the player's position in the map
 	// [x, y]
@@ -33,7 +33,7 @@ public class Player implements GameElement {
 	public Player(String username) {
 		
 		//sets player's name to username given
-		this.username = username;
+		this.name = username;
 		
 		//sets player's position to the starting Area
 		this.position[0] = 1;

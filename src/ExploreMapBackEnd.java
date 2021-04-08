@@ -1,7 +1,7 @@
 
 public class ExploreMapBackEnd {
 	
-	//function that determines if player is at upward map boundary
+	//function that determines if player is at upward map boundary---------
 	public boolean playerAtUpBoundary(Player player, int mapSize) {
 		boolean atBoundary = false;
 		
@@ -19,7 +19,7 @@ public class ExploreMapBackEnd {
 		return atBoundary;
 	}
 
-	//function that determines if player is at downward map boundary
+	//function that determines if player is at downward map boundary=
 	public boolean playerAtDownBoundary(Player player, int mapSize) {
 		boolean atBoundary = false;
 		
@@ -34,7 +34,7 @@ public class ExploreMapBackEnd {
 		return atBoundary;
 	}
 	
-	//function that determines if player is at left boundary
+	//function that determines if player is at left boundary---------
 	public boolean playerAtLeftBoundary(Player player, int mapSize) {
 		boolean atBoundary = false;
 		
@@ -49,7 +49,7 @@ public class ExploreMapBackEnd {
 		return atBoundary;
 	}
 	
-	//function that determines if player is at right boundary
+	//function that determines if player is at right boundary---------
 	public boolean playerAtRightBoundary(Player player, int mapSize) {
 		boolean atBoundary = false;
 		
@@ -74,7 +74,7 @@ public class ExploreMapBackEnd {
 		map.map[player.position[0]][player.position[1]].playerInArea = false;
 	}
 	
-	//function that outputs player's new position AFTER moving and sets new Area's playerInArea to true
+	//function that outputs player's new position AFTER moving and sets new Area's playerInArea to true------
 	public void afterMoveDisplayUpdate(Player player, Map map) {
 		
 		//changes new area's playerInArea to true
@@ -84,7 +84,7 @@ public class ExploreMapBackEnd {
 		System.out.print("Player's new Position: (" + player.position[0] + ", " + player.position[1] + ")");
 	}
 	
-	//moves the player 1 Area up on the map
+	//moves the player 1 Area up on the map------------
 	public boolean moveUp(Player player, Map map) {
 		
 		int mapSize = map.size;
@@ -106,7 +106,7 @@ public class ExploreMapBackEnd {
 		return true;
 	}
 	
-	//moves the player 1 Area down on the map
+	//moves the player 1 Area down on the map--------------
 	public boolean moveDown(Player player, Map map) {
 		
 		int mapSize = map.size;
@@ -128,7 +128,7 @@ public class ExploreMapBackEnd {
 		return true;
 	}
 	
-	//moves the player 1 Area left on the map
+	//moves the player 1 Area left on the map--------------
 	public boolean moveLeft(Player player, Map map) {
 		
 		int mapSize = map.size;
@@ -150,7 +150,7 @@ public class ExploreMapBackEnd {
 		return true;
 	}
 	
-	//moves the player 1 Area right on the map
+	//moves the player 1 Area right on the map--------------
 	public boolean moveRight(Player player, Map map) {
 		
 		int mapSize = map.size;
@@ -172,14 +172,22 @@ public class ExploreMapBackEnd {
 		return true;
 	}
 
-	public static void fillMapEnemies(Map map) {
-		// TODO Auto-generated method stub
-		
+	//function that fills map with enemies in random Areas
+	public static boolean fillMapEnemies(Map map) {
+		// TODO
+		return true;
 	}
 
-	public static void fillMapConsumables(Map map) {
-		// TODO Auto-generated method stub
-		
+	//function that fills map with consumables in random Areas
+	public static boolean fillMapConsumables(Map map) {
+		// TODO
+		return true;
+	}
+	
+	//function that fills map with Rest Areas in random Areas
+	public static boolean fillMapRestAreas(Map map) {
+		// TODO
+		return true;
 	}
 	
 }

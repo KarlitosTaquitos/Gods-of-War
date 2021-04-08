@@ -1,6 +1,7 @@
 
 public class Consumables implements GameElement{
 	
+	String name;
 	public int healingpower;
 
 	@Override
