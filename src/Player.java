@@ -1,26 +1,29 @@
 
 public class Player implements GameElement {
 	
-	int[] position = new int[2];
 	
-	int hp;
-	int bd;
-	int APpool;
-	int STR;
-	int INT;
-	int CON;
-	int SPD;
-	int food;
-	int smPot;
-	int lgPot;
+	int[] position = new int[2];
+	public int hp; //health points
+	public int bd; //base damage
+	public int APpool; //attribute pool
+	public int STR; //strength
+	public int INT; //intelligence
+	public int CON; //constitution
+	public int SPD; //speed
+	public int food;
+	public int smPot; //small potion
+	public int lgPot; //large potion
+	
+
 	
 	public Player() {
-	
+		
 		this.position[0] = 1;
 		this.position[1] = 1;
 		this.APpool = 0;
 		this.hp = 100;
-		this.bd = 5;
+		this.bd = 10;
+		this.APpool = 0;
 		this.STR = 5;
 		this.INT = 5;
 		this.CON = 5;
@@ -30,9 +33,12 @@ public class Player implements GameElement {
 		this.lgPot = 0;
 	
 	}
-	
+
+
+
+	@Override
 	public void write() {
-		// TODO
 	}
+	
 
 }
