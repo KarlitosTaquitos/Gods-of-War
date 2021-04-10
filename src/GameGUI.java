@@ -284,7 +284,8 @@ public class GameGUI {
 			public void actionPerformed(ActionEvent e) {
 				// create new large map game
 				
-				//go to explore screen
+				// go to explore screen
+				// beginning tile won't have enemy
 				explore();
 			}
 		});
@@ -317,7 +318,76 @@ public class GameGUI {
 		JButton quit_b = new JButton("Quit");
 		quit_b.setBounds(650, 500, 100, 50);
 		
+		JButton up_b = new JButton("Up");
+		up_b.setBounds(350, 150, 100, 50);
+		
+		JButton left_b = new JButton("Left");
+		left_b.setBounds(200, 275, 100, 50);
+		
+		JButton right_b = new JButton("Right");
+		right_b.setBounds(500, 275, 100, 50);
+		
+		JButton down_b = new JButton("Down");
+		down_b.setBounds(350, 400, 100, 50);
+		
 		//------------------------------------------------------
+		
+		//Spend AP button
+		spend_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Spend AP screen
+				spendAP();
+			}
+		});
+		
+		//Save button
+		save_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//save
+			}
+		});
+		
+		//Use item button
+		use_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Use Item screen
+			}
+		});
+		
+		//Quit button
+		quit_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Quit
+			}
+		});
+		
+		//Up button
+		up_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Move up
+			}
+		});
+		
+		//Left button
+		left_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Move left
+			}
+		});
+		
+		//Right button
+		right_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Move right
+			}
+		});
+		
+		//Down button
+		down_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Move down
+			}
+		});
 		
 		//------------------------------------------------------
 		
@@ -325,5 +395,14 @@ public class GameGUI {
 		frame.add(save_b);
 		frame.add(use_b);
 		frame.add(quit_b);
+		
+		frame.add(up_b);
+		frame.add(left_b);
+		frame.add(right_b);
+		frame.add(down_b);
+	}
+	
+	private void spendAP() {
+		
 	}
 }
