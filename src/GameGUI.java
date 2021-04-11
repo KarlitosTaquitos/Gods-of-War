@@ -16,8 +16,7 @@ public class GameGUI {
 		frame.setVisible(true);
 		
 		
-		//mainScreen();
-		battleScreen();
+		mainScreen();
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -34,10 +33,10 @@ public class GameGUI {
 		
 		//Create buttons
 		JButton login_b = new JButton("Login");
-		login_b.setBounds(200, 275, BUTTON_W, BUTTON_H);
+		login_b.setBounds(WIDTH / 3 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton register_b = new JButton("Register");
-		register_b.setBounds(500, 275, BUTTON_W, BUTTON_H);
+		register_b.setBounds(2 * WIDTH / 3 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		//-----------------------------------------------------
 		
@@ -195,10 +194,10 @@ public class GameGUI {
 		welcome_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JButton load_b = new JButton("Load Game");
-		load_b.setBounds(200, 375, BUTTON_W, BUTTON_H);
+		load_b.setBounds(WIDTH / 3 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton new_b = new JButton("New Game");
-		new_b.setBounds(500, 375, BUTTON_W, BUTTON_H);
+		new_b.setBounds(2 * WIDTH / 3 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		//--------------------------------------------------------
 		
@@ -242,13 +241,13 @@ public class GameGUI {
 		size_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JButton small_b = new JButton("Small");
-		small_b.setBounds(150, 350, BUTTON_W, BUTTON_H);
+		small_b.setBounds(WIDTH / 4 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton medium_b = new JButton("Medium");
-		medium_b.setBounds(350, 350, BUTTON_W, BUTTON_H);
+		medium_b.setBounds(WIDTH / 2 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton large_b = new JButton("Large");
-		large_b.setBounds(550, 350, BUTTON_W, BUTTON_H);
+		large_b.setBounds(3 * WIDTH / 4 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton back_b = new JButton("Back");
 		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
@@ -314,25 +313,25 @@ public class GameGUI {
 		spend_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
 		JButton save_b = new JButton("Save");
-		save_b.setBounds(650, 50, BUTTON_W, BUTTON_H);
+		save_b.setBounds(WIDTH - BUTTON_W - 50, 50, BUTTON_W, BUTTON_H);
 		
 		JButton use_b = new JButton("Use Item");
-		use_b.setBounds(50, 500, BUTTON_W, BUTTON_H);
+		use_b.setBounds(50, HEIGHT - BUTTON_H - 75, BUTTON_W, BUTTON_H);
 		
 		JButton quit_b = new JButton("Quit");
-		quit_b.setBounds(650, 500, BUTTON_W, BUTTON_H);
+		quit_b.setBounds(WIDTH - BUTTON_W - 50, HEIGHT - BUTTON_H - 75, BUTTON_W, BUTTON_H);
 		
 		JButton up_b = new JButton("Up");
-		up_b.setBounds(350, 150, BUTTON_W, BUTTON_H);
+		up_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H - 50, BUTTON_W, BUTTON_H);
 		
 		JButton left_b = new JButton("Left");
-		left_b.setBounds(200, 275, BUTTON_W, BUTTON_H);
+		left_b.setBounds(WIDTH / 2 - BUTTON_W - 50, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton right_b = new JButton("Right");
-		right_b.setBounds(500, 275, BUTTON_W, BUTTON_H);
+		right_b.setBounds(WIDTH / 2 + 50, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton down_b = new JButton("Down");
-		down_b.setBounds(350, 400, BUTTON_W, BUTTON_H);
+		down_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 + 50, BUTTON_W, BUTTON_H);
 		
 		//------------------------------------------------------
 		
@@ -415,17 +414,18 @@ public class GameGUI {
 		JButton back_b = new JButton("Back");
 		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
+		//Buttons are split evenly across screen, 2/3 of the way down
 		JButton str_b = new JButton("STR");
-		str_b.setBounds(110, 375, BUTTON_W, BUTTON_H);
+		str_b.setBounds(WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton con_b = new JButton("CON");
-		con_b.setBounds(270, 375, BUTTON_W, BUTTON_H);
+		con_b.setBounds(2 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton spd_b = new JButton("SPD");
-		spd_b.setBounds(430, 375, BUTTON_W, BUTTON_H);
+		spd_b.setBounds(3 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton int_b = new JButton("INT");
-		int_b.setBounds(590, 375, BUTTON_W, BUTTON_H);
+		int_b.setBounds(4 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		//-----------------------------------------------
 		
@@ -569,7 +569,7 @@ public class GameGUI {
 				else if (screen == 1)
 					battleScreen();
 				else //for some reason some other number is passed
-					exploreScreen();
+					exploreScreen(); //just go back to the exxplore screen lol
 			}
 		});
 		
