@@ -16,7 +16,8 @@ public class GameGUI {
 		frame.setVisible(true);
 		
 		
-		mainScreen();
+		//mainScreen();
+		battleScreen();
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -213,7 +214,7 @@ public class GameGUI {
 		new_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// new game screen
-				newGame();
+				newGameScreen();
 			}
 		});
 		
@@ -225,7 +226,7 @@ public class GameGUI {
 		frame.add(new_b);
 	}
 	
-	private void newGame() {
+	private void newGameScreen() {
 		//Clear the screen
 		clearFrame();
 		
@@ -268,7 +269,7 @@ public class GameGUI {
 				// create new small map game
 				
 				// go to explore screen
-				explore();
+				exploreScreen();
 			}
 		});
 		
@@ -278,7 +279,7 @@ public class GameGUI {
 				// create new medium map game
 				
 				// go to explore screen
-				explore();
+				exploreScreen();
 			}
 		});
 		
@@ -289,7 +290,7 @@ public class GameGUI {
 				
 				// go to explore screen
 				// beginning tile won't have enemy
-				explore();
+				exploreScreen();
 			}
 		});
 		
@@ -304,7 +305,7 @@ public class GameGUI {
 		frame.add(back_b);
 	}
 	
-	private void explore() {
+	private void exploreScreen() {
 		//Clear the frame
 		clearFrame();
 		
@@ -339,7 +340,7 @@ public class GameGUI {
 		spend_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Spend AP screen
-				spendAP();
+				spendAPScreen();
 			}
 		});
 		
@@ -354,6 +355,7 @@ public class GameGUI {
 		use_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Use Item screen
+				useItemScreen(0); //send 0 so it'll go back to explore screen
 			}
 		});
 		
@@ -405,7 +407,7 @@ public class GameGUI {
 		frame.add(down_b);
 	}
 	
-	private void spendAP() {
+	private void spendAPScreen() {
 		//Clear frame
 		clearFrame();
 		
@@ -427,9 +429,38 @@ public class GameGUI {
 		
 		//-----------------------------------------------
 		
+		//Back button
 		back_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				explore();
+				exploreScreen();
+			}
+		});
+		
+		//Strength button
+		str_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Str stuff
+			}
+		});
+		
+		//Constitution button
+		con_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//con stuff
+			}
+		});
+				
+		//Speed button
+		spd_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Spd stuff
+			}
+		});
+		
+		//Intelligence button
+		int_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Int stuff
 			}
 		});
 		
@@ -443,4 +474,110 @@ public class GameGUI {
 		frame.add(int_b);
 	}
 
+	private void battleScreen() {
+		//Clear frame
+		clearFrame();
+		
+		//Add components
+		JButton attack_b = new JButton("Attack");
+		attack_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H * 2, BUTTON_W, BUTTON_H);
+		
+		JButton use_b = new JButton("Use Item");
+		use_b.setBounds((int)(WIDTH / 2 - BUTTON_W * 1.5), HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		
+		JButton flee_b = new JButton("Flee");
+		flee_b.setBounds(WIDTH / 2 + BUTTON_W / 2, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		
+		//-----------------------------------------------
+		
+		//Attack button
+		attack_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Attack stuff
+			}
+		});
+		
+		//Use button
+		use_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Use item screen
+				useItemScreen(1); //send 1 so it will send us back to battle screen
+			}
+		});
+		
+		//Flee button
+		flee_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Flee stuff
+				//temp
+				exploreScreen();
+			}
+		});
+	
+		//-----------------------------------------------
+		
+		frame.add(attack_b);
+		frame.add(use_b);
+		frame.add(flee_b);
+	}
+	
+	
+	private void useItemScreen(int screen) {
+		//Clear the frame
+		clearFrame();
+		
+		//Add buttons
+		JButton food_b = new JButton("Food");
+		food_b.setBounds(WIDTH / 4 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		
+		JButton small_b = new JButton("Small Pot");
+		small_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+
+		JButton large_b = new JButton("Large Pot");
+		large_b.setBounds(3 * WIDTH / 4 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		
+		JButton back_b = new JButton("Back");
+		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
+		
+		//----------------------------------------------
+		
+		//Food button
+		food_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//food
+			}
+		});
+		
+		//Small pot button
+		small_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//small pot
+			}
+		});
+		
+		//Large Pot button
+		large_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//large pot
+			}
+		});
+
+		back_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (screen == 0)
+					exploreScreen();
+				else if (screen == 1)
+					battleScreen();
+				else //for some reason some other number is passed
+					exploreScreen();
+			}
+		});
+		
+		//----------------------------------------------
+		
+		frame.add(food_b);
+		frame.add(small_b);
+		frame.add(large_b);
+		frame.add(back_b);
+	}
 }
