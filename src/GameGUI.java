@@ -5,10 +5,13 @@ import java.io.*;
 
 public class GameGUI {
 	private JFrame frame;
+	private final int WIDTH = 800, HEIGHT = 600;
+	private final int BUTTON_W = 100, BUTTON_H = 50;
 	
 	public GameGUI() {
+		
 		frame = new JFrame("Gods of War");
-		frame.setSize(800, 600);
+		frame.setSize(WIDTH, HEIGHT);
 		frame.setLayout(null);
 		frame.setVisible(true);
 		
@@ -30,10 +33,10 @@ public class GameGUI {
 		
 		//Create buttons
 		JButton login_b = new JButton("Login");
-		login_b.setBounds(200, 275, 100, 50);
+		login_b.setBounds(200, 275, BUTTON_W, BUTTON_H);
 		
 		JButton register_b = new JButton("Register");
-		register_b.setBounds(500, 275, 100, 50);
+		register_b.setBounds(500, 275, BUTTON_W, BUTTON_H);
 		
 		//-----------------------------------------------------
 		
@@ -71,7 +74,7 @@ public class GameGUI {
 		
 		//Create buttons, text fields, and labels
 		JButton back_b = new JButton("Back");
-		back_b.setBounds(50, 50, 100, 50);
+		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
 		JLabel username_l = new JLabel("Username:");
 		username_l.setBounds(150, 200, 100, 30);
@@ -128,7 +131,7 @@ public class GameGUI {
 		
 		//Create buttons, text fields, and labels
 		JButton back_b = new JButton("Back");
-		back_b.setBounds(50, 50, 100, 50);
+		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
 		JLabel username_l = new JLabel("Username:");
 		username_l.setBounds(150, 200, 100, 30);
@@ -190,11 +193,254 @@ public class GameGUI {
 		welcome_l.setVerticalAlignment(JLabel.CENTER);
 		welcome_l.setHorizontalAlignment(JLabel.CENTER);
 		
-		//--------------------------------------------------------
+		JButton load_b = new JButton("Load Game");
+		load_b.setBounds(200, 375, BUTTON_W, BUTTON_H);
+		
+		JButton new_b = new JButton("New Game");
+		new_b.setBounds(500, 375, BUTTON_W, BUTTON_H);
 		
 		//--------------------------------------------------------
 		
+		//Load game button
+		load_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// load file
+				
+				// explore screen
+			}
+		});
+		
+		new_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// new game screen
+				newGame();
+			}
+		});
+		
+		//--------------------------------------------------------
+		
+		//Add stuff to frame
 		frame.add(welcome_l);
+		frame.add(load_b);
+		frame.add(new_b);
+	}
+	
+	private void newGame() {
+		//Clear the screen
+		clearFrame();
+		
+		//Create labels and buttons
+		JLabel title_l = new JLabel("New Game");
+		title_l.setBounds(0, 0, 800, 100);
+		title_l.setVerticalAlignment(JLabel.CENTER);
+		title_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		JLabel size_l = new JLabel("Select World Size:");
+		size_l.setBounds(0, 100, 800, 100);
+		size_l.setVerticalAlignment(JLabel.CENTER);
+		size_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		JButton small_b = new JButton("Small");
+		small_b.setBounds(150, 350, BUTTON_W, BUTTON_H);
+		
+		JButton medium_b = new JButton("Medium");
+		medium_b.setBounds(350, 350, BUTTON_W, BUTTON_H);
+		
+		JButton large_b = new JButton("Large");
+		large_b.setBounds(550, 350, BUTTON_W, BUTTON_H);
+		
+		JButton back_b = new JButton("Back");
+		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
+		
+		//--------------------------------------------------------
+		
+		// back button
+		back_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// go back to login screen
+				loggedInScreen();
+			}
+		});
+		
+		// small button
+		small_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// create new small map game
+				
+				// go to explore screen
+				explore();
+			}
+		});
+		
+		// medium button
+		medium_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// create new medium map game
+				
+				// go to explore screen
+				explore();
+			}
+		});
+		
+		//large button
+		large_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// create new large map game
+				
+				// go to explore screen
+				// beginning tile won't have enemy
+				explore();
+			}
+		});
+		
+		//--------------------------------------------------------
+		
+		//Add stuff to frame
+		frame.add(title_l);
+		frame.add(size_l);
+		frame.add(small_b);
+		frame.add(medium_b);
+		frame.add(large_b);
+		frame.add(back_b);
+	}
+	
+	private void explore() {
+		//Clear the frame
+		clearFrame();
+		
+		//Add things
+		JButton spend_b = new JButton("Spend AP");
+		spend_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
+		
+		JButton save_b = new JButton("Save");
+		save_b.setBounds(650, 50, BUTTON_W, BUTTON_H);
+		
+		JButton use_b = new JButton("Use Item");
+		use_b.setBounds(50, 500, BUTTON_W, BUTTON_H);
+		
+		JButton quit_b = new JButton("Quit");
+		quit_b.setBounds(650, 500, BUTTON_W, BUTTON_H);
+		
+		JButton up_b = new JButton("Up");
+		up_b.setBounds(350, 150, BUTTON_W, BUTTON_H);
+		
+		JButton left_b = new JButton("Left");
+		left_b.setBounds(200, 275, BUTTON_W, BUTTON_H);
+		
+		JButton right_b = new JButton("Right");
+		right_b.setBounds(500, 275, BUTTON_W, BUTTON_H);
+		
+		JButton down_b = new JButton("Down");
+		down_b.setBounds(350, 400, BUTTON_W, BUTTON_H);
+		
+		//------------------------------------------------------
+		
+		//Spend AP button
+		spend_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Spend AP screen
+				spendAP();
+			}
+		});
+		
+		//Save button
+		save_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//save
+			}
+		});
+		
+		//Use item button
+		use_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Use Item screen
+			}
+		});
+		
+		//Quit button
+		quit_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Quit
+			}
+		});
+		
+		//Up button
+		up_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Move up
+			}
+		});
+		
+		//Left button
+		left_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Move left
+			}
+		});
+		
+		//Right button
+		right_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Move right
+			}
+		});
+		
+		//Down button
+		down_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Move down
+			}
+		});
+		
+		//------------------------------------------------------
+		
+		frame.add(spend_b);
+		frame.add(save_b);
+		frame.add(use_b);
+		frame.add(quit_b);
+		
+		frame.add(up_b);
+		frame.add(left_b);
+		frame.add(right_b);
+		frame.add(down_b);
+	}
+	
+	private void spendAP() {
+		//Clear frame
+		clearFrame();
+		
+		//Add stuff
+		JButton back_b = new JButton("Back");
+		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
+		
+		JButton str_b = new JButton("STR");
+		str_b.setBounds(110, 375, BUTTON_W, BUTTON_H);
+		
+		JButton con_b = new JButton("CON");
+		con_b.setBounds(270, 375, BUTTON_W, BUTTON_H);
+		
+		JButton spd_b = new JButton("SPD");
+		spd_b.setBounds(430, 375, BUTTON_W, BUTTON_H);
+		
+		JButton int_b = new JButton("INT");
+		int_b.setBounds(590, 375, BUTTON_W, BUTTON_H);
+		
+		//-----------------------------------------------
+		
+		back_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				explore();
+			}
+		});
+		
+		//-----------------------------------------------
+		
+		//Add them to frame
+		frame.add(back_b);
+		frame.add(str_b);
+		frame.add(con_b);
+		frame.add(spd_b);
+		frame.add(int_b);
 	}
 
 }
