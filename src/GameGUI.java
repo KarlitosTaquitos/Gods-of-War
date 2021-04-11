@@ -5,10 +5,13 @@ import java.io.*;
 
 public class GameGUI {
 	private JFrame frame;
+	private final int WIDTH = 800, HEIGHT = 600;
+	private final int BUTTON_W = 100, BUTTON_H = 50;
 	
 	public GameGUI() {
+		
 		frame = new JFrame("Gods of War");
-		frame.setSize(800, 600);
+		frame.setSize(WIDTH, HEIGHT);
 		frame.setLayout(null);
 		frame.setVisible(true);
 		
@@ -30,10 +33,10 @@ public class GameGUI {
 		
 		//Create buttons
 		JButton login_b = new JButton("Login");
-		login_b.setBounds(200, 275, 100, 50);
+		login_b.setBounds(200, 275, BUTTON_W, BUTTON_H);
 		
 		JButton register_b = new JButton("Register");
-		register_b.setBounds(500, 275, 100, 50);
+		register_b.setBounds(500, 275, BUTTON_W, BUTTON_H);
 		
 		//-----------------------------------------------------
 		
@@ -71,7 +74,7 @@ public class GameGUI {
 		
 		//Create buttons, text fields, and labels
 		JButton back_b = new JButton("Back");
-		back_b.setBounds(50, 50, 100, 50);
+		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
 		JLabel username_l = new JLabel("Username:");
 		username_l.setBounds(150, 200, 100, 30);
@@ -128,7 +131,7 @@ public class GameGUI {
 		
 		//Create buttons, text fields, and labels
 		JButton back_b = new JButton("Back");
-		back_b.setBounds(50, 50, 100, 50);
+		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
 		JLabel username_l = new JLabel("Username:");
 		username_l.setBounds(150, 200, 100, 30);
@@ -191,10 +194,10 @@ public class GameGUI {
 		welcome_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JButton load_b = new JButton("Load Game");
-		load_b.setBounds(200, 375, 100, 30);
+		load_b.setBounds(200, 375, BUTTON_W, BUTTON_H);
 		
 		JButton new_b = new JButton("New Game");
-		new_b.setBounds(500, 375, 100, 30);
+		new_b.setBounds(500, 375, BUTTON_W, BUTTON_H);
 		
 		//--------------------------------------------------------
 		
@@ -238,16 +241,16 @@ public class GameGUI {
 		size_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JButton small_b = new JButton("Small");
-		small_b.setBounds(150, 350, 100, 30);
+		small_b.setBounds(150, 350, BUTTON_W, BUTTON_H);
 		
 		JButton medium_b = new JButton("Medium");
-		medium_b.setBounds(350, 350, 100, 30);
+		medium_b.setBounds(350, 350, BUTTON_W, BUTTON_H);
 		
 		JButton large_b = new JButton("Large");
-		large_b.setBounds(550, 350, 100, 30);
+		large_b.setBounds(550, 350, BUTTON_W, BUTTON_H);
 		
 		JButton back_b = new JButton("Back");
-		back_b.setBounds(50, 50, 100, 50);
+		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
 		//--------------------------------------------------------
 		
@@ -307,28 +310,28 @@ public class GameGUI {
 		
 		//Add things
 		JButton spend_b = new JButton("Spend AP");
-		spend_b.setBounds(50, 50, 100, 50);
+		spend_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
 		JButton save_b = new JButton("Save");
-		save_b.setBounds(650, 50, 100, 50);
+		save_b.setBounds(650, 50, BUTTON_W, BUTTON_H);
 		
 		JButton use_b = new JButton("Use Item");
-		use_b.setBounds(50, 500, 100, 50);
+		use_b.setBounds(50, 500, BUTTON_W, BUTTON_H);
 		
 		JButton quit_b = new JButton("Quit");
-		quit_b.setBounds(650, 500, 100, 50);
+		quit_b.setBounds(650, 500, BUTTON_W, BUTTON_H);
 		
 		JButton up_b = new JButton("Up");
-		up_b.setBounds(350, 150, 100, 50);
+		up_b.setBounds(350, 150, BUTTON_W, BUTTON_H);
 		
 		JButton left_b = new JButton("Left");
-		left_b.setBounds(200, 275, 100, 50);
+		left_b.setBounds(200, 275, BUTTON_W, BUTTON_H);
 		
 		JButton right_b = new JButton("Right");
-		right_b.setBounds(500, 275, 100, 50);
+		right_b.setBounds(500, 275, BUTTON_W, BUTTON_H);
 		
 		JButton down_b = new JButton("Down");
-		down_b.setBounds(350, 400, 100, 50);
+		down_b.setBounds(350, 400, BUTTON_W, BUTTON_H);
 		
 		//------------------------------------------------------
 		
@@ -403,6 +406,40 @@ public class GameGUI {
 	}
 	
 	private void spendAP() {
+		//Clear frame
+		clearFrame();
 		
+		//Add stuff
+		JButton back_b = new JButton("Back");
+		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
+		
+		JButton str_b = new JButton("STR");
+		str_b.setBounds(110, 375, BUTTON_W, BUTTON_H);
+		
+		JButton con_b = new JButton("CON");
+		con_b.setBounds(270, 375, BUTTON_W, BUTTON_H);
+		
+		JButton spd_b = new JButton("SPD");
+		spd_b.setBounds(430, 375, BUTTON_W, BUTTON_H);
+		
+		JButton int_b = new JButton("INT");
+		int_b.setBounds(590, 375, BUTTON_W, BUTTON_H);
+		
+		//-----------------------------------------------
+		
+		back_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				explore();
+			}
+		});
+		
+		//-----------------------------------------------
+		
+		//Add them to frame
+		frame.add(back_b);
+		frame.add(str_b);
+		frame.add(con_b);
+		frame.add(spd_b);
+		frame.add(int_b);
 	}
 }
