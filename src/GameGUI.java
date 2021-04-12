@@ -8,6 +8,8 @@ public class GameGUI {
 	private final int WIDTH = 800, HEIGHT = 600;
 	private final int BUTTON_W = 100, BUTTON_H = 50;
 	
+	protected String playerName;
+	
 	public GameGUI() {
 		
 		frame = new JFrame("Gods of War");
@@ -107,6 +109,10 @@ public class GameGUI {
 		login_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//logging in things
+				playerName = username_t.getText();
+				
+				Player.makePlayer(playerName);
+				
 				if (UserPassBackEnd.login(username_t, password_t, warning_l))
 					// if successful next screen
 					loggedInScreen();
@@ -164,6 +170,10 @@ public class GameGUI {
 		register_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//registration things
+				playerName = username_t.getText();
+				
+				Player.makePlayer(playerName);
+				
 				if (UserPassBackEnd.register(username_t, password_t, warning_l))
 					// next screen
 					loggedInScreen();
@@ -213,6 +223,8 @@ public class GameGUI {
 		new_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// new game screen
+				GamePlay.player = Player.makePlayer(playerName);
+				
 				newGameScreen();
 			}
 		});
@@ -266,6 +278,7 @@ public class GameGUI {
 		small_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// create new small map game
+				GamePlay.map = Map.makeMap(7);
 				
 				// go to explore screen
 				exploreScreen();
@@ -276,6 +289,7 @@ public class GameGUI {
 		medium_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// create new medium map game
+				GamePlay.map = Map.makeMap(9);
 				
 				// go to explore screen
 				exploreScreen();
@@ -286,6 +300,7 @@ public class GameGUI {
 		large_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// create new large map game
+				GamePlay.map = Map.makeMap(11);
 				
 				// go to explore screen
 				// beginning tile won't have enemy
@@ -362,6 +377,7 @@ public class GameGUI {
 		quit_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Quit
+				System.exit(0);
 			}
 		});
 		
@@ -369,6 +385,7 @@ public class GameGUI {
 		up_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move up
+				ExploreMapBackEnd.moveUp(GamePlay.player, GamePlay.map);
 			}
 		});
 		
@@ -376,6 +393,7 @@ public class GameGUI {
 		left_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move left
+				ExploreMapBackEnd.moveLeft(GamePlay.player, GamePlay.map);
 			}
 		});
 		
@@ -383,6 +401,7 @@ public class GameGUI {
 		right_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move right
+				ExploreMapBackEnd.moveRight(GamePlay.player, GamePlay.map);
 			}
 		});
 		
@@ -390,6 +409,7 @@ public class GameGUI {
 		down_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move down
+				ExploreMapBackEnd.moveDown(GamePlay.player, GamePlay.map);
 			}
 		});
 		
@@ -440,6 +460,7 @@ public class GameGUI {
 		str_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Str stuff
+				SpendAPBackEnd.increaseSTR(GamePlay.player);
 			}
 		});
 		
@@ -447,6 +468,7 @@ public class GameGUI {
 		con_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//con stuff
+				SpendAPBackEnd.increaseCON(GamePlay.player);
 			}
 		});
 				
@@ -454,6 +476,7 @@ public class GameGUI {
 		spd_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Spd stuff
+				SpendAPBackEnd.increaseSPD(GamePlay.player);
 			}
 		});
 		
@@ -461,6 +484,7 @@ public class GameGUI {
 		int_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Int stuff
+				SpendAPBackEnd.increaseINT(GamePlay.player);
 			}
 		});
 		
@@ -509,7 +533,8 @@ public class GameGUI {
 		flee_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Flee stuff
-				//temp
+				BattleBackEnd.flee(GamePlay.player);
+				
 				exploreScreen();
 			}
 		});
@@ -545,6 +570,9 @@ public class GameGUI {
 		food_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//food
+				Food newFood = new Food();
+				
+				ConsumableBackEnd.useConsumable(GamePlay.player, newFood);
 			}
 		});
 		
@@ -552,6 +580,9 @@ public class GameGUI {
 		small_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//small pot
+				smPot newSMPot = new smPot();
+				
+				ConsumableBackEnd.useConsumable(GamePlay.player, newSMPot);
 			}
 		});
 		
@@ -559,6 +590,9 @@ public class GameGUI {
 		large_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//large pot
+				lgPot newLGPot = new lgPot();
+				
+				ConsumableBackEnd.useConsumable(GamePlay.player, newLGPot);
 			}
 		});
 
