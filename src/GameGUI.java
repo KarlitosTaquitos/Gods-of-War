@@ -309,9 +309,6 @@ public class GameGUI {
 		//Clear the frame
 		clearFrame();
 		
-		//temporary since other screens aren't showing up
-		//GamePlay.newGame("username", 6);
-		
 		//Add things
 		JButton spend_b = new JButton("Spend AP");
 		spend_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
@@ -491,7 +488,7 @@ public class GameGUI {
 		clearFrame();
 		
 		//temporary since other screens aren't showing up
-		GamePlay.newGame("username", 6);
+		GamePlay.newGame("username", 7);
 		
 		//Add components
 		JButton attack_b = new JButton("Attack");

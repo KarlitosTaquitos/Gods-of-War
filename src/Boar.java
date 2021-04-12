@@ -11,7 +11,15 @@ public class Boar extends Enemies implements GameElement{
 		this.SPD = 1;
 		this.INT = 1;
 		
+		this.isDefeated = false;
+		
 	}
 	
+	public static Enemies makeBoar(int x, int y) {
+		Boar newBoar = new Boar(x, y);
+		
+		return newBoar;
+	
+	}
 
 }

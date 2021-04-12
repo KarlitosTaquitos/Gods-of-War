@@ -42,10 +42,10 @@ public class Player implements GameElement {
 		//sets player stats to beginning stats
 		//player AP set to 5 for testing.
 		//normally set to 0;
-		this.APpool = 5;
+		this.APpool = 0;
 		//player hp set to 90 for testing
 		//normally set to 100;
-		this.hp = 25;
+		this.hp = 100;
 		this.bd = 10;
 		
 		//sets player attributes to beginning attributes

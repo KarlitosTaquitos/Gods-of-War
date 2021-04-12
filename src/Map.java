@@ -28,7 +28,7 @@ public class Map {
 				//constructs Area for each sector of the size x size grid
 				// i and j are plus'd 1 because arrays start at 0 (i.e [0][0]),
 				// but position starts at 1 (i.e [1][1])
-				map[i][j] = new Area(i - 1, j - 1);
+				map[i][j] = new Area(i + 1, j + 1);
 				
 			}
 			
@@ -43,12 +43,14 @@ public class Map {
 		
 		map = new Area[size][size];
 		
-		Map gameMap = new Map(6);
+		Map gameMap = new Map(size);
+		
+		fillMap(gameMap);
 		
 		return gameMap;
 	}
 
-	//function that populates map with enemies, consumables, and rest areas,
+	static //function that populates map with enemies, consumables, and rest areas,
 	// given the size of the map
 	void fillMap(Map map)
 	{
