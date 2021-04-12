@@ -284,6 +284,7 @@ public class ExploreMapBackEnd {
 	//function that fills map with Rest Areas in random Areas
 	public static boolean fillMapRestAreas(Map map) {
 		// TODO
+		
 		return true;
 	}
 	

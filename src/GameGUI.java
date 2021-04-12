@@ -8,6 +8,8 @@ public class GameGUI {
 	private final int WIDTH = 800, HEIGHT = 600;
 	private final int BUTTON_W = 100, BUTTON_H = 50;
 	
+	protected String playerName;
+	
 	public GameGUI() {
 		
 		frame = new JFrame("Gods of War");
@@ -16,8 +18,8 @@ public class GameGUI {
 		frame.setVisible(true);
 		
 		
-		//mainScreen();
-		battleScreen();
+		mainScreen();
+		//battleScreen();
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -108,6 +110,10 @@ public class GameGUI {
 		login_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//logging in things
+				playerName = username_t.getText();
+				
+				Player.makePlayer(playerName);
+				
 				if (UserPassBackEnd.login(username_t, password_t, warning_l))
 					// if successful next screen
 					loggedInScreen();
@@ -165,6 +171,10 @@ public class GameGUI {
 		register_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//registration things
+				playerName = username_t.getText();
+				
+				Player.makePlayer(playerName);
+				
 				if (UserPassBackEnd.register(username_t, password_t, warning_l))
 					// next screen
 					loggedInScreen();
@@ -214,6 +224,8 @@ public class GameGUI {
 		new_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// new game screen
+				GamePlay.player = Player.makePlayer(playerName);
+				
 				newGameScreen();
 			}
 		});
@@ -267,6 +279,7 @@ public class GameGUI {
 		small_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// create new small map game
+				GamePlay.map = Map.makeMap(7);
 				
 				// go to explore screen
 				exploreScreen();
@@ -277,6 +290,7 @@ public class GameGUI {
 		medium_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// create new medium map game
+				GamePlay.map = Map.makeMap(9);
 				
 				// go to explore screen
 				exploreScreen();
@@ -287,6 +301,7 @@ public class GameGUI {
 		large_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// create new large map game
+				GamePlay.map = Map.makeMap(11);
 				
 				// go to explore screen
 				// beginning tile won't have enemy
