@@ -502,9 +502,6 @@ public class GameGUI {
 		//Clear frame
 		clearFrame();
 		
-		//temporary since other screens aren't showing up
-		GamePlay.newGame("username", 7);
-		
 		//Add components
 		JButton attack_b = new JButton("Attack");
 		attack_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H * 2, BUTTON_W, BUTTON_H);
@@ -553,9 +550,6 @@ public class GameGUI {
 	private void useItemScreen(int screen) {
 		//Clear the frame
 		clearFrame();
-		
-		//temporary since other screens aren't showing up
-		//GamePlay.newGame("username", 6);
 		
 		//Add buttons
 		JButton food_b = new JButton("Food");
