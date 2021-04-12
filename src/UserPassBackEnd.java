@@ -1,6 +1,6 @@
 import java.io.*;
 
-import javax.swing.JLabel;
+//import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;

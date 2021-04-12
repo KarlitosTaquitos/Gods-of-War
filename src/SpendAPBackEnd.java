@@ -7,9 +7,9 @@ public class SpendAPBackEnd {
 	//The player must have at least 1 AP to spend to increase an Attribute
 	
 	//Spend AP on STR--------------------------------------------------
-	public boolean increaseSTR(Player player) {
+	public static boolean increaseSTR(Player player) {
 		if (player.APpool == 0) {
-			System.out.println("No AP to spend.");
+			System.out.println(player.name + " has no AP to spend.");
 			
 			return false;
 		}
@@ -23,9 +23,9 @@ public class SpendAPBackEnd {
 	}
 	
 	//Spend AP on INT--------------------------------------------------
-	public boolean increaseINT(Player player) {
+	public static boolean increaseINT(Player player) {
 		if (player.APpool == 0) {
-			System.out.println("No AP to spend.");
+			System.out.println(player.name + " has no AP to spend.");
 			
 			return false;
 		}
@@ -39,9 +39,9 @@ public class SpendAPBackEnd {
 	}
 	
 	//Spend AP on CON--------------------------------------------------
-	public boolean increaseCON(Player player) {
+	public static boolean increaseCON(Player player) {
 		if (player.APpool == 0) {
-			System.out.println("No AP to spend.");
+			System.out.println(player.name + " has no AP to spend.");
 			
 			return false;
 		}
@@ -55,9 +55,9 @@ public class SpendAPBackEnd {
 	}
 	
 	//Spend AP on SPD--------------------------------------------------
-	public boolean increaseSPD(Player player) {
+	public static boolean increaseSPD(Player player) {
 		if (player.APpool == 0) {
-			System.out.println("No AP to spend.");
+			System.out.println(player.name + " has no AP to spend.");
 			
 			return false;
 		}

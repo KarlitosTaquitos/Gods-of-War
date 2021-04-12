@@ -11,7 +11,7 @@ public class Map {
 	//6 x 6 for small
 	//8 x 8 for medium
 	//10 x 10 for large
-	Area[][] map;
+	static Area[][] map;
 	
 	//constructor for map, setting the map's size to the given size
 	// and constructing the size x size grid
@@ -21,15 +21,14 @@ public class Map {
 		this.size = size;
 		
 		//for loops that create the size x size grid
-		// minus 1 because arrays start at 0,
 		// which would create maps of undesired size
-		for (int i = 0; i < size - 1; i++) {
-			for (int j = 0; j < size - 1; j++) {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
 				
 				//constructs Area for each sector of the size x size grid
 				// i and j are plus'd 1 because arrays start at 0 (i.e [0][0]),
 				// but position starts at 1 (i.e [1][1])
-				map[i][j] = new Area(i + 1, j + 1);
+				map[i][j] = new Area(i - 1, j - 1);
 				
 			}
 			
@@ -39,13 +38,14 @@ public class Map {
 		map[0][0].playerInArea = true;
 	}
 	
-	@SuppressWarnings("unused")
 	//function that constructs a map from given size
-	void makeMap(int size) {
-		//Not sure if this is necessary
-		//map = new Area[size][size];
+	static Map makeMap(int size) {
 		
-		Map gameMap = new Map(size);
+		map = new Area[size][size];
+		
+		Map gameMap = new Map(6);
+		
+		return gameMap;
 	}
 
 	//function that populates map with enemies, consumables, and rest areas,

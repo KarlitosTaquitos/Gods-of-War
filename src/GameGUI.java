@@ -309,6 +309,9 @@ public class GameGUI {
 		//Clear the frame
 		clearFrame();
 		
+		//temporary since other screens aren't showing up
+		//GamePlay.newGame("username", 6);
+		
 		//Add things
 		JButton spend_b = new JButton("Spend AP");
 		spend_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
@@ -363,6 +366,7 @@ public class GameGUI {
 		quit_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Quit
+				System.exit(0);
 			}
 		});
 		
@@ -370,6 +374,7 @@ public class GameGUI {
 		up_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move up
+				ExploreMapBackEnd.moveUp(GamePlay.player, GamePlay.map);
 			}
 		});
 		
@@ -377,6 +382,7 @@ public class GameGUI {
 		left_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move left
+				ExploreMapBackEnd.moveLeft(GamePlay.player, GamePlay.map);
 			}
 		});
 		
@@ -384,6 +390,7 @@ public class GameGUI {
 		right_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move right
+				ExploreMapBackEnd.moveRight(GamePlay.player, GamePlay.map);
 			}
 		});
 		
@@ -391,6 +398,7 @@ public class GameGUI {
 		down_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move down
+				ExploreMapBackEnd.moveDown(GamePlay.player, GamePlay.map);
 			}
 		});
 		
@@ -440,6 +448,7 @@ public class GameGUI {
 		str_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Str stuff
+				SpendAPBackEnd.increaseSTR(GamePlay.player);
 			}
 		});
 		
@@ -447,6 +456,7 @@ public class GameGUI {
 		con_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//con stuff
+				SpendAPBackEnd.increaseCON(GamePlay.player);
 			}
 		});
 				
@@ -454,6 +464,7 @@ public class GameGUI {
 		spd_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Spd stuff
+				SpendAPBackEnd.increaseSPD(GamePlay.player);
 			}
 		});
 		
@@ -461,6 +472,7 @@ public class GameGUI {
 		int_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Int stuff
+				SpendAPBackEnd.increaseINT(GamePlay.player);
 			}
 		});
 		
@@ -477,6 +489,9 @@ public class GameGUI {
 	private void battleScreen() {
 		//Clear frame
 		clearFrame();
+		
+		//temporary since other screens aren't showing up
+		GamePlay.newGame("username", 6);
 		
 		//Add components
 		JButton attack_b = new JButton("Attack");
@@ -509,7 +524,8 @@ public class GameGUI {
 		flee_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Flee stuff
-				//temp
+				BattleBackEnd.flee(GamePlay.player);
+				
 				exploreScreen();
 			}
 		});
@@ -525,6 +541,9 @@ public class GameGUI {
 	private void useItemScreen(int screen) {
 		//Clear the frame
 		clearFrame();
+		
+		//temporary since other screens aren't showing up
+		//GamePlay.newGame("username", 6);
 		
 		//Add buttons
 		JButton food_b = new JButton("Food");
@@ -545,6 +564,9 @@ public class GameGUI {
 		food_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//food
+				Food newFood = new Food();
+				
+				ConsumableBackEnd.useConsumable(GamePlay.player, newFood);
 			}
 		});
 		
@@ -552,6 +574,9 @@ public class GameGUI {
 		small_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//small pot
+				smPot newSMPot = new smPot();
+				
+				ConsumableBackEnd.useConsumable(GamePlay.player, newSMPot);
 			}
 		});
 		
@@ -559,6 +584,9 @@ public class GameGUI {
 		large_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//large pot
+				lgPot newLGPot = new lgPot();
+				
+				ConsumableBackEnd.useConsumable(GamePlay.player, newLGPot);
 			}
 		});
 

@@ -30,7 +30,7 @@ public class Player implements GameElement {
 	}
 	
 	//constructor for player when given a username
-	public Player(String username) {
+	Player(String username) {
 		
 		//sets player's name to username given
 		this.name = username;
@@ -40,10 +40,13 @@ public class Player implements GameElement {
 		this.position[1] = 1;
 		
 		//sets player stats to beginning stats
-		this.APpool = 0;
-		this.hp = 100;
+		//player AP set to 5 for testing.
+		//normally set to 0;
+		this.APpool = 5;
+		//player hp set to 90 for testing
+		//normally set to 100;
+		this.hp = 25;
 		this.bd = 10;
-		this.APpool = 0;
 		
 		//sets player attributes to beginning attributes
 		this.STR = 5;
@@ -51,18 +54,22 @@ public class Player implements GameElement {
 		this.CON = 5;
 		this.SPD = 5;
 		
-		//player starts with no consumables
-		this.food = 0;
-		this.smPot = 0;
-		this.lgPot = 0;
+		//player starting with consumables for testing
+		//normally, player starts with no consumables
+		this.food = 2;
+		this.smPot = 2;
+		this.lgPot = 2;
 	
 	}
 	
 	//function that creates a player with given username
-	@SuppressWarnings("unused")
-	void makePlayer(String username) {
+	static Player makePlayer(String username) {
 		
 		Player userPlayer = new Player(username);
+		
+		GamePlay.player = userPlayer;
+		
+		return userPlayer;
 	}
 
 	//function that saves the player's state

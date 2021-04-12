@@ -2,8 +2,8 @@
 public class BattleBackEnd {
 
 	//booleans that dictate which turn it is
-	boolean playerTurn;
-	boolean enemyTurn;
+	static boolean playerTurn;
+	static boolean enemyTurn;
 	
 	//function that calculates whether the player misses their attack
 	// if true, player misses
@@ -81,27 +81,13 @@ public class BattleBackEnd {
 	}
 	
 	//function that conducts operations for player fleeing combat
-	public boolean flee(Player player) {
+	public static boolean flee(Player player) {
 		playerTurn = false;
 		enemyTurn = false;
 		
 		//TODO actually return player to Explore screen
 		
 		System.out.println(player.name + " flees!");
-		
-		return true;
-	}
-	
-	//function that conducts operations for player using consumable--------------------------------------------
-	public boolean useConsumable(Player player, Consumables consumable) {
-		
-		//determines healing
-		int healing = consumable.healingpower;
-		
-		//adds healing to player hit points
-		player.hp += healing;
-		
-		System.out.println(player.name + " uses " + consumable.name + " and heals " + healing + "hit points!");
 		
 		return true;
 	}
