@@ -1,15 +1,16 @@
+import javax.swing.JLabel;
 
 public class ConsumableBackEnd {
 
 	//function that checks if player has any of given consumable
-	public static boolean hasConsumable(Player player, Consumables consumable) {
+	public static boolean hasConsumable(Player player, Consumables consumable, JLabel mes_l) {
 		
 		if (consumable.name == "Food")
 		{
 			//checks if player has no food
 			if (player.food == 0)
 			{
-				System.out.println(player.name + " has no Food to consume.");
+				mes_l.setText(mes_l.getText() + "You have no Food to consume.<br/>");
 				
 				return false;
 			}
@@ -20,7 +21,7 @@ public class ConsumableBackEnd {
 			//checks if player has no smPots
 			if (player.smPot == 0)
 			{
-				System.out.println(player.name + " has no Small Potions to consume.");
+				mes_l.setText(mes_l.getText() + "You have no Small Potions to consume.<br/>");
 				
 				return false;
 			}
@@ -31,7 +32,7 @@ public class ConsumableBackEnd {
 			//checks if player has no food
 			if (player.lgPot == 0)
 			{
-				System.out.println(player.name + " has no Large Potions to consume.");
+				mes_l.setText(mes_l.getText() + "You have no Large Potions to consume.<br/>");
 				
 				return false;
 			}
@@ -42,10 +43,10 @@ public class ConsumableBackEnd {
 	}
 	
 	//function that conducts operations for player using consumable--------------------------------------------
-	public static boolean useConsumable(Player player, Consumables consumable) {
+	public static boolean useConsumable(Player player, Consumables consumable, JLabel mes_l) {
 		
 		//checks if player has any of consumable type
-		if (!hasConsumable(player, consumable))
+		if (!hasConsumable(player, consumable, mes_l))
 			return false;
 		
 		//variable representing the player's maximum hit points
@@ -56,7 +57,7 @@ public class ConsumableBackEnd {
 		if (player.hp == maxHP)
 		{
 			//consumable not used
-			System.out.println(player.name + " is already at max hit points.");
+			mes_l.setText(mes_l.getText() + "You are already at max hit points.<br/>");
 			
 			return false;
 		}
@@ -75,35 +76,35 @@ public class ConsumableBackEnd {
 		//adds healing to player hit points
 		player.hp += healing;
 		
-		System.out.println(player.name + " uses " + consumable.name + " and heals " + healing + " hit points!");
+		mes_l.setText(mes_l.getText() + "You use " + consumable.name + " and heals " + healing + " hit points!<br/>");
 		
-		consumeConsumable(player, consumable);
+		consumeConsumable(player, consumable, mes_l);
 		
 		return true;
 	}
 
 	//decrements the player's held consumables after use
-	public static void consumeConsumable(Player player, Consumables consumable) {
+	public static void consumeConsumable(Player player, Consumables consumable, JLabel mes_l) {
 		
 		if (consumable.name == "Food")
 		{
 			player.food -= 1;
 			
-			System.out.println(player.name + " has " + player.food + " left.");
+			mes_l.setText(mes_l.getText() + "You have " + player.food + " left.<br/>");
 		}
 			
 		if (consumable.name == "Small Potion")
 		{
 			player.smPot -= 1;
 			
-			System.out.println(player.name + " has " + player.smPot + " left.");
+			mes_l.setText(mes_l.getText() + "You have " + player.smPot + " left.<br/>");
 		}
 		
 		if (consumable.name == "Large Potion")
 		{
 			player.lgPot -= 1;
 			
-			System.out.println(player.name + " has " + player.lgPot + " left.");
+			mes_l.setText(mes_l.getText() + "You have " + player.lgPot + " left.<br/>");
 		}
 	}
 }

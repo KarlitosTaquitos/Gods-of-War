@@ -1,3 +1,4 @@
+import javax.swing.JLabel;
 
 public class SpendAPBackEnd {
 
@@ -7,9 +8,9 @@ public class SpendAPBackEnd {
 	//The player must have at least 1 AP to spend to increase an Attribute
 	
 	//Spend AP on STR--------------------------------------------------
-	public static boolean increaseSTR(Player player) {
+	public static boolean increaseSTR(Player player, JLabel mes_l) {
 		if (player.APpool == 0) {
-			System.out.println(player.name + " has no AP to spend.");
+			mes_l.setText(mes_l.getText() + "You have no AP to spend.<br/>");
 			
 			return false;
 		}
@@ -17,15 +18,15 @@ public class SpendAPBackEnd {
 		player.STR += 1;
 		player.APpool -= 1;
 		
-		System.out.println(player.name + "'s STR was increased by 1!");
+		mes_l.setText(mes_l.getText() + "Your STR was increased by 1!<br/>");
 		
 		return true;
 	}
 	
 	//Spend AP on INT--------------------------------------------------
-	public static boolean increaseINT(Player player) {
+	public static boolean increaseINT(Player player, JLabel mes_l) {
 		if (player.APpool == 0) {
-			System.out.println(player.name + " has no AP to spend.");
+			mes_l.setText(mes_l.getText() + "You have no AP to spend.<br/>");
 			
 			return false;
 		}
@@ -33,15 +34,15 @@ public class SpendAPBackEnd {
 		player.INT += 1;
 		player.APpool -= 1;
 		
-		System.out.println(player.name + "'s INT was increased by 1!");
+		mes_l.setText(mes_l.getText() + "Your INT was increased by 1!<br/>");
 		
 		return true;
 	}
 	
 	//Spend AP on CON--------------------------------------------------
-	public static boolean increaseCON(Player player) {
+	public static boolean increaseCON(Player player, JLabel mes_l) {
 		if (player.APpool == 0) {
-			System.out.println(player.name + " has no AP to spend.");
+			mes_l.setText(mes_l.getText() + "You have no AP to spend.<br/>");
 			
 			return false;
 		}
@@ -49,15 +50,15 @@ public class SpendAPBackEnd {
 		player.CON += 1;
 		player.APpool -= 1;
 		
-		System.out.println(player.name + "'s CON was increased by 1!");
+		mes_l.setText(mes_l.getText() + "Your CON was increased by 1!<br/>");
 		
 		return true;
 	}
 	
 	//Spend AP on SPD--------------------------------------------------
-	public static boolean increaseSPD(Player player) {
+	public static boolean increaseSPD(Player player, JLabel mes_l) {
 		if (player.APpool == 0) {
-			System.out.println(player.name + " has no AP to spend.");
+			mes_l.setText(mes_l.getText() + "You have no AP to spend.<br/>");
 			
 			return false;
 		}
@@ -65,7 +66,7 @@ public class SpendAPBackEnd {
 		player.SPD += 1;
 		player.APpool -= 1;
 		
-		System.out.println(player.name + "'s SPD was increased by 1!");
+		mes_l.setText(mes_l.getText() + "Your SPD was increased by 1!<br/>");
 		
 		return true;
 	}

@@ -1,16 +1,17 @@
 import java.util.Random;
+import javax.swing.JLabel;
 
 public class ExploreMapBackEnd {
 	
 	//function that checks if there is a consumable in area
-	public static boolean isThereConsumable(Player player, Map map) {
+	public static boolean isThereConsumable(Player player, Map map, JLabel pos_l) {
 		
 		if (Map.map[player.position[0]][player.position[1]].consumableInArea == true)
 		{
-			System.out.println(player.name + " found a " + Map.map[player.position[0]][player.position[1]].areaConsumbale.name + "!");
+			pos_l.setText(pos_l.getText() + "You found a " + Map.map[player.position[0]][player.position[1]].areaConsumbale.name + "!<br/>");
 			
 			//adds consumable to inventory
-			pickUpConsumable(player, Map.map[player.position[0]][player.position[1]].areaConsumbale);
+			pickUpConsumable(player, Map.map[player.position[0]][player.position[1]].areaConsumbale, pos_l);
 			
 			//removes consumable from area
 			Map.map[player.position[0]][player.position[1]].consumableInArea = false;
@@ -22,34 +23,34 @@ public class ExploreMapBackEnd {
 	}
 	
 	//increments player's inventory of consumables when a consumable type is found
-	private static void pickUpConsumable(Player player, Consumables consumable) {
+	private static void pickUpConsumable(Player player, Consumables consumable, JLabel pos_l) {
 		
 		//checks if consumable is a Food
 		if (consumable.name == "Food")
 		{
 			player.food += 1;
 			
-			System.out.println(player.name + " now has " + player.food + " portions of Food.");
+			pos_l.setText(pos_l.getText() + "You now have " + player.food + " portions of Food.<br/>");
 		}
 		
 		if (consumable.name == "Small Potion")
 		{
 			player.smPot += 1;
 			
-			System.out.println(player.name + " now has " + player.smPot + " Small Potions.");
+			pos_l.setText(pos_l.getText() + "You now have" + player.smPot + " Small Potions.<br/>");
 		}
 		
 		if (consumable.name == "Large Potion")
 		{
 			player.lgPot += 1;
 			
-			System.out.println(player.name + " now has " + player.lgPot + " Large Potions.");
+			pos_l.setText(pos_l.getText() + "You now have" + player.lgPot + " Large Potions.<br/>");
 		}
 		
 	}
 
 	//function that determines if player is at upward map boundary---------
-	public static boolean playerAtUpBoundary(Player player, int mapSize) {
+	public static boolean playerAtUpBoundary(Player player, int mapSize, JLabel pos_l) {
 		boolean atBoundary = false;
 		
 		//if player's y position is == to mapSize,
@@ -58,7 +59,7 @@ public class ExploreMapBackEnd {
 		if (player.position[1] == mapSize - 1) {
 			atBoundary = true;
 			
-			System.out.println(player.name + " is at upward boundary.");
+			pos_l.setText(pos_l.getText() + "You are at upward boundary.<br/>");
 			
 			return atBoundary;
 		}
@@ -67,13 +68,13 @@ public class ExploreMapBackEnd {
 	}
 
 	//function that determines if player is at downward map boundary=
-	public static boolean playerAtDownBoundary(Player player, int mapSize) {
+	public static boolean playerAtDownBoundary(Player player, int mapSize, JLabel pos_l) {
 		boolean atBoundary = false;
 		
 		if (player.position[1] == 1) {
 			atBoundary = true;
 			
-			System.out.println(player.name + " is at downward boundary.");
+			pos_l.setText(pos_l.getText() + "You are at downward boundary.<br/>");
 			
 			return atBoundary;
 		}
@@ -82,13 +83,13 @@ public class ExploreMapBackEnd {
 	}
 	
 	//function that determines if player is at left boundary---------
-	public static boolean playerAtLeftBoundary(Player player, int mapSize) {
+	public static boolean playerAtLeftBoundary(Player player, int mapSize, JLabel pos_l) {
 		boolean atBoundary = false;
 		
 		if (player.position[0] == 1) {
 			atBoundary = true;
 			
-			System.out.println(player.name + " is at left boundary.");
+			pos_l.setText(pos_l.getText() + "You are at left boundary.<br/>");
 			
 			return atBoundary;
 		}
@@ -97,13 +98,13 @@ public class ExploreMapBackEnd {
 	}
 	
 	//function that determines if player is at right boundary---------
-	public static boolean playerAtRightBoundary(Player player, int mapSize) {
+	public static boolean playerAtRightBoundary(Player player, int mapSize, JLabel pos_l) {
 		boolean atBoundary = false;
 		
 		if (player.position[0] == mapSize - 1) {
 			atBoundary = true;
 			
-			System.out.println(player.name + " is at right boundary.");
+			pos_l.setText(pos_l.getText() + "You are at right boundary.<br/>");
 			
 			return atBoundary;
 		}
@@ -112,112 +113,112 @@ public class ExploreMapBackEnd {
 	}
 	
 	//function that outputs player's current position BEFORE moving and sets current Area's playerInArea to false
-	public static void beforeMoveDisplayUpdate(Player player, Map map) {
+	public static void beforeMoveDisplayUpdate(Player player, Map map, JLabel pos_l) {
 
 		//outputs player's current position before moving up
-		System.out.println(player.name + "'s current Position: (" + player.position[0] + ", " + player.position[1] + ")");
+		pos_l.setText(pos_l.getText() + "Last Position: (" + player.position[0] + ", " + player.position[1] + ")<br/>");
 		
 		//changes current area's playerInArea to false
 		Map.map[player.position[0]][player.position[1]].playerInArea = false;
 	}
 	
 	//function that outputs player's new position AFTER moving and sets new Area's playerInArea to true------
-	public static void afterMoveDisplayUpdate(Player player, Map map) {
+	public static void afterMoveDisplayUpdate(Player player, Map map, JLabel pos_l) {
 		
 		//changes new area's playerInArea to true
 		Map.map[player.position[0]][player.position[1]].playerInArea = true;
 		
 		//outputs player's new position after moving up
-		System.out.println(player.name + "'s new Position: (" + player.position[0] + ", " + player.position[1] + ")");
+		pos_l.setText(pos_l.getText() + "Current Position: (" + player.position[0] + ", " + player.position[1] + ")<br/>");
 		
 		//checks if there's a consumable
-		isThereConsumable(player, map);
+		isThereConsumable(player, map, pos_l);
 	}
 	
 	//moves the player 1 Area up on the map------------
-	public static boolean moveUp(Player player, Map map) {
+	public static boolean moveUp(Player player, Map map, JLabel pos_l) {
 		
 		int mapSize = map.size;
 		
 		//checks if player at upward boundary
-		if (playerAtUpBoundary(player, mapSize)) {
-			System.out.println(player.name + " cannot move up.");
+		if (playerAtUpBoundary(player, mapSize, pos_l)) {			
+			pos_l.setText(pos_l.getText() + "Cannot move up.<br/>");
 			
 			return false;
 		}
 		
-		beforeMoveDisplayUpdate(player, map);
+		beforeMoveDisplayUpdate(player, map, pos_l);
 		
 		//modifies player position
 		player.position[1] += 1;
 		
-		afterMoveDisplayUpdate(player, map);
+		afterMoveDisplayUpdate(player, map, pos_l);
 
 		return true;
 	}
 	
 	//moves the player 1 Area down on the map--------------
-	public static boolean moveDown(Player player, Map map) {
+	public static boolean moveDown(Player player, Map map, JLabel pos_l) {
 		
 		int mapSize = map.size;
 		
 		//checks if player at downward boundary
-		if (playerAtDownBoundary(player, mapSize)) {
-			System.out.println(player.name + " cannot move down.");
+		if (playerAtDownBoundary(player, mapSize, pos_l)) {
+			pos_l.setText(pos_l.getText() + "Cannot move down.<br/>");
 			
 			return false;
 		}
 
-		beforeMoveDisplayUpdate(player, map);
+		beforeMoveDisplayUpdate(player, map, pos_l);
 		
 		//modifies player position
 		player.position[1] -= 1;
 		
-		afterMoveDisplayUpdate(player, map);
+		afterMoveDisplayUpdate(player, map, pos_l);
 		
 		return true;
 	}
 	
 	//moves the player 1 Area left on the map--------------
-	public static boolean moveLeft(Player player, Map map) {
+	public static boolean moveLeft(Player player, Map map, JLabel pos_l) {
 		
 		int mapSize = map.size;
 		
 		//checks if player at left boundary
-		if (playerAtLeftBoundary(player, mapSize)) {
-			System.out.println(player.name + " cannot move left.");
+		if (playerAtLeftBoundary(player, mapSize, pos_l)) {
+			pos_l.setText(pos_l.getText() + "Cannot move left.<br/>");
 			
 			return false;
 		}
 		
-		beforeMoveDisplayUpdate(player, map);
+		beforeMoveDisplayUpdate(player, map, pos_l);
 		
 		//modifies player position
 		player.position[0] -= 1;
 		
-		afterMoveDisplayUpdate(player, map);
+		afterMoveDisplayUpdate(player, map, pos_l);
 		
 		return true;
 	}
 	
 	//moves the player 1 Area right on the map--------------
-	public static boolean moveRight(Player player, Map map) {
+	public static boolean moveRight(Player player, Map map, JLabel pos_l) {
 		
 		int mapSize = map.size;
 		
 		//checks if player at boundary
-		if (playerAtRightBoundary(player, mapSize)) {
-			System.out.println(player.name + " cannot move right.");
+		if (playerAtRightBoundary(player, mapSize, pos_l)) {
+			pos_l.setText(pos_l.getText() + "Cannot move right.<br/>");
 			
 			return false;
 		}
 		
-		beforeMoveDisplayUpdate(player, map);
+		beforeMoveDisplayUpdate(player, map, pos_l);
 		
 		//modifies player position
 		player.position[0] += 1;
 		
-		afterMoveDisplayUpdate(player, map);
+		afterMoveDisplayUpdate(player, map, pos_l);
 		
 		return true;
 	}

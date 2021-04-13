@@ -9,9 +9,10 @@ public class GameGUI {
 	private final int BUTTON_W = 100, BUTTON_H = 50;
 	
 	protected String playerName;
+	private String exploreMessage;
 	
 	public GameGUI() {
-		
+		exploreMessage = "";
 		frame = new JFrame("Gods of War");
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setLayout(null);
@@ -23,10 +24,6 @@ public class GameGUI {
 	
 	public static void main(String[] args) throws IOException {
 		new GameGUI();
-		
-		//loads UserPass.txt, which contains user's usernames and passwords in "username password" format
-		UserPassBackEnd.loadUserPassFile();
-		
 	}
 	
 	private void mainScreen() {
@@ -348,6 +345,23 @@ public class GameGUI {
 		JButton down_b = new JButton("Down");
 		down_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 + 50, BUTTON_W, BUTTON_H);
 		
+		JLabel message_l = new JLabel();
+		message_l.setBounds(WIDTH / 4, 50, WIDTH / 2, HEIGHT / 2 - 100 - BUTTON_H);
+		message_l.setVerticalAlignment(JLabel.CENTER);
+		message_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		//Put position on screen
+		if (exploreMessage == "") {
+			int xPos = GamePlay.player.position[0];
+			int yPos = GamePlay.player.position[1];
+		
+			String pos_s = "Position: ";
+			pos_s = pos_s + xPos + ", " + yPos;
+		
+			message_l.setText(pos_s);
+		}
+		else message_l.setText(exploreMessage);
+		
 		//------------------------------------------------------
 		
 		//Spend AP button
@@ -385,7 +399,12 @@ public class GameGUI {
 		up_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move up
-				ExploreMapBackEnd.moveUp(GamePlay.player, GamePlay.map);
+				message_l.setText("<html>");
+				ExploreMapBackEnd.moveUp(GamePlay.player, GamePlay.map, message_l);
+				message_l.setText(message_l.getText() + "</html>");
+				exploreMessage = message_l.getText();
+				
+				//If enemy, send to battle screen				
 			}
 		});
 		
@@ -393,7 +412,12 @@ public class GameGUI {
 		left_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move left
-				ExploreMapBackEnd.moveLeft(GamePlay.player, GamePlay.map);
+				message_l.setText("<html>");
+				ExploreMapBackEnd.moveLeft(GamePlay.player, GamePlay.map, message_l);
+				message_l.setText(message_l.getText() + "</html>");
+				exploreMessage = message_l.getText();
+				
+				//Check for enemy and send to battle screen
 			}
 		});
 		
@@ -401,15 +425,25 @@ public class GameGUI {
 		right_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Move right
-				ExploreMapBackEnd.moveRight(GamePlay.player, GamePlay.map);
+				message_l.setText("<html>");
+				ExploreMapBackEnd.moveRight(GamePlay.player, GamePlay.map, message_l);
+				message_l.setText(message_l.getText() + "</html>");
+				exploreMessage = message_l.getText();
+				
+				//If there's an enemy, go to battle screen
 			}
 		});
 		
 		//Down button
-		down_b.addActionListener(new ActionListener() {
+		down_b.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				//Move down
-				ExploreMapBackEnd.moveDown(GamePlay.player, GamePlay.map);
+				message_l.setText("<html>");
+				ExploreMapBackEnd.moveDown(GamePlay.player, GamePlay.map, message_l);
+				message_l.setText(message_l.getText() + "</html>");
+				exploreMessage = message_l.getText();
+				
+				//If enemy, battle screen
 			}
 		});
 		
@@ -424,6 +458,8 @@ public class GameGUI {
 		frame.add(left_b);
 		frame.add(right_b);
 		frame.add(down_b);
+		
+		frame.add(message_l);
 	}
 	
 	private void spendAPScreen() {
@@ -447,6 +483,11 @@ public class GameGUI {
 		JButton int_b = new JButton("INT");
 		int_b.setBounds(4 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
+		JLabel message_l = new JLabel();
+		message_l.setBounds(WIDTH / 4, 50, WIDTH / 2, HEIGHT / 2 - 100 - BUTTON_H);
+		message_l.setVerticalAlignment(JLabel.CENTER);
+		message_l.setHorizontalAlignment(JLabel.CENTER);
+		
 		//-----------------------------------------------
 		
 		//Back button
@@ -460,7 +501,9 @@ public class GameGUI {
 		str_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Str stuff
-				SpendAPBackEnd.increaseSTR(GamePlay.player);
+				message_l.setText("<html>");
+				SpendAPBackEnd.increaseSTR(GamePlay.player, message_l);
+				message_l.setText(message_l.getText() + "</html>");
 			}
 		});
 		
@@ -468,7 +511,9 @@ public class GameGUI {
 		con_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//con stuff
-				SpendAPBackEnd.increaseCON(GamePlay.player);
+				message_l.setText("<html>");
+				SpendAPBackEnd.increaseCON(GamePlay.player, message_l);
+				message_l.setText(message_l.getText() + "</html>");
 			}
 		});
 				
@@ -476,7 +521,9 @@ public class GameGUI {
 		spd_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Spd stuff
-				SpendAPBackEnd.increaseSPD(GamePlay.player);
+				message_l.setText("<html>");
+				SpendAPBackEnd.increaseSPD(GamePlay.player, message_l);
+				message_l.setText(message_l.getText() + "</html>");
 			}
 		});
 		
@@ -484,7 +531,9 @@ public class GameGUI {
 		int_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Int stuff
-				SpendAPBackEnd.increaseINT(GamePlay.player);
+				message_l.setText("<html>");
+				SpendAPBackEnd.increaseINT(GamePlay.player, message_l);
+				message_l.setText(message_l.getText() + "</html>");
 			}
 		});
 		
@@ -496,6 +545,8 @@ public class GameGUI {
 		frame.add(con_b);
 		frame.add(spd_b);
 		frame.add(int_b);
+		
+		frame.add(message_l);
 	}
 
 	private void battleScreen() {
@@ -564,6 +615,11 @@ public class GameGUI {
 		JButton back_b = new JButton("Back");
 		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
+		JLabel message_l = new JLabel();
+		message_l.setBounds(WIDTH / 4, 50, WIDTH / 2, HEIGHT / 2 - 100 - BUTTON_H);
+		message_l.setVerticalAlignment(JLabel.CENTER);
+		message_l.setHorizontalAlignment(JLabel.CENTER);
+		
 		//----------------------------------------------
 		
 		//Food button
@@ -572,7 +628,9 @@ public class GameGUI {
 				//food
 				Food newFood = new Food();
 				
-				ConsumableBackEnd.useConsumable(GamePlay.player, newFood);
+				message_l.setText("<html>");
+				ConsumableBackEnd.useConsumable(GamePlay.player, newFood, message_l);
+				message_l.setText(message_l.getText() + "</html>");
 			}
 		});
 		
@@ -582,7 +640,9 @@ public class GameGUI {
 				//small pot
 				smPot newSMPot = new smPot();
 				
-				ConsumableBackEnd.useConsumable(GamePlay.player, newSMPot);
+				message_l.setText("<html>");
+				ConsumableBackEnd.useConsumable(GamePlay.player, newSMPot, message_l);
+				message_l.setText(message_l.getText() + "</html>");
 			}
 		});
 		
@@ -592,7 +652,9 @@ public class GameGUI {
 				//large pot
 				lgPot newLGPot = new lgPot();
 				
-				ConsumableBackEnd.useConsumable(GamePlay.player, newLGPot);
+				message_l.setText("<html>");
+				ConsumableBackEnd.useConsumable(GamePlay.player, newLGPot, message_l);
+				message_l.setText(message_l.getText() + "</html>");
 			}
 		});
 
@@ -613,5 +675,6 @@ public class GameGUI {
 		frame.add(small_b);
 		frame.add(large_b);
 		frame.add(back_b);
+		frame.add(message_l);
 	}
 }
