@@ -87,7 +87,7 @@ public class BattleBackEnd {
 		
 		//TODO actually return player to Explore screen
 		
-		String message = "You fleed!<br/>";
+		String message = "You fled!<br/>";
 		
 		return message;
 	}

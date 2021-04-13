@@ -505,6 +505,12 @@ public class GameGUI {
 		message_l.setVerticalAlignment(JLabel.CENTER);
 		message_l.setHorizontalAlignment(JLabel.CENTER);
 		
+		JLabel amount_l = new JLabel();
+		amount_l.setBounds(WIDTH - 300, 50, 200, 50);
+		amount_l.setVerticalAlignment(JLabel.CENTER);
+		amount_l.setHorizontalAlignment(JLabel.CENTER);
+		amount_l.setText("You have " + GamePlay.player.APpool + " Attribute Points!");
+		
 		//-----------------------------------------------
 		
 		//Back button
@@ -564,6 +570,7 @@ public class GameGUI {
 		frame.add(int_b);
 		
 		frame.add(message_l);
+		frame.add(amount_l);
 	}
 
 	private void battleScreen() {
