@@ -3,12 +3,10 @@ import javax.swing.JLabel;
 
 public class ExploreMapBackEnd {
 	
-	private static Enemies isThereEnemy(Player player, Map map) {
+	public static Enemies isThereEnemy(Player player, Map map) {
 		
 		if (Map.map[player.position[0]][player.position[1]].enemyInArea == true)
-		{
-			System.out.println(Map.map[player.position[0]][player.position[1]].areaEnemy.name + " encountered!");
-			
+		{			
 			//change to battle screen
 			
 			return Map.map[player.position[0]][player.position[1]].areaEnemy;
@@ -16,6 +14,11 @@ public class ExploreMapBackEnd {
 		
 		else return null;
 	}
+	
+	public static String enemyHereMessage(Player player, Map map) {
+		return Map.map[player.position[0]][player.position[1]].areaEnemy.name + " encountered!";
+	}
+	
 	
 	//function that checks if there is a consumable in area
 	public static boolean isThereConsumable(Player player, Map map, JLabel pos_l) {
@@ -51,14 +54,14 @@ public class ExploreMapBackEnd {
 		{
 			player.smPot += 1;
 			
-			pos_l.setText(pos_l.getText() + "You now have" + player.smPot + " Small Potions.<br/>");
+			pos_l.setText(pos_l.getText() + "You now have " + player.smPot + " Small Potions.<br/>");
 		}
 		
 		if (consumable.name == "Large Potion")
 		{
 			player.lgPot += 1;
 			
-			pos_l.setText(pos_l.getText() + "You now have" + player.lgPot + " Large Potions.<br/>");
+			pos_l.setText(pos_l.getText() + "You now have " + player.lgPot + " Large Potions.<br/>");
 		}
 		
 	}

@@ -81,15 +81,15 @@ public class BattleBackEnd {
 	}
 	
 	//function that conducts operations for player fleeing combat
-	public static boolean flee(Player player) {
+	public static String flee(Player player) {
 		playerTurn = false;
 		enemyTurn = false;
 		
 		//TODO actually return player to Explore screen
 		
-		System.out.println(player.name + " flees!");
+		String message = "You fleed!<br/>";
 		
-		return true;
+		return message;
 	}
 	
 	//function that conducts operations for enemy attacking the player-----------------

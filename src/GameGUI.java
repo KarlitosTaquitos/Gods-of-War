@@ -10,6 +10,7 @@ public class GameGUI {
 	
 	protected String playerName;
 	private String exploreMessage;
+	private String battleMessage;
 	
 	public GameGUI() {
 		exploreMessage = "";
@@ -404,7 +405,11 @@ public class GameGUI {
 				message_l.setText(message_l.getText() + "</html>");
 				exploreMessage = message_l.getText();
 				
-				//If enemy, send to battle screen				
+				//If enemy, send to battle screen
+				if (ExploreMapBackEnd.isThereEnemy(GamePlay.player, GamePlay.map) != null) {
+					battleMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
+					battleScreen();
+				}
 			}
 		});
 		
@@ -418,6 +423,10 @@ public class GameGUI {
 				exploreMessage = message_l.getText();
 				
 				//Check for enemy and send to battle screen
+				if (ExploreMapBackEnd.isThereEnemy(GamePlay.player, GamePlay.map) != null) {
+					battleMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
+					battleScreen();
+				}
 			}
 		});
 		
@@ -431,6 +440,10 @@ public class GameGUI {
 				exploreMessage = message_l.getText();
 				
 				//If there's an enemy, go to battle screen
+				if (ExploreMapBackEnd.isThereEnemy(GamePlay.player, GamePlay.map) != null) {
+					battleMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
+					battleScreen();
+				}
 			}
 		});
 		
@@ -444,6 +457,10 @@ public class GameGUI {
 				exploreMessage = message_l.getText();
 				
 				//If enemy, battle screen
+				if (ExploreMapBackEnd.isThereEnemy(GamePlay.player, GamePlay.map) != null) {
+					battleMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
+					battleScreen();
+				}
 			}
 		});
 		
@@ -563,6 +580,15 @@ public class GameGUI {
 		JButton flee_b = new JButton("Flee");
 		flee_b.setBounds(WIDTH / 2 + BUTTON_W / 2, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
+		JLabel message_l = new JLabel();
+		message_l.setBounds(WIDTH / 4, 50, WIDTH / 2, HEIGHT / 2 - 100 - BUTTON_H);
+		message_l.setVerticalAlignment(JLabel.CENTER);
+		message_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		if (battleMessage != "")
+			message_l.setText(battleMessage);
+		else message_l.setText("idk");
+		
 		//-----------------------------------------------
 		
 		//Attack button
@@ -584,7 +610,7 @@ public class GameGUI {
 		flee_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Flee stuff
-				BattleBackEnd.flee(GamePlay.player);
+				exploreMessage = exploreMessage.replace("</html>", BattleBackEnd.flee(GamePlay.player) + "</html>");
 				
 				exploreScreen();
 			}
@@ -595,6 +621,8 @@ public class GameGUI {
 		frame.add(attack_b);
 		frame.add(use_b);
 		frame.add(flee_b);
+		
+		frame.add(message_l);
 	}
 	
 	
@@ -620,6 +648,25 @@ public class GameGUI {
 		message_l.setVerticalAlignment(JLabel.CENTER);
 		message_l.setHorizontalAlignment(JLabel.CENTER);
 		
+		JLabel food_l = new JLabel();
+		food_l.setBounds(WIDTH / 4 - BUTTON_W / 2, HEIGHT / 2 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		food_l.setVerticalAlignment(JLabel.CENTER);
+		food_l.setHorizontalAlignment(JLabel.CENTER);
+
+		JLabel small_l = new JLabel();
+		small_l.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		small_l.setVerticalAlignment(JLabel.CENTER);
+		small_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		JLabel large_l = new JLabel();
+		large_l.setBounds(3 * WIDTH / 4 - BUTTON_W / 2, HEIGHT / 2 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		large_l.setVerticalAlignment(JLabel.CENTER);
+		large_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		food_l.setText("You have: " + GamePlay.player.food);
+		small_l.setText("You have: " + GamePlay.player.smPot);
+		large_l.setText("You have: " + GamePlay.player.lgPot);
+
 		//----------------------------------------------
 		
 		//Food button
@@ -631,6 +678,8 @@ public class GameGUI {
 				message_l.setText("<html>");
 				ConsumableBackEnd.useConsumable(GamePlay.player, newFood, message_l);
 				message_l.setText(message_l.getText() + "</html>");
+				
+				food_l.setText("You have: " + GamePlay.player.food);
 			}
 		});
 		
@@ -643,6 +692,8 @@ public class GameGUI {
 				message_l.setText("<html>");
 				ConsumableBackEnd.useConsumable(GamePlay.player, newSMPot, message_l);
 				message_l.setText(message_l.getText() + "</html>");
+			
+				small_l.setText("You have: " + GamePlay.player.smPot);
 			}
 		});
 		
@@ -655,6 +706,8 @@ public class GameGUI {
 				message_l.setText("<html>");
 				ConsumableBackEnd.useConsumable(GamePlay.player, newLGPot, message_l);
 				message_l.setText(message_l.getText() + "</html>");
+			
+				large_l.setText("You have: " + GamePlay.player.lgPot);
 			}
 		});
 
@@ -665,7 +718,7 @@ public class GameGUI {
 				else if (screen == 1)
 					battleScreen();
 				else //for some reason some other number is passed
-					exploreScreen(); //just go back to the exxplore screen lol
+					exploreScreen(); //just go back to the explore screen lol
 			}
 		});
 		
@@ -675,6 +728,10 @@ public class GameGUI {
 		frame.add(small_b);
 		frame.add(large_b);
 		frame.add(back_b);
+		
 		frame.add(message_l);
+		frame.add(food_l);
+		frame.add(small_l);
+		frame.add(large_l);
 	}
 }
