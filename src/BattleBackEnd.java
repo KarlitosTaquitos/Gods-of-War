@@ -41,7 +41,7 @@ public class BattleBackEnd {
 	//function that calculates whether the enemy misses their attack
 	// if true, enemy misses
 	// if false, enemy hits
-	public boolean enemyMisses(Enemies enemy, Player player, JLabel mes_l) {
+	public static boolean enemyMisses(Enemies enemy, Player player, JLabel mes_l) {
 		
 		//modifiers to accuracy and dodge chance
 		int accMod = 3;
@@ -135,7 +135,7 @@ public class BattleBackEnd {
 	}
 	
 	//function that calculates enemy's attack damage
-	public int enemyDMG(Enemies enemy, Player player) {
+	public static int enemyDMG(Enemies enemy, Player player) {
 		//checks if attack was a critical hit
 		
 		//modifiers to calculated damage
@@ -219,11 +219,12 @@ public class BattleBackEnd {
 	}
 	
 	//function that conducts operations for enemy attacking the player-----------------
-	public void enemyAttack(Enemies enemy, Player player, JLabel mes_l) {
+	public static boolean enemyAttack(Enemies enemy, Player player, JLabel mes_l) {
+		//returns true if battle is over
 		
 		//determines if attack hits or misses
 		if (!enemyMisses(enemy, player, mes_l)) {
-			return;
+			return false;
 		}
 		
 		//determines damage
@@ -238,11 +239,13 @@ public class BattleBackEnd {
 		if (playerDefeated(player)) {
 			
 			//return to last rest area
-			
+			return true;
 		}
+		
+		return false;
 	}
 
-	private boolean playerDefeated(Player player) {
+	private static boolean playerDefeated(Player player) {
 		if (player.hp <= 0) {
 			return true;
 		}

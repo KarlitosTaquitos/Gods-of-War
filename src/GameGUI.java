@@ -10,7 +10,7 @@ public class GameGUI {
 	
 	protected String playerName;
 	private String exploreMessage;
-	private String battleMessage;
+	private String battlePMessage;
 	
 	public GameGUI() {
 		exploreMessage = "";
@@ -407,7 +407,7 @@ public class GameGUI {
 				
 				//If enemy, send to battle screen
 				if (ExploreMapBackEnd.isThereEnemy(GamePlay.player, GamePlay.map) != null) {
-					battleMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
+					battlePMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
 					battleScreen();
 				}
 			}
@@ -424,7 +424,7 @@ public class GameGUI {
 				
 				//Check for enemy and send to battle screen
 				if (ExploreMapBackEnd.isThereEnemy(GamePlay.player, GamePlay.map) != null) {
-					battleMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
+					battlePMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
 					battleScreen();
 				}
 			}
@@ -441,7 +441,7 @@ public class GameGUI {
 				
 				//If there's an enemy, go to battle screen
 				if (ExploreMapBackEnd.isThereEnemy(GamePlay.player, GamePlay.map) != null) {
-					battleMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
+					battlePMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
 					battleScreen();
 				}
 			}
@@ -458,7 +458,7 @@ public class GameGUI {
 				
 				//If enemy, battle screen
 				if (ExploreMapBackEnd.isThereEnemy(GamePlay.player, GamePlay.map) != null) {
-					battleMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
+					battlePMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
 					battleScreen();
 				}
 			}
@@ -623,14 +623,19 @@ public class GameGUI {
 		JButton leave_b = new JButton("Leave");
 		leave_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 + 50, BUTTON_W, BUTTON_H);
 		
-		JLabel message_l = new JLabel();
-		message_l.setBounds(WIDTH / 4, 50, WIDTH / 2, HEIGHT / 2 - 100 - BUTTON_H);
-		message_l.setVerticalAlignment(JLabel.CENTER);
-		message_l.setHorizontalAlignment(JLabel.CENTER);
+		JLabel pMessage_l = new JLabel();
+		pMessage_l.setBounds(WIDTH / 5, 50, WIDTH / 5, HEIGHT / 2 - 100 - BUTTON_H);
+		pMessage_l.setVerticalAlignment(JLabel.CENTER);
+		pMessage_l.setHorizontalAlignment(JLabel.CENTER);
 		
-		if (battleMessage != "")
-			message_l.setText(battleMessage);
-		else message_l.setText("idk");
+		JLabel eMessage_l = new JLabel();
+		eMessage_l.setBounds(3 * WIDTH / 5, 50, WIDTH / 5, HEIGHT / 2 - 100 - BUTTON_H);
+		eMessage_l.setVerticalAlignment(JLabel.CENTER);
+		eMessage_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		if (battlePMessage != "")
+			pMessage_l.setText(battlePMessage);
+		else pMessage_l.setText("idk");
 		
 		//-----------------------------------------------
 		
@@ -638,12 +643,19 @@ public class GameGUI {
 		attack_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Attack stuff
-				message_l.setText("<html>");
-				if (BattleBackEnd.attack(GamePlay.player, Map.map[GamePlay.player.position[0]][GamePlay.player.position[1]].areaEnemy, message_l)) {
+				Enemies enemy = Map.map[GamePlay.player.position[0]][GamePlay.player.position[1]].areaEnemy;
+				
+				pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>");
+				if (BattleBackEnd.attack(GamePlay.player, Map.map[GamePlay.player.position[0]][GamePlay.player.position[1]].areaEnemy, pMessage_l)) {
 					frame.add(leave_b);
 					frame.repaint();
 				}
-				message_l.setText(message_l.getText() + "</html>");
+				pMessage_l.setText(pMessage_l.getText() + "</html>");
+				
+				eMessage_l.setText("<html>" + enemy.name + "'s hp: " + enemy.hp + "<br/>");
+				if (BattleBackEnd.enemyAttack(enemy, GamePlay.player, eMessage_l))
+					exploreScreen();
+				eMessage_l.setText(eMessage_l.getText() + "</html>");
 			}
 		});
 		
@@ -678,7 +690,8 @@ public class GameGUI {
 		frame.add(use_b);
 		frame.add(flee_b);
 		
-		frame.add(message_l);
+		frame.add(pMessage_l);
+		frame.add(eMessage_l);
 	}
 	
 	private void useItemScreen(int screen) {
@@ -721,6 +734,11 @@ public class GameGUI {
 		food_l.setText("You have: " + GamePlay.player.food);
 		small_l.setText("You have: " + GamePlay.player.smPot);
 		large_l.setText("You have: " + GamePlay.player.lgPot);
+		
+		JLabel hp_l = new JLabel("Your hp: " + GamePlay.player.hp);
+		hp_l.setBounds(WIDTH - BUTTON_W - 50, 50, BUTTON_W, BUTTON_H);
+		hp_l.setVerticalAlignment(JLabel.CENTER);
+		hp_l.setHorizontalAlignment(JLabel.CENTER);
 
 		//----------------------------------------------
 		
@@ -788,5 +806,6 @@ public class GameGUI {
 		frame.add(food_l);
 		frame.add(small_l);
 		frame.add(large_l);
+		frame.add(hp_l);
 	}
 }
