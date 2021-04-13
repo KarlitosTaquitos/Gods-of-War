@@ -2,6 +2,7 @@
 public class Boar extends Enemies implements GameElement{
 	
 	public Boar(int x, int y) {
+		this.name = "Boar";
 		this.position[0] = x;
 		this.position[1] = y;
 		this.hp = 25;
