@@ -119,7 +119,7 @@ public class BattleBackEnd {
 		
 		//modifiers to calculated damage
 		int ATKMod = 1;
-		int DEFMod = 2;
+		int DEFMod = 1;
 		
 		//checks if attack was a critical hit
 		if (playerCrit(player)) {
@@ -127,7 +127,12 @@ public class BattleBackEnd {
 		}
 		
 		//calculates damage dealt
-		int dmgDealt = player.bd + (player.STR * ATKMod) - enemy.CON * DEFMod; 
+		int dmgDealt = player.bd + (player.STR * ATKMod) - enemy.CON * DEFMod;
+		
+		if (dmgDealt <= 0)
+		{
+			dmgDealt = 0;
+		}
 		
 		return dmgDealt;
 	}
@@ -138,10 +143,15 @@ public class BattleBackEnd {
 		
 		//modifiers to calculated damage
 		int ATKMod = 1;
-		int DEFMod = 2;
+		int DEFMod = 1;
 		
 		//calculates damage dealt
 		int dmgDealt = enemy.bd + (enemy.STR * ATKMod) - player.CON * DEFMod;
+		
+		if (dmgDealt <= 0)
+		{
+			dmgDealt = 0;
+		}
 		
 		return dmgDealt;
 	}
@@ -179,9 +189,9 @@ public class BattleBackEnd {
 		if (isDefeated(enemy)) {
 			Map.map[player.position[0]][player.position[1]].enemyInArea = false;
 			
-			player.APpool += 1;
+			player.APpool += 2;
 			
-			System.out.println("You gained 1 AP!");
+			System.out.println("You gained 3 AP!");
 			System.out.println("You have " + player.APpool + " unspent AP.");
 			
 			//return to explore map

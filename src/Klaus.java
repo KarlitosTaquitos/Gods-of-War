@@ -6,7 +6,7 @@ public class Klaus extends Boss implements GameElement{
 		this.position[0] = x;
 		this.position[1] = y;
 		this.hp = 150;
-		this.bd = 50;
+		this.bd = 30;
 		this.STR = 4;
 		this.CON = 20;
 		this.SPD = 4;
