@@ -2,6 +2,20 @@ import java.util.Random;
 
 public class ExploreMapBackEnd {
 	
+	private static Enemies isThereEnemy(Player player, Map map) {
+		
+		if (Map.map[player.position[0]][player.position[1]].enemyInArea == true)
+		{
+			System.out.println(Map.map[player.position[0]][player.position[1]].areaEnemy.name + " encountered!");
+			
+			//change to battle screen
+			
+			return Map.map[player.position[0]][player.position[1]].areaEnemy;
+		}
+		
+		else return null;
+	}
+	
 	//function that checks if there is a consumable in area
 	public static boolean isThereConsumable(Player player, Map map) {
 		
@@ -132,8 +146,11 @@ public class ExploreMapBackEnd {
 		
 		//checks if there's a consumable
 		isThereConsumable(player, map);
+		
+		//checks if there's an enemy
+		isThereEnemy(player, map);
 	}
-	
+
 	//moves the player 1 Area up on the map------------
 	public static boolean moveUp(Player player, Map map) {
 		
@@ -224,16 +241,33 @@ public class ExploreMapBackEnd {
 
 	//function that fills map with enemies in random Areas
 	public static boolean fillMapEnemies(Map map) {
-		// TODO
+		
 		Random rand = new Random();
 		
 		for (int i = 0; i < map.size - 1; i++)
 		{
+			//lower leveled monsters
 			int randIntX = rand.nextInt(map.size);
 			int randIntY = rand.nextInt(map.size);
 			
-			Map.map[randIntX][randIntY].areaEnemy = Boar.makeBoar(randIntX, randIntY);
-			Map.map[randIntX][randIntY].enemyInArea = true;
+			if (Map.map[randIntX][randIntY].enemyInArea == false) {
+				Map.map[randIntX][randIntY].areaEnemy = Boar.makeBoar(randIntX, randIntY);
+				
+				Map.map[randIntX][randIntY].enemyInArea = true;
+			}
+			
+			//higher leveled monsters
+			randIntX = rand.nextInt(map.size);
+			randIntY = rand.nextInt(map.size);
+			
+			while (randIntX <= map.size / 2 || randIntY <= map.size / 2) {
+				randIntX = rand.nextInt(map.size);
+				randIntY = rand.nextInt(map.size);
+			}
+			
+			//make stronger monster
+			
+			//God's Chosen random placement
 		}
 		
 		return true;
@@ -241,7 +275,7 @@ public class ExploreMapBackEnd {
 
 	//function that fills map with consumables in random Areas
 	public static boolean fillMapConsumables(Map map) {
-		// TODO
+		
 		Random rand = new Random();
 		
 		//loop that populates map with consumables
