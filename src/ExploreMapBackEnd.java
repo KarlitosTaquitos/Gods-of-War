@@ -245,17 +245,17 @@ public class ExploreMapBackEnd {
 		
 		for (int i = 0; i < map.size - 1; i++)
 		{
-			//lower leveled monsters
+			//first, lower leveled Enemy population
 			int randIntX = rand.nextInt(map.size);
 			int randIntY = rand.nextInt(map.size);
 			
 			if (Map.map[randIntX][randIntY].enemyInArea == false) {
-				Map.map[randIntX][randIntY].areaEnemy = Boar.makeBoar(randIntX, randIntY);
+				Map.map[randIntX][randIntY].areaEnemy = EnemiesBackEnd.makeRandWeakEnemy(randIntX, randIntY);
 				
 				Map.map[randIntX][randIntY].enemyInArea = true;
 			}
 			
-			//higher leveled monsters
+			//then, higher leveled Enemy population
 			randIntX = rand.nextInt(map.size);
 			randIntY = rand.nextInt(map.size);
 			
@@ -264,9 +264,29 @@ public class ExploreMapBackEnd {
 				randIntY = rand.nextInt(map.size);
 			}
 			
-			//make stronger monster
+			if (Map.map[randIntX][randIntY].enemyInArea == false) {
+				Map.map[randIntX][randIntY].areaEnemy = EnemiesBackEnd.makeRandStrongEnemy(randIntX, randIntY);
+				
+				Map.map[randIntX][randIntY].enemyInArea = true;
+			}
 			
 			//God's Chosen random placement
+			randIntX = rand.nextInt(map.size);
+			randIntY = rand.nextInt(map.size);
+			
+			while (randIntX <= map.size / 2 || randIntY <= map.size / 2) {
+				randIntX = rand.nextInt(map.size);
+				randIntY = rand.nextInt(map.size);
+				
+				while (Map.map[randIntX][randIntY].enemyInArea == true)
+				{
+					randIntX = rand.nextInt(map.size);
+					randIntY = rand.nextInt(map.size);
+				}
+			}
+			
+			Map.map[randIntX][randIntY].areaEnemy = GodsChosen.makeGodsChosen(randIntX, randIntY);
+			
 		}
 		
 		return true;
