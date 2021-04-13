@@ -1,5 +1,5 @@
 
-public class Boar extends Enemies implements GameElement{
+public class Boar extends Animals implements GameElement{
 	
 	public Boar(int x, int y) {
 		this.name = "Boar";
@@ -16,11 +16,12 @@ public class Boar extends Enemies implements GameElement{
 		
 	}
 	
-	public static Enemies makeBoar(int x, int y) {
-		Boar newBoar = new Boar(x, y);
+	public static Enemies makeBoar(int x, int y){
+		Boar newBoar = new Boar(x,y);
 		
 		return newBoar;
-	
+		
 	}
+	
 
 }
