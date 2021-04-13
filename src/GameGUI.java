@@ -491,14 +491,34 @@ public class GameGUI {
 		JButton str_b = new JButton("STR");
 		str_b.setBounds(WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
+		JLabel str_l = new JLabel("" + GamePlay.player.STR);
+		str_l.setBounds(WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H * 2, BUTTON_W, BUTTON_H);
+		str_l.setVerticalAlignment(JLabel.CENTER);
+		str_l.setHorizontalAlignment(JLabel.CENTER);
+		
 		JButton con_b = new JButton("CON");
 		con_b.setBounds(2 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		
+		JLabel con_l = new JLabel("" + GamePlay.player.CON);
+		con_l.setBounds(2 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H * 2, BUTTON_W, BUTTON_H);
+		con_l.setVerticalAlignment(JLabel.CENTER);
+		con_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JButton spd_b = new JButton("SPD");
 		spd_b.setBounds(3 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
+		JLabel spd_l = new JLabel("" + GamePlay.player.SPD);
+		spd_l.setBounds(3 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H * 2, BUTTON_W, BUTTON_H);
+		spd_l.setVerticalAlignment(JLabel.CENTER);
+		spd_l.setHorizontalAlignment(JLabel.CENTER);
+		
 		JButton int_b = new JButton("INT");
 		int_b.setBounds(4 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		
+		JLabel int_l = new JLabel("" + GamePlay.player.INT);
+		int_l.setBounds(4 * WIDTH / 5 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H * 2, BUTTON_W, BUTTON_H);
+		int_l.setVerticalAlignment(JLabel.CENTER);
+		int_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JLabel message_l = new JLabel();
 		message_l.setBounds(WIDTH / 4, 50, WIDTH / 2, HEIGHT / 2 - 100 - BUTTON_H);
@@ -527,6 +547,8 @@ public class GameGUI {
 				message_l.setText("<html>");
 				SpendAPBackEnd.increaseSTR(GamePlay.player, message_l);
 				message_l.setText(message_l.getText() + "</html>");
+				str_l.setText("" + GamePlay.player.STR);
+				frame.repaint();
 			}
 		});
 		
@@ -537,6 +559,8 @@ public class GameGUI {
 				message_l.setText("<html>");
 				SpendAPBackEnd.increaseCON(GamePlay.player, message_l);
 				message_l.setText(message_l.getText() + "</html>");
+				con_l.setText("" + GamePlay.player.CON);
+				frame.repaint();
 			}
 		});
 				
@@ -547,6 +571,8 @@ public class GameGUI {
 				message_l.setText("<html>");
 				SpendAPBackEnd.increaseSPD(GamePlay.player, message_l);
 				message_l.setText(message_l.getText() + "</html>");
+				spd_l.setText("" + GamePlay.player.SPD);
+				frame.repaint();
 			}
 		});
 		
@@ -557,6 +583,8 @@ public class GameGUI {
 				message_l.setText("<html>");
 				SpendAPBackEnd.increaseINT(GamePlay.player, message_l);
 				message_l.setText(message_l.getText() + "</html>");
+				int_l.setText("" + GamePlay.player.INT);
+				frame.repaint();
 			}
 		});
 		
@@ -568,6 +596,11 @@ public class GameGUI {
 		frame.add(con_b);
 		frame.add(spd_b);
 		frame.add(int_b);
+		
+		frame.add(str_l);
+		frame.add(con_l);
+		frame.add(spd_l);
+		frame.add(int_l);
 		
 		frame.add(message_l);
 		frame.add(amount_l);
@@ -587,6 +620,9 @@ public class GameGUI {
 		JButton flee_b = new JButton("Flee");
 		flee_b.setBounds(WIDTH / 2 + BUTTON_W / 2, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
+		JButton leave_b = new JButton("Leave");
+		leave_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 + 50, BUTTON_W, BUTTON_H);
+		
 		JLabel message_l = new JLabel();
 		message_l.setBounds(WIDTH / 4, 50, WIDTH / 2, HEIGHT / 2 - 100 - BUTTON_H);
 		message_l.setVerticalAlignment(JLabel.CENTER);
@@ -602,7 +638,12 @@ public class GameGUI {
 		attack_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Attack stuff
-				BattleBackEnd.attack(GamePlay.player, Map.map[GamePlay.player.position[0]][GamePlay.player.position[1]].areaEnemy);
+				message_l.setText("<html>");
+				if (BattleBackEnd.attack(GamePlay.player, Map.map[GamePlay.player.position[0]][GamePlay.player.position[1]].areaEnemy, message_l)) {
+					frame.add(leave_b);
+					frame.repaint();
+				}
+				message_l.setText(message_l.getText() + "</html>");
 			}
 		});
 		
@@ -623,6 +664,13 @@ public class GameGUI {
 				exploreScreen();
 			}
 		});
+		
+		//Leave button
+		leave_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				exploreScreen();
+			}
+		});
 	
 		//-----------------------------------------------
 		
@@ -632,7 +680,6 @@ public class GameGUI {
 		
 		frame.add(message_l);
 	}
-	
 	
 	private void useItemScreen(int screen) {
 		//Clear the frame

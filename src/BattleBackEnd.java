@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import javax.swing.JLabel;
+
 public class BattleBackEnd {
 
 	//booleans that dictate which turn it is
@@ -9,7 +11,7 @@ public class BattleBackEnd {
 	//function that calculates whether the player misses their attack
 	// if true, player misses
 	// if false, player hits
-	public static boolean playerMisses(Player player, Enemies enemy) {
+	public static boolean playerMisses(Player player, Enemies enemy, JLabel mes_l) {
 		
 		//modifiers to accuracy and dodge chance
 		int accMod = 3;
@@ -24,13 +26,13 @@ public class BattleBackEnd {
 		int randInt = rand.nextInt(enemyDod);
 		
 		if (randInt <= playerAcc) {
-			System.out.println("You hit!");
+			mes_l.setText(mes_l.getText() + "You hit!<br/>");
 			
 			return true;
 		}
 		
 		else {
-			System.out.println("You missed!");
+			mes_l.setText(mes_l.getText() + "You missed!<br/>");
 			
 			return false;
 		}
@@ -39,7 +41,7 @@ public class BattleBackEnd {
 	//function that calculates whether the enemy misses their attack
 	// if true, enemy misses
 	// if false, enemy hits
-	public boolean enemyMisses(Enemies enemy, Player player) {
+	public boolean enemyMisses(Enemies enemy, Player player, JLabel mes_l) {
 		
 		//modifiers to accuracy and dodge chance
 		int accMod = 3;
@@ -54,13 +56,13 @@ public class BattleBackEnd {
 		int randInt = rand.nextInt(playerDod);
 		
 		if (randInt <= enemyAcc) {
-			System.out.println("The" + enemy.name + " hit!");
+			mes_l.setText(mes_l.getText() + "The" + enemy.name + " hit!<br/>");
 			
 			return true;
 		}
 		
 		else {
-			System.out.println("The" + enemy.name + " missed!");
+			mes_l.setText(mes_l.getText() + "The" + enemy.name + " missed!<br/>");
 			
 			return false;
 		}
@@ -69,7 +71,7 @@ public class BattleBackEnd {
 	//function that determines if the player's hit was critical
 	// if true, hit was critical
 	// if false, hit was not critical
-	public static boolean playerCrit(Player player) {
+	public static boolean playerCrit(Player player, JLabel mes_l) {
 		
 		//modifier to crit chance
 		int critMod = 3;
@@ -82,7 +84,7 @@ public class BattleBackEnd {
 		int randInt = rand.nextInt(100);
 		
 		if (randInt <= critChan) {
-			System.out.println("You landed a critical hit!");
+			mes_l.setText(mes_l.getText() + "You landed a critical hit!<br/>");
 			
 			return true;
 		}
@@ -93,7 +95,7 @@ public class BattleBackEnd {
 	//function that determines if the enemy's hit was critical
 	// if true, hit was critical
 	// if false, hit was not critical
-	public boolean enemyCrit(Enemies enemy) {
+	public boolean enemyCrit(Enemies enemy, JLabel mes_l) {
 		
 		//modifier to crit chance
 		int critMod = 3;
@@ -106,7 +108,7 @@ public class BattleBackEnd {
 		int randInt = rand.nextInt(100);
 		
 		if (randInt <= critChan) {
-			System.out.println(enemy.name + " landed a critical hit!");
+			mes_l.setText(mes_l.getText() + enemy.name + " landed a critical hit!<br/>");
 			
 			return true;
 		}
@@ -115,14 +117,14 @@ public class BattleBackEnd {
 	}
 	
 	//function that calculates player's attack damage
-	public static int playerDMG(Player player, Enemies enemy) {
+	public static int playerDMG(Player player, Enemies enemy, JLabel mes_l) {
 		
 		//modifiers to calculated damage
 		int ATKMod = 1;
 		int DEFMod = 2;
 		
 		//checks if attack was a critical hit
-		if (playerCrit(player)) {
+		if (playerCrit(player, mes_l)) {
 			ATKMod = 2;
 		}
 		
@@ -147,7 +149,8 @@ public class BattleBackEnd {
 	}
 	
 	//function that conducts operations for player attacking an enemy------------------
-	public static void attack(Player player, Enemies enemy) {
+	public static boolean attack(Player player, Enemies enemy, JLabel mes_l) {
+		//will return true if the battle is over and false if not
 		
 		//checks if enemy is already defeated
 		//no attack conducted in this case
@@ -155,48 +158,48 @@ public class BattleBackEnd {
 		// after defeating an enemy
 		//when an enemy is defeated, game should return to explore screen
 		if (enemy.isDefeated == true) {
-			System.out.println("Enemy was defeated.");
+			mes_l.setText(mes_l.getText() + "Enemy was defeated.<br/>");
 			
-			return;
+			return true;
 		}
 		
-		System.out.println("You attack the " + enemy.name + "!");
+		mes_l.setText(mes_l.getText() + "You attack the " + enemy.name + "!<br/>");
 		
 		//determines if attack hits or misses
-		if (!playerMisses(player, enemy)) {
-			return;
+		if (!playerMisses(player, enemy, mes_l)) {
+			return false;
 		}
 		
 		//determines attack damage
-		int dmg = playerDMG(player, enemy);
+		int dmg = playerDMG(player, enemy, mes_l);
 		
 		//subtracts damage from enemy hit points
 		enemy.hp -= dmg;
 		
-		System.out.println("You deal " + dmg + " damage to " + enemy.name);
+		mes_l.setText(mes_l.getText() + "You deal " + dmg + " damage to " + enemy.name + "<br/>");
 		
 		//checks if enemy is defeated
-		if (isDefeated(enemy)) {
+		if (isDefeated(enemy, mes_l)) {
 			Map.map[player.position[0]][player.position[1]].enemyInArea = false;
 			
 			player.APpool += 1;
 			
-			System.out.println("You gained 1 AP!");
-			System.out.println("You have " + player.APpool + " unspent AP.");
+			mes_l.setText(mes_l.getText() + "You gained 1 AP!<br/>");
+			mes_l.setText(mes_l.getText() + "You have " + player.APpool + " unspent AP.<br/>");
 			
 			//return to explore map
-		
+			return true;
 		}
 		
-		return;
+		return false;
 	}
 	
 	//function that determines whether an enemy is defeated
-	private static boolean isDefeated(Enemies enemy) {
+	private static boolean isDefeated(Enemies enemy, JLabel mes_l) {
 		if (enemy.hp <= 0) {
 			enemy.isDefeated = true;
 			
-			System.out.println(enemy.name + " was defeated!");
+			mes_l.setText(mes_l.getText() + enemy.name + " was defeated!<br/>");
 			
 			return true;
 		}
@@ -216,10 +219,10 @@ public class BattleBackEnd {
 	}
 	
 	//function that conducts operations for enemy attacking the player-----------------
-	public void enemyAttack(Enemies enemy, Player player) {
+	public void enemyAttack(Enemies enemy, Player player, JLabel mes_l) {
 		
 		//determines if attack hits or misses
-		if (!enemyMisses(enemy, player)) {
+		if (!enemyMisses(enemy, player, mes_l)) {
 			return;
 		}
 		
@@ -229,7 +232,7 @@ public class BattleBackEnd {
 		//subtracts damage from player hit points
 		player.hp -= dmg;
 		
-		System.out.println(enemy.name + " deals " + dmg + " damage to " + player.name);
+		mes_l.setText(mes_l.getText() + enemy.name + " deals " + dmg + " damage to you!<br/>");
 		
 		//checks if player is defeated
 		if (playerDefeated(player)) {
