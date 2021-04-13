@@ -753,6 +753,7 @@ public class GameGUI {
 				message_l.setText(message_l.getText() + "</html>");
 				
 				food_l.setText("You have: " + GamePlay.player.food);
+				hp_l.setText("Your hp: " + GamePlay.player.hp);
 			}
 		});
 		
@@ -767,6 +768,7 @@ public class GameGUI {
 				message_l.setText(message_l.getText() + "</html>");
 			
 				small_l.setText("You have: " + GamePlay.player.smPot);
+				hp_l.setText("Your hp: " + GamePlay.player.hp);
 			}
 		});
 		
@@ -781,6 +783,7 @@ public class GameGUI {
 				message_l.setText(message_l.getText() + "</html>");
 			
 				large_l.setText("You have: " + GamePlay.player.lgPot);
+				hp_l.setText("Your hp: " + GamePlay.player.hp);
 			}
 		});
 
