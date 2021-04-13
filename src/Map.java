@@ -54,11 +54,14 @@ public class Map {
 	// given the size of the map
 	void fillMap(Map map)
 	{
+
+		ExploreMapBackEnd.fillMapRestAreas(map);
+		
+		EnemiesBackEnd.makeBaseBoss(map);
+		
 		ExploreMapBackEnd.fillMapEnemies(map);
 		
 		ExploreMapBackEnd.fillMapConsumables(map);
-		
-		ExploreMapBackEnd.fillMapRestAreas(map);
 	}
 	
 }

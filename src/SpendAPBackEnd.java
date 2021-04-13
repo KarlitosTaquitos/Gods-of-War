@@ -20,6 +20,9 @@ public class SpendAPBackEnd {
 		
 		mes_l.setText(mes_l.getText() + "Your STR was increased by 1!<br/>");
 		
+		//updates Boss to player's new AP distribution
+		EnemiesBackEnd.updateBoss(player, GamePlay.map);
+		
 		return true;
 	}
 	
@@ -35,6 +38,9 @@ public class SpendAPBackEnd {
 		player.APpool -= 1;
 		
 		mes_l.setText(mes_l.getText() + "Your INT was increased by 1!<br/>");
+		
+		//updates Boss to player's new AP distribution
+		EnemiesBackEnd.updateBoss(player, GamePlay.map);
 		
 		return true;
 	}
@@ -52,6 +58,9 @@ public class SpendAPBackEnd {
 		
 		mes_l.setText(mes_l.getText() + "Your CON was increased by 1!<br/>");
 		
+		//updates Boss to player's new AP distribution
+		EnemiesBackEnd.updateBoss(player, GamePlay.map);
+		
 		return true;
 	}
 	
@@ -67,6 +76,9 @@ public class SpendAPBackEnd {
 		player.APpool -= 1;
 		
 		mes_l.setText(mes_l.getText() + "Your SPD was increased by 1!<br/>");
+		
+		//updates Boss to player's new AP distribution
+		EnemiesBackEnd.updateBoss(player, GamePlay.map);
 		
 		return true;
 	}

@@ -151,6 +151,25 @@ public class ExploreMapBackEnd {
 		//checks if there's a consumable
 		isThereConsumable(player, map, pos_l);
 		isThereEnemy(player, map);
+		isRestArea(player, map);
+	}
+
+	
+	//checks if the player's new position is a rest area
+	private static boolean isRestArea(Player player, Map map) {
+		if (Map.map[player.position[0]][player.position[1]].isRestArea == true) {
+
+			System.out.println("You found a Rest Area!");
+			
+			player.hp = 100;
+			
+			System.out.println("Your hit points have been restored to " + player.hp + "!");
+			
+			return true;
+		}
+		
+		else return false;
+		
 	}
 
 	//moves the player 1 Area up on the map------------
@@ -252,7 +271,7 @@ public class ExploreMapBackEnd {
 			int randIntX = rand.nextInt(map.size);
 			int randIntY = rand.nextInt(map.size);
 			
-			if (Map.map[randIntX][randIntY].enemyInArea == false) {
+			if (Map.map[randIntX][randIntY].enemyInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
 				Map.map[randIntX][randIntY].areaEnemy = EnemiesBackEnd.makeRandWeakEnemy(randIntX, randIntY);
 				
 				Map.map[randIntX][randIntY].enemyInArea = true;
@@ -267,7 +286,7 @@ public class ExploreMapBackEnd {
 				randIntY = rand.nextInt(map.size);
 			}
 			
-			if (Map.map[randIntX][randIntY].enemyInArea == false) {
+			if (Map.map[randIntX][randIntY].enemyInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
 				Map.map[randIntX][randIntY].areaEnemy = EnemiesBackEnd.makeRandStrongEnemy(randIntX, randIntY);
 				
 				Map.map[randIntX][randIntY].enemyInArea = true;
@@ -277,11 +296,11 @@ public class ExploreMapBackEnd {
 			randIntX = rand.nextInt(map.size);
 			randIntY = rand.nextInt(map.size);
 			
-			while (randIntX <= map.size / 2 || randIntY <= map.size / 2) {
+			while (randIntX <= map.size / 3 || randIntY <= map.size / 3) {
 				randIntX = rand.nextInt(map.size);
 				randIntY = rand.nextInt(map.size);
 				
-				while (Map.map[randIntX][randIntY].enemyInArea == true)
+				while (Map.map[randIntX][randIntY].enemyInArea == true && Map.map[randIntX][randIntY].isRestArea == true)
 				{
 					randIntX = rand.nextInt(map.size);
 					randIntY = rand.nextInt(map.size);
@@ -307,7 +326,7 @@ public class ExploreMapBackEnd {
 			int randIntY = rand.nextInt(map.size);
 			
 			//first populates map with food
-			if (Map.map[randIntX][randIntY].consumableInArea == false) {
+			if (Map.map[randIntX][randIntY].consumableInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
 				Map.map[randIntX][randIntY].areaConsumbale = Food.makeFood(randIntX, randIntY);
 				
 				Map.map[randIntX][randIntY].consumableInArea = true;
@@ -317,7 +336,7 @@ public class ExploreMapBackEnd {
 			randIntY = rand.nextInt(map.size);
 			
 			//then populates map with small potions
-			if (Map.map[randIntX][randIntY].consumableInArea == false) {
+			if (Map.map[randIntX][randIntY].consumableInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
 				Map.map[randIntX][randIntY].areaConsumbale = smPot.makeSMPot(randIntX, randIntY);
 				
 				Map.map[randIntX][randIntY].consumableInArea = true;
@@ -327,7 +346,7 @@ public class ExploreMapBackEnd {
 			randIntY = rand.nextInt(map.size);
 			
 			//lastly, populates map with large potions
-			if (Map.map[randIntX][randIntY].consumableInArea == false) {
+			if (Map.map[randIntX][randIntY].consumableInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
 				Map.map[randIntX][randIntY].areaConsumbale = lgPot.makeLGPot(randIntX, randIntY);
 				
 				Map.map[randIntX][randIntY].consumableInArea = true;
@@ -339,7 +358,24 @@ public class ExploreMapBackEnd {
 	
 	//function that fills map with Rest Areas in random Areas
 	public static boolean fillMapRestAreas(Map map) {
-		// TODO
+		Random rand = new Random();
+		
+		for (int i = 0; i < map.size / 3; i++) {
+			
+			int randIntX = rand.nextInt(map.size);
+			int randIntY = rand.nextInt(map.size);
+			
+			//prevents rest area from being placed on boss area
+			while (randIntX == map.size - 1 && randIntY == map.size - 1)
+			{
+				randIntX = rand.nextInt(map.size);
+				randIntY = rand.nextInt(map.size);
+			}
+			
+			if (Map.map[randIntX][randIntY].isRestArea == false) {
+				Map.map[randIntX][randIntY].isRestArea = true;
+			}
+		}
 		
 		return true;
 	}
