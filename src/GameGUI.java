@@ -602,6 +602,7 @@ public class GameGUI {
 		attack_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Attack stuff
+				BattleBackEnd.attack(GamePlay.player, Map.map[GamePlay.player.position[0]][GamePlay.player.position[1]].areaEnemy);
 			}
 		});
 		
