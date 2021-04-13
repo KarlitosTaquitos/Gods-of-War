@@ -207,6 +207,8 @@ public class BattleBackEnd {
 	//function that determines whether an enemy is defeated
 	private static boolean isDefeated(Enemies enemy, JLabel mes_l) {
 		if (enemy.hp <= 0) {
+			enemy.hp = 0;
+			
 			enemy.isDefeated = true;
 			
 			mes_l.setText(mes_l.getText() + enemy.name + " was defeated!<br/>");
@@ -231,6 +233,13 @@ public class BattleBackEnd {
 	//function that conducts operations for enemy attacking the player-----------------
 	public static boolean enemyAttack(Enemies enemy, Player player, JLabel mes_l) {
 		//returns true if battle is over
+		
+		//checks if enemy is already defeated
+		if (enemy.isDefeated == true) {
+			mes_l.setText(mes_l.getText() + enemy.name + " is already defeated.<br/>");
+			
+			return false;
+		}
 		
 		//determines if attack hits or misses
 		if (!enemyMisses(enemy, player, mes_l)) {
@@ -257,6 +266,8 @@ public class BattleBackEnd {
 
 	private static boolean playerDefeated(Player player) {
 		if (player.hp <= 0) {
+			player.hp = 0;
+			
 			return true;
 		}
 		
