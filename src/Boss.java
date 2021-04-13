@@ -1,7 +1,7 @@
 
-public class Boss extends Player implements GameElement {
-	
+public class Boss extends Enemies implements GameElement {
 
+	boolean isDefeated;
 
 	@Override
 	public void write() {

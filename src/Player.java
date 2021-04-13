@@ -1,6 +1,7 @@
 
 public class Player implements GameElement{
 	
+	String name;
 	
 	int[] position = new int[2];
 	public int hp; //health points
@@ -16,8 +17,10 @@ public class Player implements GameElement{
 	
 
 	
-	public Player() {
+	public Player(String username) {
+	
 		
+		this.name = username;
 		this.position[0] =1;
 		this.position[1] =1;
 		this.hp = 100;
@@ -32,6 +35,7 @@ public class Player implements GameElement{
 		this.lgPot = 0;
 	
 	}
+
 
 
 
