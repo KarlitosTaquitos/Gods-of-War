@@ -351,6 +351,27 @@ public class GameGUI {
 		message_l.setVerticalAlignment(JLabel.CENTER);
 		message_l.setHorizontalAlignment(JLabel.CENTER);
 		
+		//message for player hit points
+		JLabel pMessage_l = new JLabel();
+		pMessage_l.setBounds(WIDTH / 5, 50, WIDTH / 5, HEIGHT / 2 - 100 - BUTTON_H);
+		pMessage_l.setVerticalAlignment(JLabel.CENTER);
+		pMessage_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		//message for player AP pool
+		//this isn't showing up on GUI
+		JLabel aMessage_l = new JLabel();
+		pMessage_l.setBounds(WIDTH / 5, 50, WIDTH / 5, HEIGHT / 2 - 100 - BUTTON_H);
+		pMessage_l.setVerticalAlignment(JLabel.CENTER);
+		pMessage_l.setHorizontalAlignment(JLabel.CENTER);
+		
+		//Put player hit points on screen
+		pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>");
+		pMessage_l.setText(pMessage_l.getText() + "</html>");
+		
+		//Put player AP pool on screen
+		aMessage_l.setText("<html> Your unspent AP: " + GamePlay.player.APpool + "<br/>");
+		aMessage_l.setText(aMessage_l.getText() + "</html>");
+		
 		//Put position on screen
 		if (exploreMessage == "") {
 			int xPos = GamePlay.player.position[0];
@@ -477,6 +498,11 @@ public class GameGUI {
 		frame.add(down_b);
 		
 		frame.add(message_l);
+		//add player hit points message to screen
+		frame.add(pMessage_l);
+		//add player AP pool message to screen
+		//this is not showing up on GUI
+		frame.add(aMessage_l);
 	}
 	
 	private void spendAPScreen() {
@@ -659,7 +685,7 @@ public class GameGUI {
 			}
 		});
 		
-		//Use button
+		//Use Item button
 		use_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Use item screen

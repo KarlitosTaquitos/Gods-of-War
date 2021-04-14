@@ -24,6 +24,9 @@ public class Player implements GameElement {
 	public int smPot; //small potion
 	public int lgPot; //large potion
 	
+	//stores location of last rest area
+	public int[] lastRestArea = new int[2];
+	
 	//blank constructor
 	// required for Enemies subclass
 	public Player() {
@@ -60,6 +63,9 @@ public class Player implements GameElement {
 		this.food = 0;
 		this.smPot = 0;
 		this.lgPot = 0;
+		
+		this.lastRestArea[0] = 1;
+		this.lastRestArea[1] = 1;
 	
 	}
 	

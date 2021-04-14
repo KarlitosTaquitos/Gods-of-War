@@ -151,19 +151,23 @@ public class ExploreMapBackEnd {
 		//checks if there's a consumable
 		isThereConsumable(player, map, pos_l);
 		isThereEnemy(player, map);
-		isRestArea(player, map);
+		isRestArea(player, map, pos_l);
 	}
 
 	
 	//checks if the player's new position is a rest area
-	private static boolean isRestArea(Player player, Map map) {
+	private static boolean isRestArea(Player player, Map map, JLabel pos_l) {
 		if (Map.map[player.position[0]][player.position[1]].isRestArea == true) {
 
-			System.out.println("You found a Rest Area!");
+			pos_l.setText(pos_l.getText() + "You found a Rest Area!<br/>");
 			
 			player.hp = 100;
 			
-			System.out.println("Your hit points have been restored to " + player.hp + "!");
+			//stores rest area to player's last rest area
+			player.lastRestArea[0] = player.position[0];
+			player.lastRestArea[1] = player.position[1];
+			
+			pos_l.setText(pos_l.getText() + "Your hit points have been fully restored!<br/>");
 			
 			return true;
 		}
@@ -271,6 +275,11 @@ public class ExploreMapBackEnd {
 			int randIntX = rand.nextInt(map.size);
 			int randIntY = rand.nextInt(map.size);
 			
+			while (randIntX == 0 && randIntY == 0) {
+				randIntX = rand.nextInt(map.size);
+				randIntY = rand.nextInt(map.size);
+			}
+			
 			if (Map.map[randIntX][randIntY].enemyInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
 				Map.map[randIntX][randIntY].areaEnemy = EnemiesBackEnd.makeRandWeakEnemy(randIntX, randIntY);
 				
@@ -284,6 +293,11 @@ public class ExploreMapBackEnd {
 			while (randIntX <= map.size / 2 || randIntY <= map.size / 2) {
 				randIntX = rand.nextInt(map.size);
 				randIntY = rand.nextInt(map.size);
+				
+				while (randIntX == 0 && randIntY == 0) {
+					randIntX = rand.nextInt(map.size);
+					randIntY = rand.nextInt(map.size);
+				}
 			}
 			
 			if (Map.map[randIntX][randIntY].enemyInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
@@ -304,6 +318,11 @@ public class ExploreMapBackEnd {
 				{
 					randIntX = rand.nextInt(map.size);
 					randIntY = rand.nextInt(map.size);
+					
+					while (randIntX == 0 && randIntY == 0) {
+						randIntX = rand.nextInt(map.size);
+						randIntY = rand.nextInt(map.size);
+					}
 				}
 			}
 			
@@ -325,6 +344,12 @@ public class ExploreMapBackEnd {
 			int randIntX = rand.nextInt(map.size);
 			int randIntY = rand.nextInt(map.size);
 			
+			//prevents from spawning consumable at start area
+			while (randIntX == 1 && randIntY == 1) {
+				randIntX = rand.nextInt(map.size);
+				randIntY = rand.nextInt(map.size);
+			}
+			
 			//first populates map with food
 			if (Map.map[randIntX][randIntY].consumableInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
 				Map.map[randIntX][randIntY].areaConsumbale = Food.makeFood(randIntX, randIntY);
@@ -335,6 +360,12 @@ public class ExploreMapBackEnd {
 			randIntX = rand.nextInt(map.size);
 			randIntY = rand.nextInt(map.size);
 			
+			//prevents from spawning consumable at start area
+			while (randIntX == 1 && randIntY == 1) {
+				randIntX = rand.nextInt(map.size);
+				randIntY = rand.nextInt(map.size);
+			}
+			
 			//then populates map with small potions
 			if (Map.map[randIntX][randIntY].consumableInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
 				Map.map[randIntX][randIntY].areaConsumbale = smPot.makeSMPot(randIntX, randIntY);
@@ -344,6 +375,12 @@ public class ExploreMapBackEnd {
 			
 			randIntX = rand.nextInt(map.size);
 			randIntY = rand.nextInt(map.size);
+			
+			//prevents from spawning consumable at start area
+			while (randIntX == 1 && randIntY == 1) {
+				randIntX = rand.nextInt(map.size);
+				randIntY = rand.nextInt(map.size);
+			}
 			
 			//lastly, populates map with large potions
 			if (Map.map[randIntX][randIntY].consumableInArea == false && Map.map[randIntX][randIntY].isRestArea == false) {
@@ -365,11 +402,16 @@ public class ExploreMapBackEnd {
 			int randIntX = rand.nextInt(map.size);
 			int randIntY = rand.nextInt(map.size);
 			
-			//prevents rest area from being placed on boss area
+			//prevents rest area from being placed on boss area or starting area
 			while (randIntX == map.size - 1 && randIntY == map.size - 1)
 			{
 				randIntX = rand.nextInt(map.size);
 				randIntY = rand.nextInt(map.size);
+				
+				while (randIntX == 0 && randIntY == 0) {
+					randIntX = rand.nextInt(map.size);
+					randIntY = rand.nextInt(map.size);
+				}
 			}
 			
 			if (Map.map[randIntX][randIntY].isRestArea == false) {

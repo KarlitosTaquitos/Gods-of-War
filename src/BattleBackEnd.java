@@ -230,6 +230,12 @@ public class BattleBackEnd {
 		return message;
 	}
 	
+	public static String defeat(Player player) {
+		String message = "You were defeated!<br/>";
+		
+		return message;
+	}
+	
 	//function that conducts operations for enemy attacking the player-----------------
 	public static boolean enemyAttack(Enemies enemy, Player player, JLabel mes_l) {
 		//returns true if battle is over
@@ -256,7 +262,6 @@ public class BattleBackEnd {
 		
 		//checks if player is defeated
 		if (playerDefeated(player)) {
-			
 			//return to last rest area
 			return true;
 		}
@@ -266,7 +271,15 @@ public class BattleBackEnd {
 
 	private static boolean playerDefeated(Player player) {
 		if (player.hp <= 0) {
-			player.hp = 0;
+			player.hp = 100;
+			
+			Map.map[player.position[0]][player.position[1]].playerInArea = false;
+			
+			//moves player to last rest area
+			player.position[0] = player.lastRestArea[0];
+			player.position[1] = player.lastRestArea[1];
+			
+			Map.map[player.position[0]][player.position[1]].playerInArea = true;
 			
 			return true;
 		}
