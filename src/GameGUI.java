@@ -301,7 +301,6 @@ public class GameGUI {
 				GamePlay.map = Map.makeMap(11);
 				
 				// go to explore screen
-				// beginning tile won't have enemy
 				exploreScreen();
 			}
 		});
@@ -679,8 +678,10 @@ public class GameGUI {
 				pMessage_l.setText(pMessage_l.getText() + "</html>");
 				
 				eMessage_l.setText("<html>" + enemy.name + "'s hp: " + enemy.hp + "<br/>");
-				if (BattleBackEnd.enemyAttack(enemy, GamePlay.player, eMessage_l))
+				if (BattleBackEnd.enemyAttack(enemy, GamePlay.player, eMessage_l)) {
+					exploreMessage = "";
 					exploreScreen();
+				}
 				eMessage_l.setText(eMessage_l.getText() + "</html>");
 			}
 		});

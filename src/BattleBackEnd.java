@@ -230,12 +230,6 @@ public class BattleBackEnd {
 		return message;
 	}
 	
-	public static String defeat(Player player) {
-		String message = "You were defeated!<br/>";
-		
-		return message;
-	}
-	
 	//function that conducts operations for enemy attacking the player-----------------
 	public static boolean enemyAttack(Enemies enemy, Player player, JLabel mes_l) {
 		//returns true if battle is over
