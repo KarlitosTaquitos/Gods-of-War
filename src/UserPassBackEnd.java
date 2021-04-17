@@ -22,6 +22,7 @@ public class UserPassBackEnd {
 	}
 
 	//register function
+	@SuppressWarnings("unused")
 	public static boolean register(JTextField username_t, JPasswordField password_t, JTextArea warning_l) {
 		BufferedReader bufferedReader;
 		BufferedWriter bufferedWriter;
