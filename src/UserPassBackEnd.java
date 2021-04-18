@@ -104,8 +104,28 @@ public class UserPassBackEnd {
 				return false;
 			}
 			
+			boolean containsLetter = false;
+			//checks password for at least one alpha character
+			for (int i = 0; i < password.length(); i++) {
+				char alphaCheck = passwordArray[i];
+				
+				//if ((alphaCheck >= 'a' && alphaCheck <= 'z') || (alphaCheck >= 'A' && alphaCheck <= 'Z')) {\
+				if (Character.isLetter(passwordArray[i])) {
+					containsLetter = true;
+				}
+			}
+			
+			if (containsLetter == false) {
+				warning_l.setText("Password must contain at least one letter");
+				
+				bufferedReader.close();
+				bufferedWriter.close();
+				
+				return false;
+			}
+			
 			//checks password for at least one special character
-			for (int i = 0; i < username.length(); i++) {
+			for (int i = 0; i < password.length(); i++) {
 				if (password.indexOf('!') < 0 && password.indexOf('@') < 0 && password.indexOf('#') < 0
 						&& password.indexOf('$') < 0 && password.indexOf('%') < 0 && password.indexOf('&') < 0
 						&& password.indexOf('?') < 0) {
@@ -122,7 +142,7 @@ public class UserPassBackEnd {
 			}
 			
 			//checks password for at least one integer
-			for (int i = 0; i < username.length(); i++) {
+			for (int i = 0; i < password.length(); i++) {
 				if (password.indexOf('1') < 0 && password.indexOf('2') < 0 && password.indexOf('3') < 0
 						&& password.indexOf('4') < 0 && password.indexOf('5') < 0 && password.indexOf('6') < 0
 						&& password.indexOf('7') < 0 && password.indexOf('8') < 0 && password.indexOf('9') < 0
@@ -140,7 +160,7 @@ public class UserPassBackEnd {
 			}
 			
 			//checks password of invalid characters
-			for (int i = 0; i < username.length(); i++) {
+			for (int i = 0; i < password.length(); i++) {
 				if (password.indexOf('"') > 0) {
 					warning_l.setText("Password cannot contain the " + '"' + " character.");
 					
