@@ -37,7 +37,7 @@ public class UserPassBackEnd {
 		String[] tokens;
 		
 		int userMinLength = 4;
-		int userMaxLength = 20;
+		int userMaxLength = 15;
 		
 		boolean userExists = false;
 		
