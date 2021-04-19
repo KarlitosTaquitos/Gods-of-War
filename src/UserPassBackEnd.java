@@ -59,7 +59,7 @@ public class UserPassBackEnd {
 			
 			//checks username for minimum length and maximum length
 			if (username.length() <= userMinLength - 1 || username.length() > userMaxLength) {
-				warning_l.setText("Username must be at least 4 characters and no greater than 20 characters.");
+				warning_l.setText("Username must be at least 4 characters and no greater than 15 characters.");
 				
 				bufferedReader.close();
 				
@@ -96,7 +96,7 @@ public class UserPassBackEnd {
 			
 			//checks password of for minimum and maximum length
 			if (password.length() <= userMinLength - 1 || password.length() > userMaxLength) {
-				warning_l.setText("Password must be at least 4 characters and no greater than 20 characters.");
+				warning_l.setText("Password must be at least 4 characters and no greater than 15 characters.");
 				
 				bufferedReader.close();
 				bufferedWriter.close();
