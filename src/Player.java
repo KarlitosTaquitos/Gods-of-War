@@ -8,10 +8,12 @@ public class Player implements GameElement {
 	// [x, y]
 	int[] position = new int[2];
 	
-	//variables that hold hp, base damage, and AP pool
+	//various player variables
 	public int hp; //health points
 	public int bd; //base damage
 	public int APpool; //attribute pool
+	public int enemiesDefeated; //how many enemies player has defeated
+	public int playerDefeat; //how many times the player was defeated
 	
 	//variables that represent the player's attributes
 	public int STR; //strength
@@ -51,6 +53,8 @@ public class Player implements GameElement {
 		//change for testing
 		this.hp = 100;
 		this.bd = 10;
+		this.enemiesDefeated = 0;
+		this.playerDefeat = 0;
 		
 		//sets player attributes to beginning attributes
 		this.STR = 5;

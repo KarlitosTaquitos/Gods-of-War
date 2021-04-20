@@ -381,6 +381,17 @@ public class GameGUI {
 		
 			message_l.setText(pos_s);
 		}
+		
+		else if (exploreMessage == "You were defeated!") {
+			int xPos = GamePlay.player.position[0];
+			int yPos = GamePlay.player.position[1];
+		
+			String pos_s = "You were defeated! Position: ";
+			pos_s = pos_s + xPos + ", " + yPos;
+		
+			message_l.setText(pos_s);
+		}
+		
 		else message_l.setText(exploreMessage);
 		
 		//------------------------------------------------------
@@ -679,9 +690,10 @@ public class GameGUI {
 				
 				eMessage_l.setText("<html>" + enemy.name + "'s hp: " + enemy.hp + "<br/>");
 				if (BattleBackEnd.enemyAttack(enemy, GamePlay.player, eMessage_l)) {
-					exploreMessage = "";
+					exploreMessage = "You were defeated!";
 					exploreScreen();
 				}
+				
 				eMessage_l.setText(eMessage_l.getText() + "</html>");
 			}
 		});

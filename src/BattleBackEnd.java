@@ -170,6 +170,8 @@ public class BattleBackEnd {
 		if (enemy.isDefeated == true) {
 			mes_l.setText(mes_l.getText() + "Enemy was defeated.<br/>");
 			
+			player.enemiesDefeated += 1;
+			
 			return true;
 		}
 		
@@ -266,6 +268,8 @@ public class BattleBackEnd {
 	private static boolean playerDefeated(Player player) {
 		if (player.hp <= 0) {
 			player.hp = 100;
+			
+			player.playerDefeat += 1;
 			
 			Map.map[player.position[0]][player.position[1]].playerInArea = false;
 			
