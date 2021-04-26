@@ -69,7 +69,7 @@ public class GodsChosen extends Enemies implements GameElement {
 	}
 
 	@Override
-	public void write() {
+	public void write(String filename) {
 		// TODO Auto-generated method stub
 		
 	}

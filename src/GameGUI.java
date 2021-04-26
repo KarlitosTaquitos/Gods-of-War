@@ -408,6 +408,7 @@ public class GameGUI {
 		save_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//save
+				SaveGame.saveGameFile(GamePlay.player, GamePlay.map);
 			}
 		});
 		

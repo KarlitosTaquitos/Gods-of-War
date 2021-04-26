@@ -1,3 +1,4 @@
+import java.io.*;
 
 public class Player implements GameElement {
 	
@@ -84,9 +85,30 @@ public class Player implements GameElement {
 	}
 
 	//function that saves the player's state
-	@Override
-	public void write() {
+	public void write(String filename) throws IOException {
+		BufferedWriter saver = new BufferedWriter(new FileWriter(filename, true));
+		
+		saver.write("Player information.");
+		saver.write("\n" + "player name " + GamePlay.player.name);
+		saver.write("\n" + "player position x " + GamePlay.player.position[0]);
+		saver.write("\n" + "player position y " + GamePlay.player.position[1]);
+		saver.write("\n" + "player APpool " + GamePlay.player.APpool);
+		saver.write("\n" + "player hp " + GamePlay.player.hp);
+		saver.write("\n" + "player bd " + GamePlay.player.bd);
+		saver.write("\n" + "player enemiesDefeated " + GamePlay.player.enemiesDefeated);
+		saver.write("\n" + "player STR " + GamePlay.player.STR);
+		saver.write("\n" + "player INT " + GamePlay.player.INT);
+		saver.write("\n" + "player CON " + GamePlay.player.CON);
+		saver.write("\n" + "player SPD " +GamePlay. player.SPD);
+		saver.write("\n" + "player food " + GamePlay.player.food);
+		saver.write("\n" + "player smPot " + GamePlay.player.smPot);
+		saver.write("\n" + "player lgPot " + GamePlay.player.lgPot);
+		saver.write("\n" + "player lastRestArea x " + GamePlay.player.lastRestArea[0]);
+		saver.write("\n" + "player lastRestArea y " + GamePlay.player.lastRestArea[1]);
+		saver.write("\n" + "End of Player information");
+		saver.write("\n");
+		
+		saver.close();
 	}
-	
 
 }

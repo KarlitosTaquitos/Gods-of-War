@@ -268,14 +268,30 @@ public class ExploreMapBackEnd {
 	public static boolean fillMapEnemies(Map map) {
 		
 		Random rand = new Random();
+
+		int randIntX = rand.nextInt(map.size);
+		int randIntY = rand.nextInt(map.size);
 		
 		for (int i = 0; i < map.size - 1; i++)
 		{
-			//first, lower leveled Enemy population
-			int randIntX = rand.nextInt(map.size);
-			int randIntY = rand.nextInt(map.size);
+			//God's Chosen random placement
+			randIntX = rand.nextInt(map.size);
+			randIntY = rand.nextInt(map.size);
 			
-			while (randIntX == 0 && randIntY == 0) {
+			while (randIntX <= map.size / 3 || randIntY <= map.size / 3) {
+				randIntX = rand.nextInt(map.size);
+				randIntY = rand.nextInt(map.size);
+					
+				while (Map.map[randIntX][randIntY].enemyInArea == true || Map.map[randIntX][randIntY].isRestArea == true) {
+					randIntX = rand.nextInt(map.size);
+					randIntY = rand.nextInt(map.size);
+				}
+			}
+			
+			Map.map[randIntX][randIntY].areaEnemy = GodsChosen.makeGodsChosen(randIntX, randIntY);
+			
+			//Lower leveled Enemy population
+			while (randIntX == 0 || randIntY == 0) {
 				randIntX = rand.nextInt(map.size);
 				randIntY = rand.nextInt(map.size);
 			}
@@ -294,9 +310,11 @@ public class ExploreMapBackEnd {
 				randIntX = rand.nextInt(map.size);
 				randIntY = rand.nextInt(map.size);
 				
-				while (randIntX == 0 && randIntY == 0) {
-					randIntX = rand.nextInt(map.size);
-					randIntY = rand.nextInt(map.size);
+				{
+					while (randIntX == map.size - 1 && randIntY == map.size - 1) {
+						randIntX = rand.nextInt(map.size);
+						randIntY = rand.nextInt(map.size);
+					}
 				}
 			}
 			
@@ -305,28 +323,6 @@ public class ExploreMapBackEnd {
 				
 				Map.map[randIntX][randIntY].enemyInArea = true;
 			}
-			
-			//God's Chosen random placement
-			randIntX = rand.nextInt(map.size);
-			randIntY = rand.nextInt(map.size);
-			
-			while (randIntX <= map.size / 3 || randIntY <= map.size / 3) {
-				randIntX = rand.nextInt(map.size);
-				randIntY = rand.nextInt(map.size);
-				
-				while (Map.map[randIntX][randIntY].enemyInArea == true && Map.map[randIntX][randIntY].isRestArea == true)
-				{
-					randIntX = rand.nextInt(map.size);
-					randIntY = rand.nextInt(map.size);
-					
-					while (randIntX == 0 && randIntY == 0) {
-						randIntX = rand.nextInt(map.size);
-						randIntY = rand.nextInt(map.size);
-					}
-				}
-			}
-			
-			Map.map[randIntX][randIntY].areaEnemy = GodsChosen.makeGodsChosen(randIntX, randIntY);
 			
 		}
 		
@@ -404,11 +400,8 @@ public class ExploreMapBackEnd {
 			
 			//prevents rest area from being placed on boss area or starting area
 			while (randIntX == map.size - 1 && randIntY == map.size - 1)
-			{
-				randIntX = rand.nextInt(map.size);
-				randIntY = rand.nextInt(map.size);
-				
-				while (randIntX == 0 && randIntY == 0) {
+			{	
+				while (randIntX == 1 && randIntY == 1) {
 					randIntX = rand.nextInt(map.size);
 					randIntY = rand.nextInt(map.size);
 				}

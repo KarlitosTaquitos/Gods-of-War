@@ -1,0 +1,326 @@
+Player information.
+player name user1
+player position x 1
+player position y 1
+player APpool 0
+player hp 100
+player bd 10
+player enemiesDefeated 0
+player STR 5
+player INT 5
+player CON 5
+player SPD 5
+player food 0
+player smPot 0
+player lgPot 0
+player lastRestArea x 1
+player lastRestArea y 1
+End of Player information
+
+Map information
+map size 6
+
+Area 1 Information
+area position x 1
+area position y 1
+area playerInArea true
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 2 Information
+area position x 1
+area position y 2
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 3 Information
+area position x 1
+area position y 3
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 4 Information
+area position x 1
+area position y 4
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 5 Information
+area position x 1
+area position y 5
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 6 Information
+area position x 1
+area position y 6
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 7 Information
+area position x 2
+area position y 1
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 8 Information
+area position x 2
+area position y 2
+area playerInArea false
+area enemyInArea false
+area areaConsumable true
+area areaConsumable Large Potion
+area isRestArea false
+
+Area 9 Information
+area position x 2
+area position y 3
+area playerInArea false
+area enemyInArea false
+area areaConsumable true
+area areaConsumable Food
+area isRestArea false
+
+Area 10 Information
+area position x 2
+area position y 4
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 11 Information
+area position x 2
+area position y 5
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 12 Information
+area position x 2
+area position y 6
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 13 Information
+area position x 3
+area position y 1
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea true
+
+Area 14 Information
+area position x 3
+area position y 2
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 15 Information
+area position x 3
+area position y 3
+area playerInArea false
+area enemyInArea true
+area areaEnemy Emu
+area areaConsumable true
+area areaConsumable Food
+area isRestArea false
+
+Area 16 Information
+area position x 3
+area position y 4
+area playerInArea false
+area enemyInArea true
+area areaEnemy God's Chosen
+area areaConsumable false
+area isRestArea false
+
+Area 17 Information
+area position x 3
+area position y 5
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 18 Information
+area position x 3
+area position y 6
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 19 Information
+area position x 4
+area position y 1
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 20 Information
+area position x 4
+area position y 2
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 21 Information
+area position x 4
+area position y 3
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 22 Information
+area position x 4
+area position y 4
+area playerInArea false
+area enemyInArea true
+area areaEnemy Emu
+area areaConsumable false
+area isRestArea false
+
+Area 23 Information
+area position x 4
+area position y 5
+area playerInArea false
+area enemyInArea true
+area areaEnemy Canid
+area areaConsumable false
+area isRestArea false
+
+Area 24 Information
+area position x 4
+area position y 6
+area playerInArea false
+area enemyInArea true
+area areaEnemy Cappa
+area areaConsumable false
+area isRestArea false
+
+Area 25 Information
+area position x 5
+area position y 1
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 26 Information
+area position x 5
+area position y 2
+area playerInArea false
+area enemyInArea false
+area areaConsumable true
+area areaConsumable Small Potion
+area isRestArea false
+
+Area 27 Information
+area position x 5
+area position y 3
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 28 Information
+area position x 5
+area position y 4
+area playerInArea false
+area enemyInArea true
+area areaEnemy Neko
+area areaConsumable false
+area isRestArea false
+
+Area 29 Information
+area position x 5
+area position y 5
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 30 Information
+area position x 5
+area position y 6
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea true
+
+Area 31 Information
+area position x 6
+area position y 1
+area playerInArea false
+area enemyInArea false
+area areaConsumable true
+area areaConsumable Large Potion
+area isRestArea false
+
+Area 32 Information
+area position x 6
+area position y 2
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 33 Information
+area position x 6
+area position y 3
+area playerInArea false
+area enemyInArea false
+area areaConsumable false
+area isRestArea false
+
+Area 34 Information
+area position x 6
+area position y 4
+area playerInArea false
+area enemyInArea true
+area areaEnemy Emu
+area areaConsumable true
+area areaConsumable Small Potion
+area isRestArea false
+
+Area 35 Information
+area position x 6
+area position y 5
+area playerInArea false
+area enemyInArea true
+area areaEnemy Emu
+area areaConsumable false
+area isRestArea false
+
+Area 36 Information
+area position x 6
+area position y 6
+area playerInArea false
+area enemyInArea true
+area areaEnemy Ursa
+area areaConsumable false
+area isRestArea false
+
+End of Map information.
