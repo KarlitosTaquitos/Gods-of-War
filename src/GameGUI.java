@@ -5,7 +5,7 @@ import java.io.*;
 
 public class GameGUI {
 	private JFrame frame;
-	private final int WIDTH = 800, HEIGHT = 600;
+	private final int WIDTH = 600, HEIGHT = 400;
 	private final int BUTTON_W = 100, BUTTON_H = 50;
 	
 	protected String playerName;
@@ -77,22 +77,21 @@ public class GameGUI {
 		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
 		JLabel username_l = new JLabel("Username:");
-		username_l.setBounds(150, 200, 100, 30);
+		username_l.setBounds(WIDTH / 5, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, 30);
 		JTextField username_t = new JTextField();
-		username_t.setBounds(300, 200, 200, 30);
+		username_t.setBounds(WIDTH / 3, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W * 2, 30);
 		
 		JLabel password_l = new JLabel("Password");
-		password_l.setBounds(150, 285, 100, 30);
+		password_l.setBounds(WIDTH / 5, HEIGHT / 2 + BUTTON_H / 2, BUTTON_W, 30);
 		JPasswordField password_t = new JPasswordField();
-		password_t.setBounds(300, 285, 200, 30);
+		password_t.setBounds(WIDTH / 3, HEIGHT / 2 + BUTTON_H / 2, BUTTON_W * 2, 30);
 		
 		JButton login_b = new JButton("Login");
-		login_b.setBounds(550, 285, 200, 30);
+		login_b.setBounds(WIDTH / 2, 4 * HEIGHT / 5, BUTTON_W, BUTTON_H);
 		
-		JTextArea warning_l = new JTextArea();
-		warning_l.setBounds(300, 100, 200, 100);
-		warning_l.setLineWrap(true);
-		warning_l.setOpaque(false);
+		JLabel warning_l = new JLabel();
+		warning_l.setBounds(WIDTH / 3, HEIGHT / 8, WIDTH / 3, HEIGHT / 4);
+		warning_l.setVerticalAlignment(JLabel.CENTER);
 		
 		//-----------------------------------------------------
 		
@@ -138,22 +137,21 @@ public class GameGUI {
 		back_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
 		
 		JLabel username_l = new JLabel("Username:");
-		username_l.setBounds(150, 200, 100, 30);
+		username_l.setBounds(WIDTH / 5, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, 30);
 		JTextField username_t = new JTextField();
-		username_t.setBounds(300, 200, 200, 30);
+		username_t.setBounds(WIDTH / 3, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W * 2, 30);
 		
 		JLabel password_l = new JLabel("Password");
-		password_l.setBounds(150, 285, 100, 30);
+		password_l.setBounds(WIDTH / 5, HEIGHT / 2 + BUTTON_H / 2, BUTTON_W, 30);
 		JPasswordField password_t = new JPasswordField();
-		password_t.setBounds(300, 285, 200, 30);
+		password_t.setBounds(WIDTH / 3, HEIGHT / 2 + BUTTON_H / 2, BUTTON_W * 2, 30);
 		
 		JButton register_b = new JButton("Register");
-		register_b.setBounds(550, 285, 200, 30);
+		register_b.setBounds(WIDTH / 2, 4 * HEIGHT / 5, BUTTON_W, BUTTON_H);
 		
-		JTextArea warning_l = new JTextArea();
-		warning_l.setBounds(300, 100, 200, 100);
-		warning_l.setLineWrap(true);
-		warning_l.setOpaque(false);
+		JLabel warning_l = new JLabel();
+		warning_l.setBounds(WIDTH / 3, HEIGHT / 8, WIDTH / 3, HEIGHT / 4);
+		warning_l.setVerticalAlignment(JLabel.CENTER);
 		
 		//-----------------------------------------------------
 		
@@ -197,7 +195,7 @@ public class GameGUI {
 		
 		//create labels, buttons
 		JLabel welcome_l = new JLabel("Welcome, Warrior");
-		welcome_l.setBounds(0, 0, 800, 300);
+		welcome_l.setBounds(0, 0, WIDTH, HEIGHT / 2);
 		welcome_l.setVerticalAlignment(JLabel.CENTER);
 		welcome_l.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -241,12 +239,12 @@ public class GameGUI {
 		
 		//Create labels and buttons
 		JLabel title_l = new JLabel("New Game");
-		title_l.setBounds(0, 0, 800, 100);
+		title_l.setBounds(0, 0, WIDTH, BUTTON_H * 2);
 		title_l.setVerticalAlignment(JLabel.CENTER);
 		title_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JLabel size_l = new JLabel("Select World Size:");
-		size_l.setBounds(0, 100, 800, 100);
+		size_l.setBounds(0, BUTTON_H * 2, WIDTH, BUTTON_H * 2);
 		size_l.setVerticalAlignment(JLabel.CENTER);
 		size_l.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -322,54 +320,42 @@ public class GameGUI {
 		
 		//Add things
 		JButton spend_b = new JButton("Spend AP");
-		spend_b.setBounds(50, 50, BUTTON_W, BUTTON_H);
+		spend_b.setBounds(50, 50, BUTTON_W * 3 / 4, BUTTON_H * 3 / 4);
 		
 		JButton save_b = new JButton("Save");
-		save_b.setBounds(WIDTH - BUTTON_W - 50, 50, BUTTON_W, BUTTON_H);
+		save_b.setBounds(WIDTH - BUTTON_W - 50, 50, BUTTON_W * 3 / 4, BUTTON_H);
 		
 		JButton use_b = new JButton("Use Item");
-		use_b.setBounds(50, HEIGHT - BUTTON_H - 75, BUTTON_W, BUTTON_H);
+		use_b.setBounds(50, HEIGHT - BUTTON_H - 75, BUTTON_W * 3 / 4, BUTTON_H);
 		
 		JButton quit_b = new JButton("Quit");
-		quit_b.setBounds(WIDTH - BUTTON_W - 50, HEIGHT - BUTTON_H - 75, BUTTON_W, BUTTON_H);
+		quit_b.setBounds(WIDTH - BUTTON_W - 50, HEIGHT - BUTTON_H - 75, BUTTON_W * 3 / 4, BUTTON_H);
 		
 		JButton up_b = new JButton("Up");
-		up_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H - 50, BUTTON_W, BUTTON_H);
+		up_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 - BUTTON_H - 25, BUTTON_W * 3 / 4, BUTTON_H);
 		
 		JButton left_b = new JButton("Left");
-		left_b.setBounds(WIDTH / 2 - BUTTON_W - 50, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		left_b.setBounds(WIDTH / 2 - BUTTON_W - 25, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W * 3 / 4, BUTTON_H);
 		
 		JButton right_b = new JButton("Right");
-		right_b.setBounds(WIDTH / 2 + 50, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		right_b.setBounds(WIDTH / 2 + 25, HEIGHT / 2 - BUTTON_H / 2, BUTTON_W * 3 / 4, BUTTON_H);
 		
 		JButton down_b = new JButton("Down");
-		down_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 + 50, BUTTON_W, BUTTON_H);
+		down_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 + 25, BUTTON_W * 3 / 4, BUTTON_H);
 		
 		JLabel message_l = new JLabel();
-		message_l.setBounds(WIDTH / 4, 50, WIDTH / 2, HEIGHT / 2 - 100 - BUTTON_H);
+		message_l.setBounds(WIDTH / 4, 0, WIDTH / 2, HEIGHT / 2 - 50 - BUTTON_H);
 		message_l.setVerticalAlignment(JLabel.CENTER);
 		message_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		//message for player hit points
 		JLabel pMessage_l = new JLabel();
-		pMessage_l.setBounds(WIDTH / 5, 50, WIDTH / 5, HEIGHT / 2 - 100 - BUTTON_H);
+		pMessage_l.setBounds(WIDTH / 3, HEIGHT - BUTTON_H - 75, WIDTH / 3, BUTTON_H * 2);
 		pMessage_l.setVerticalAlignment(JLabel.CENTER);
 		pMessage_l.setHorizontalAlignment(JLabel.CENTER);
 		
-		//message for player AP pool
-		//this isn't showing up on GUI
-		JLabel aMessage_l = new JLabel();
-		pMessage_l.setBounds(WIDTH / 5, 50, WIDTH / 5, HEIGHT / 2 - 100 - BUTTON_H);
-		pMessage_l.setVerticalAlignment(JLabel.CENTER);
-		pMessage_l.setHorizontalAlignment(JLabel.CENTER);
-		
-		//Put player hit points on screen
-		pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>");
-		pMessage_l.setText(pMessage_l.getText() + "</html>");
-		
-		//Put player AP pool on screen
-		aMessage_l.setText("<html> Your unspent AP: " + GamePlay.player.APpool + "<br/>");
-		aMessage_l.setText(aMessage_l.getText() + "</html>");
+		//Put player hit points and ap pool on screen
+		pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>Your unspent AP: " + GamePlay.player.APpool + "<br/></html>");
 		
 		//Put position on screen
 		if (exploreMessage == "") {
@@ -423,7 +409,8 @@ public class GameGUI {
 		quit_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Quit
-				System.exit(0);
+				//System.exit(0);
+				quitScreen(false);
 			}
 		});
 		
@@ -510,9 +497,6 @@ public class GameGUI {
 		frame.add(message_l);
 		//add player hit points message to screen
 		frame.add(pMessage_l);
-		//add player AP pool message to screen
-		//this is not showing up on GUI
-		frame.add(aMessage_l);
 	}
 	
 	private void spendAPScreen() {
@@ -849,5 +833,27 @@ public class GameGUI {
 		frame.add(small_l);
 		frame.add(large_l);
 		frame.add(hp_l);
+	}
+
+	private void quitScreen(boolean bossDefeated) {
+		clearFrame();
+
+		JLabel message_l = new JLabel();
+		message_l.setBounds(WIDTH / 3, HEIGHT / 3, WIDTH / 3, HEIGHT / 3);
+		message_l.setVerticalAlignment(JLabel.CENTER);
+		message_l.setHorizontalAlignment(JLabel.CENTER);
+		ExploreMapBackEnd.postGameStats(GamePlay.player, bossDefeated, message_l);
+
+		JButton quit_b = new JButton("Quit");
+		quit_b.setBounds(WIDTH / 2 - BUTTON_W / 2, 2 * HEIGHT / 3 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
+
+		quit_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+
+		frame.add(message_l);
+		frame.add(quit_b);
 	}
 }

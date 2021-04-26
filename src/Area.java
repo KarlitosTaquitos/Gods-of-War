@@ -21,6 +21,9 @@ public class Area{
 	 
 	//boolean representing whether the area is a rest area
 	boolean isRestArea;
+
+	//boolean representing whether this area has been discovered yet
+	boolean discovered;
 	
 	//base constructor for Area with no player, enemy, or consumable
 	// and not being a Rest Area

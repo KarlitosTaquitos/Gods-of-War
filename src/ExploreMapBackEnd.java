@@ -193,6 +193,12 @@ public class ExploreMapBackEnd {
 		//modifies player position
 		player.position[1] += 1;
 		
+		//checks if the area has been discovered, and updates player's attributes accordiingly
+		if (!map.map[player.position[0]][player.position[1]].discovered) {
+			player.areasFound++;
+			map.map[player.position[0]][player.position[1]].discovered = true;
+		}
+		
 		afterMoveDisplayUpdate(player, map, pos_l);
 
 		return true;
@@ -214,6 +220,13 @@ public class ExploreMapBackEnd {
 		
 		//modifies player position
 		player.position[1] -= 1;
+			
+		//checks if the area has been discovered, and updates player's attributes accordiingly
+		if (!map.map[player.position[0]][player.position[1]].discovered) {
+			player.areasFound++;
+			map.map[player.position[0]][player.position[1]].discovered = true;
+		}
+
 		
 		afterMoveDisplayUpdate(player, map, pos_l);
 		
@@ -237,6 +250,12 @@ public class ExploreMapBackEnd {
 		//modifies player position
 		player.position[0] -= 1;
 		
+		//checks if the area has been discovered, and updates player's attributes accordiingly
+		if (!map.map[player.position[0]][player.position[1]].discovered) {
+			player.areasFound++;
+			map.map[player.position[0]][player.position[1]].discovered = true;
+		}
+
 		afterMoveDisplayUpdate(player, map, pos_l);
 		
 		return true;
@@ -258,6 +277,13 @@ public class ExploreMapBackEnd {
 		
 		//modifies player position
 		player.position[0] += 1;
+
+		//checks if the area has been discovered, and updates player's attributes accordiingly
+		if (!map.map[player.position[0]][player.position[1]].discovered) {
+			player.areasFound++;
+			map.map[player.position[0]][player.position[1]].discovered = true;
+		}
+		
 		
 		afterMoveDisplayUpdate(player, map, pos_l);
 		
@@ -422,4 +448,40 @@ public class ExploreMapBackEnd {
 		return true;
 	}
 	
+	//function that calculates the player's score
+	public static int score(Player player, boolean bossDefeated) {
+		int totalScore = 0;
+
+		int apScore = player.CON + player.INT + player.SPD + player.STR - 20;
+		int apPoolScore = apScore + player.APpool;
+		apScore *= 100;
+		apPoolScore *= 100;
+
+		totalScore += apScore;
+		totalScore += apPoolScore;
+
+		int areasFoundScore = player.areasFound * 50;
+		totalScore += areasFoundScore;
+
+		if (bossDefeated) {
+			totalScore += 1000;
+		}
+		
+		int deathPenalty = player.playerDefeat * -50;
+		totalScore += deathPenalty;
+
+		return totalScore;
+	}
+
+	//function that calculates and puts up the player's stats and score
+	public static boolean postGameStats(Player player, boolean bossDefeated, JLabel mes_l) {
+		mes_l.setText("<html>");
+		if (bossDefeated)
+			mes_l.setText(mes_l.getText() + "You defeated the boss!!<br/>");
+		mes_l.setText(mes_l.getText() + "Enemies Defeated: " + player.enemiesDefeated + "<br/>");
+		mes_l.setText(mes_l.getText() + "Times Defeated: " + player.playerDefeat + "<br/>");
+		mes_l.setText(mes_l.getText() + "Your final score: " + score(player, bossDefeated) + "<br/></html>");
+
+		return true;
+	}
 }

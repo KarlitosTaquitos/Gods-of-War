@@ -2,7 +2,7 @@ import java.io.*;
 
 //import javax.swing.JLabel;
 import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class UserPassBackEnd {
@@ -23,7 +23,7 @@ public class UserPassBackEnd {
 
 	//register function
 	@SuppressWarnings("unused")
-	public static boolean register(JTextField username_t, JPasswordField password_t, JTextArea warning_l) {
+	public static boolean register(JTextField username_t, JPasswordField password_t, JLabel warning_l) {
 		BufferedReader bufferedReader;
 		BufferedWriter bufferedWriter;
 		
@@ -198,7 +198,7 @@ public class UserPassBackEnd {
 	}
 
 	//login function
-	public static boolean login(JTextField username_t, JPasswordField password_t, JTextArea warning_l) {
+	public static boolean login(JTextField username_t, JPasswordField password_t, JLabel warning_l) {
 		BufferedReader bufferedReader;
 		
 		String line;
@@ -240,7 +240,7 @@ public class UserPassBackEnd {
 			//reaches the end without matching credentials, returns false-----------------------------------------------
 			bufferedReader.close();
 					
-			warning_l.setText("Login Unsuccessful. Please enter a valid username and password.");
+			warning_l.setText("<html>Login Unsuccessful. <br/>Please enter a valid username and password.</html>");
 							
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

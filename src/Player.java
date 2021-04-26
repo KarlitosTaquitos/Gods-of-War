@@ -14,6 +14,7 @@ public class Player implements GameElement {
 	public int APpool; //attribute pool
 	public int enemiesDefeated; //how many enemies player has defeated
 	public int playerDefeat; //how many times the player was defeated
+	public int areasFound; //number of distinct areas vsited
 	
 	//variables that represent the player's attributes
 	public int STR; //strength
@@ -70,7 +71,9 @@ public class Player implements GameElement {
 		
 		this.lastRestArea[0] = 1;
 		this.lastRestArea[1] = 1;
-	
+
+		//set amount of areas found to be 0
+		areasFound = 0;
 	}
 	
 	//function that creates a player with given username
