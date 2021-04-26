@@ -644,12 +644,12 @@ public class GameGUI {
 		leave_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 + 50, BUTTON_W, BUTTON_H);
 		
 		JLabel pMessage_l = new JLabel();
-		pMessage_l.setBounds(WIDTH / 5, 50, WIDTH / 5, HEIGHT / 2 - 100 - BUTTON_H);
+		pMessage_l.setBounds(WIDTH / 5, 10, WIDTH / 5, HEIGHT / 2 - BUTTON_H);
 		pMessage_l.setVerticalAlignment(JLabel.CENTER);
 		pMessage_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JLabel eMessage_l = new JLabel();
-		eMessage_l.setBounds(3 * WIDTH / 5, 50, WIDTH / 5, HEIGHT / 2 - 100 - BUTTON_H);
+		eMessage_l.setBounds(3 * WIDTH / 5, 10, WIDTH / 5, HEIGHT / 2 - BUTTON_H);
 		eMessage_l.setVerticalAlignment(JLabel.CENTER);
 		eMessage_l.setHorizontalAlignment(JLabel.CENTER);
 		

@@ -170,8 +170,6 @@ public class BattleBackEnd {
 		if (enemy.isDefeated == true) {
 			mes_l.setText(mes_l.getText() + "Enemy was defeated.<br/>");
 			
-			player.enemiesDefeated += 1;
-			
 			return true;
 		}
 		
@@ -199,6 +197,8 @@ public class BattleBackEnd {
 			mes_l.setText(mes_l.getText() + "You gained 2 AP!<br/>");
 			mes_l.setText(mes_l.getText() + "You have " + player.APpool + " unspent AP.<br/>");
 			
+			player.enemiesDefeated++;
+
 			//return to explore map
 			return true;
 		}
