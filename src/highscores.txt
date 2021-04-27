@@ -1,2 +1,4 @@
-user7 100
 KarlitosTaquitos 123456
+user4 650
+user7 100
+user5 0

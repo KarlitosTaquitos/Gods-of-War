@@ -42,6 +42,7 @@ public class HighScoreBackEnd {
 
             BufferedWriter outputScores = new BufferedWriter(new FileWriter("src/highscores.txt", false));
             writeScores(outputScores, arr);
+            outputScores.close();
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +71,7 @@ public class HighScoreBackEnd {
         for (int i = arr.size() - 1; i > 0; i--) {
             if (arr.elementAt(i).score > arr.elementAt(i - 1).score) {
                 arr.insertElementAt(arr.get(i), i - 1);
-                arr.remove(arr.lastElement());
+                arr.remove(i + 1);
             }
         }
 
