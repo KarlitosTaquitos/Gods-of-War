@@ -20,13 +20,44 @@ public class GameGUI {
 		frame.setVisible(true);
 		
 		
-		mainScreen();
+		titleScreen();
 	}
 	
 	public static void main(String[] args) throws IOException {
 		new GameGUI();
 	}
 	
+	private void titleScreen() {
+		clearFrame();
+
+		JLabel title_l = new JLabel("Gods of War");
+		title_l.setBounds(0, 0, WIDTH, HEIGHT * 2 / 3);
+		title_l.setVerticalAlignment(JLabel.CENTER);
+		title_l.setHorizontalAlignment(JLabel.CENTER);
+
+		JButton start_b = new JButton("Start");
+		start_b.setBounds(WIDTH / 3 - BUTTON_W / 2, HEIGHT * 2 / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+
+		JButton quit_b = new JButton("Quit");
+		quit_b.setBounds(WIDTH * 2 / 3 - BUTTON_W / 2, HEIGHT * 2 / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+
+		start_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mainScreen();
+			}
+		});
+
+		quit_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+
+		frame.add(title_l);
+		frame.add(start_b);
+		frame.add(quit_b);
+	}
+
 	private void mainScreen() {
 		//Clear the frame
 		clearFrame();
