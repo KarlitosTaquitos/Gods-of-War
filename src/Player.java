@@ -74,6 +74,34 @@ public class Player implements GameElement {
 	
 	}
 	
+	public Player(String playerName, int playerPosX, int playerPosY, int playerAPpool, int playerHP, int playerBD,
+			int playerEnemiesDefeated, int playerPlayerDefeat, int playerSTR, int playerINT, int playerCON, int playerSPD,
+			int playerFood, int playerSMPot, int playerLGPot, int playerLastRestAreaX, int playerLastRestAreaY) {
+		
+		this.name = playerName;
+		
+		this.position[0] = playerPosX;
+		this.position[1] = playerPosY;
+		
+		this.APpool = playerAPpool;
+		this.hp = playerHP;
+		this.bd = playerBD;
+		this.enemiesDefeated = playerEnemiesDefeated;
+		this.playerDefeat = playerPlayerDefeat;
+		
+		this.STR = playerSTR;
+		this.INT = playerINT;
+		this.CON = playerCON;
+		this.SPD = playerSPD;
+		
+		this.food = playerFood;
+		this.smPot = playerSMPot;
+		this.lgPot = playerLGPot;
+		
+		this.lastRestArea[0] = playerLastRestAreaX;
+		this.lastRestArea[1] = playerLastRestAreaY;
+	}
+
 	//function that creates a player with given username
 	static Player makePlayer(String username) {
 		
@@ -83,28 +111,41 @@ public class Player implements GameElement {
 		
 		return userPlayer;
 	}
+	
+	static Player makePlayer(String playerName, int playerPosX, int playerPosY, int playerAPpool, int playerHP, int playerBD,
+			int playerEnemiesDefeated, int playerPlayerDefeat, int playerSTR, int playerINT, int playerCON, int playerSPD,
+			int playerFood, int playerSMPot, int playerLGPot, int playerLastRestAreaX, int playerLastRestAreaY) {
+	
+		Player madePlayer = new Player(playerName, playerPosX, playerPosY, playerAPpool, playerHP, playerBD,
+				playerEnemiesDefeated, playerPlayerDefeat, playerSTR, playerINT, playerCON, playerSPD,
+				playerFood, playerSMPot, playerLGPot, playerLastRestAreaX, playerLastRestAreaY);
+		
+		return madePlayer;
+		
+	}
 
 	//function that saves the player's state
 	public void write(String filename) throws IOException {
 		BufferedWriter saver = new BufferedWriter(new FileWriter(filename, true));
 		
 		saver.write("Player information.");
-		saver.write("\n" + "player name " + GamePlay.player.name);
-		saver.write("\n" + "player position x " + GamePlay.player.position[0]);
-		saver.write("\n" + "player position y " + GamePlay.player.position[1]);
-		saver.write("\n" + "player APpool " + GamePlay.player.APpool);
-		saver.write("\n" + "player hp " + GamePlay.player.hp);
-		saver.write("\n" + "player bd " + GamePlay.player.bd);
-		saver.write("\n" + "player enemiesDefeated " + GamePlay.player.enemiesDefeated);
-		saver.write("\n" + "player STR " + GamePlay.player.STR);
-		saver.write("\n" + "player INT " + GamePlay.player.INT);
-		saver.write("\n" + "player CON " + GamePlay.player.CON);
-		saver.write("\n" + "player SPD " +GamePlay. player.SPD);
-		saver.write("\n" + "player food " + GamePlay.player.food);
-		saver.write("\n" + "player smPot " + GamePlay.player.smPot);
-		saver.write("\n" + "player lgPot " + GamePlay.player.lgPot);
-		saver.write("\n" + "player lastRestArea x " + GamePlay.player.lastRestArea[0]);
-		saver.write("\n" + "player lastRestArea y " + GamePlay.player.lastRestArea[1]);
+		saver.write("\n" + "playerName " + GamePlay.player.name);
+		saver.write("\n" + "playerPositionX " + GamePlay.player.position[0]);
+		saver.write("\n" + "playerPositionY " + GamePlay.player.position[1]);
+		saver.write("\n" + "playerAPpool " + GamePlay.player.APpool);
+		saver.write("\n" + "playerHP " + GamePlay.player.hp);
+		saver.write("\n" + "playerBD " + GamePlay.player.bd);
+		saver.write("\n" + "playerEnemiesDefeated " + GamePlay.player.enemiesDefeated);
+		saver.write("\n" + "playerPlayerDefeat " + GamePlay.player.playerDefeat);
+		saver.write("\n" + "playerSTR " + GamePlay.player.STR);
+		saver.write("\n" + "playerINT " + GamePlay.player.INT);
+		saver.write("\n" + "playerCON " + GamePlay.player.CON);
+		saver.write("\n" + "playerSPD " +GamePlay. player.SPD);
+		saver.write("\n" + "playerFood " + GamePlay.player.food);
+		saver.write("\n" + "playerSMPot " + GamePlay.player.smPot);
+		saver.write("\n" + "playerLGPot " + GamePlay.player.lgPot);
+		saver.write("\n" + "playerLastRestAreaX " + GamePlay.player.lastRestArea[0]);
+		saver.write("\n" + "playerLastRestAreaY " + GamePlay.player.lastRestArea[1]);
 		saver.write("\n" + "End of Player information");
 		saver.write("\n");
 		

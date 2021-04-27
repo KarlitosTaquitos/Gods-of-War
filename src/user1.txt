@@ -1,326 +1,323 @@
 Player information.
-player name user1
-player position x 1
-player position y 1
-player APpool 0
-player hp 100
-player bd 10
-player enemiesDefeated 0
-player STR 5
-player INT 5
-player CON 5
-player SPD 5
-player food 0
-player smPot 0
-player lgPot 0
-player lastRestArea x 1
-player lastRestArea y 1
+playerName user1
+playerPositionX 6
+playerPositionY 1
+playerAPpool 0
+playerHP 100
+playerBD 10
+playerEnemiesDefeated 0
+playerPlayerDefeat 1
+playerSTR 5
+playerINT 5
+playerCON 5
+playerSPD 5
+playerFood 3
+playerSMPot 1
+playerLGPot 1
+playerLastRestAreaX 1
+playerLastRestAreaY 1
 End of Player information
 
 Map information
-map size 6
+mapSize 6
 
 Area 1 Information
-area position x 1
-area position y 1
-area playerInArea true
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+1 areaPositionX 1
+1 areaPositionY 1
+1 areaPlayerInArea false
+1 areaEnemyInArea false
+1 areaConsumableInArea false
+1 areaIsRestArea false
 
 Area 2 Information
-area position x 1
-area position y 2
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+2 areaPositionX 1
+2 areaPositionY 2
+2 areaPlayerInArea false
+2 areaEnemyInArea false
+2 areaConsumableInArea false
+2 areaIsRestArea false
 
 Area 3 Information
-area position x 1
-area position y 3
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+3 areaPositionX 1
+3 areaPositionY 3
+3 areaPlayerInArea false
+3 areaEnemyInArea false
+3 areaConsumableInArea false
+3 areaIsRestArea false
 
 Area 4 Information
-area position x 1
-area position y 4
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+4 areaPositionX 1
+4 areaPositionY 4
+4 areaPlayerInArea false
+4 areaEnemyInArea false
+4 areaConsumableInArea false
+4 areaIsRestArea false
 
 Area 5 Information
-area position x 1
-area position y 5
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+5 areaPositionX 1
+5 areaPositionY 5
+5 areaPlayerInArea false
+5 areaEnemyInArea false
+5 areaConsumableInArea false
+5 areaIsRestArea false
 
 Area 6 Information
-area position x 1
-area position y 6
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+6 areaPositionX 1
+6 areaPositionY 6
+6 areaPlayerInArea false
+6 areaEnemyInArea false
+6 areaConsumableInArea false
+6 areaIsRestArea false
 
 Area 7 Information
-area position x 2
-area position y 1
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+7 areaPositionX 2
+7 areaPositionY 1
+7 areaPlayerInArea false
+7 areaEnemyInArea false
+7 areaConsumableInArea false
+7 areaIsRestArea false
 
 Area 8 Information
-area position x 2
-area position y 2
-area playerInArea false
-area enemyInArea false
-area areaConsumable true
-area areaConsumable Large Potion
-area isRestArea false
+8 areaPositionX 2
+8 areaPositionY 2
+8 areaPlayerInArea false
+8 areaEnemyInArea false
+8 areaConsumableInArea false
+8 areaIsRestArea false
 
 Area 9 Information
-area position x 2
-area position y 3
-area playerInArea false
-area enemyInArea false
-area areaConsumable true
-area areaConsumable Food
-area isRestArea false
+9 areaPositionX 2
+9 areaPositionY 3
+9 areaPlayerInArea false
+9 areaEnemyInArea false
+9 areaConsumableInArea false
+9 areaIsRestArea false
 
 Area 10 Information
-area position x 2
-area position y 4
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+10 areaPositionX 2
+10 areaPositionY 4
+10 areaPlayerInArea false
+10 areaEnemyInArea false
+10 areaConsumableInArea false
+10 areaIsRestArea false
 
 Area 11 Information
-area position x 2
-area position y 5
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+11 areaPositionX 2
+11 areaPositionY 5
+11 areaPlayerInArea false
+11 areaEnemyInArea false
+11 areaConsumableInArea true
+11 areaAreaConsumable Large Potion
+11 areaIsRestArea false
 
 Area 12 Information
-area position x 2
-area position y 6
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+12 areaPositionX 2
+12 areaPositionY 6
+12 areaPlayerInArea false
+12 areaEnemyInArea false
+12 areaConsumableInArea false
+12 areaIsRestArea false
 
 Area 13 Information
-area position x 3
-area position y 1
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea true
+13 areaPositionX 3
+13 areaPositionY 1
+13 areaPlayerInArea false
+13 areaEnemyInArea false
+13 areaConsumableInArea false
+13 areaIsRestArea false
 
 Area 14 Information
-area position x 3
-area position y 2
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+14 areaPositionX 3
+14 areaPositionY 2
+14 areaPlayerInArea false
+14 areaEnemyInArea false
+14 areaConsumableInArea false
+14 areaIsRestArea false
 
 Area 15 Information
-area position x 3
-area position y 3
-area playerInArea false
-area enemyInArea true
-area areaEnemy Emu
-area areaConsumable true
-area areaConsumable Food
-area isRestArea false
+15 areaPositionX 3
+15 areaPositionY 3
+15 areaPlayerInArea false
+15 areaEnemyInArea true
+15 areaAreaEnemy Boar
+15 areaConsumableInArea false
+15 areaIsRestArea false
 
 Area 16 Information
-area position x 3
-area position y 4
-area playerInArea false
-area enemyInArea true
-area areaEnemy God's Chosen
-area areaConsumable false
-area isRestArea false
+16 areaPositionX 3
+16 areaPositionY 4
+16 areaPlayerInArea false
+16 areaEnemyInArea false
+16 areaConsumableInArea false
+16 areaIsRestArea true
 
 Area 17 Information
-area position x 3
-area position y 5
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+17 areaPositionX 3
+17 areaPositionY 5
+17 areaPlayerInArea false
+17 areaEnemyInArea false
+17 areaConsumableInArea false
+17 areaIsRestArea false
 
 Area 18 Information
-area position x 3
-area position y 6
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+18 areaPositionX 3
+18 areaPositionY 6
+18 areaPlayerInArea false
+18 areaEnemyInArea true
+18 areaAreaEnemy Snake
+18 areaConsumableInArea false
+18 areaIsRestArea false
 
 Area 19 Information
-area position x 4
-area position y 1
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+19 areaPositionX 4
+19 areaPositionY 1
+19 areaPlayerInArea false
+19 areaEnemyInArea false
+19 areaConsumableInArea false
+19 areaIsRestArea false
 
 Area 20 Information
-area position x 4
-area position y 2
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+20 areaPositionX 4
+20 areaPositionY 2
+20 areaPlayerInArea false
+20 areaEnemyInArea false
+20 areaConsumableInArea false
+20 areaIsRestArea false
 
 Area 21 Information
-area position x 4
-area position y 3
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+21 areaPositionX 4
+21 areaPositionY 3
+21 areaPlayerInArea false
+21 areaEnemyInArea true
+21 areaAreaEnemy Wolf
+21 areaConsumableInArea false
+21 areaIsRestArea false
 
 Area 22 Information
-area position x 4
-area position y 4
-area playerInArea false
-area enemyInArea true
-area areaEnemy Emu
-area areaConsumable false
-area isRestArea false
+22 areaPositionX 4
+22 areaPositionY 4
+22 areaPlayerInArea false
+22 areaEnemyInArea true
+22 areaAreaEnemy Neko
+22 areaConsumableInArea false
+22 areaIsRestArea false
 
 Area 23 Information
-area position x 4
-area position y 5
-area playerInArea false
-area enemyInArea true
-area areaEnemy Canid
-area areaConsumable false
-area isRestArea false
+23 areaPositionX 4
+23 areaPositionY 5
+23 areaPlayerInArea false
+23 areaEnemyInArea true
+23 areaAreaEnemy Boar
+23 areaConsumableInArea false
+23 areaIsRestArea false
 
 Area 24 Information
-area position x 4
-area position y 6
-area playerInArea false
-area enemyInArea true
-area areaEnemy Cappa
-area areaConsumable false
-area isRestArea false
+24 areaPositionX 4
+24 areaPositionY 6
+24 areaPlayerInArea false
+24 areaEnemyInArea true
+24 areaAreaEnemy Cappa
+24 areaConsumableInArea false
+24 areaIsRestArea false
 
 Area 25 Information
-area position x 5
-area position y 1
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+25 areaPositionX 5
+25 areaPositionY 1
+25 areaPlayerInArea false
+25 areaEnemyInArea false
+25 areaConsumableInArea false
+25 areaIsRestArea false
 
 Area 26 Information
-area position x 5
-area position y 2
-area playerInArea false
-area enemyInArea false
-area areaConsumable true
-area areaConsumable Small Potion
-area isRestArea false
+26 areaPositionX 5
+26 areaPositionY 2
+26 areaPlayerInArea false
+26 areaEnemyInArea false
+26 areaConsumableInArea false
+26 areaIsRestArea false
 
 Area 27 Information
-area position x 5
-area position y 3
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+27 areaPositionX 5
+27 areaPositionY 3
+27 areaPlayerInArea false
+27 areaEnemyInArea false
+27 areaConsumableInArea false
+27 areaIsRestArea false
 
 Area 28 Information
-area position x 5
-area position y 4
-area playerInArea false
-area enemyInArea true
-area areaEnemy Neko
-area areaConsumable false
-area isRestArea false
+28 areaPositionX 5
+28 areaPositionY 4
+28 areaPlayerInArea false
+28 areaEnemyInArea false
+28 areaConsumableInArea true
+28 areaAreaConsumable Small Potion
+28 areaIsRestArea false
 
 Area 29 Information
-area position x 5
-area position y 5
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+29 areaPositionX 5
+29 areaPositionY 5
+29 areaPlayerInArea false
+29 areaEnemyInArea false
+29 areaConsumableInArea false
+29 areaIsRestArea false
 
 Area 30 Information
-area position x 5
-area position y 6
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea true
+30 areaPositionX 5
+30 areaPositionY 6
+30 areaPlayerInArea false
+30 areaEnemyInArea false
+30 areaConsumableInArea false
+30 areaIsRestArea false
 
 Area 31 Information
-area position x 6
-area position y 1
-area playerInArea false
-area enemyInArea false
-area areaConsumable true
-area areaConsumable Large Potion
-area isRestArea false
+31 areaPositionX 6
+31 areaPositionY 1
+31 areaPlayerInArea true
+31 areaEnemyInArea false
+31 areaConsumableInArea false
+31 areaIsRestArea false
 
 Area 32 Information
-area position x 6
-area position y 2
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+32 areaPositionX 6
+32 areaPositionY 2
+32 areaPlayerInArea false
+32 areaEnemyInArea false
+32 areaConsumableInArea false
+32 areaIsRestArea false
 
 Area 33 Information
-area position x 6
-area position y 3
-area playerInArea false
-area enemyInArea false
-area areaConsumable false
-area isRestArea false
+33 areaPositionX 6
+33 areaPositionY 3
+33 areaPlayerInArea false
+33 areaEnemyInArea false
+33 areaConsumableInArea false
+33 areaIsRestArea false
 
 Area 34 Information
-area position x 6
-area position y 4
-area playerInArea false
-area enemyInArea true
-area areaEnemy Emu
-area areaConsumable true
-area areaConsumable Small Potion
-area isRestArea false
+34 areaPositionX 6
+34 areaPositionY 4
+34 areaPlayerInArea false
+34 areaEnemyInArea true
+34 areaAreaEnemy Canid
+34 areaConsumableInArea false
+34 areaIsRestArea false
 
 Area 35 Information
-area position x 6
-area position y 5
-area playerInArea false
-area enemyInArea true
-area areaEnemy Emu
-area areaConsumable false
-area isRestArea false
+35 areaPositionX 6
+35 areaPositionY 5
+35 areaPlayerInArea false
+35 areaEnemyInArea true
+35 areaAreaEnemy God's Chosen
+35 areaConsumableInArea false
+35 areaIsRestArea false
 
 Area 36 Information
-area position x 6
-area position y 6
-area playerInArea false
-area enemyInArea true
-area areaEnemy Ursa
-area areaConsumable false
-area isRestArea false
+36 areaPositionX 6
+36 areaPositionY 6
+36 areaPlayerInArea false
+36 areaEnemyInArea true
+36 areaAreaEnemy Ursa
+36 areaConsumableInArea false
+36 areaIsRestArea false
 
 End of Map information.

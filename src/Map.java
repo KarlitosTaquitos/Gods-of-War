@@ -68,7 +68,7 @@ public class Map {
 		BufferedWriter saver = new BufferedWriter(new FileWriter(filename, true));
 		
 		saver.write("\n" + "Map information");
-		saver.write("\n" + "map size " + (GamePlay.map.size - 1));
+		saver.write("\n" + "mapSize " + (GamePlay.map.size - 1));
 		saver.write("\n");
 		
 		int areaCount = 0;
@@ -77,22 +77,26 @@ public class Map {
 			for (int y = 1; y <= GamePlay.map.size - 1; y++) {
 				areaCount++;
 				saver.write("\n" + "Area " + areaCount + " Information");
-				saver.write("\n"+ "area position x " + x);
-				saver.write("\n" + "area position y " + y);
-				saver.write("\n" + "area playerInArea " + Map.map[x][y].playerInArea);
-				saver.write("\n" + "area enemyInArea " + Map.map[x][y].enemyInArea);
+				saver.write("\n"+ areaCount + " areaPositionX " + x);
+				saver.write("\n" + areaCount + " areaPositionY " + y);
+				saver.write("\n" + areaCount + " areaPlayerInArea " + Map.map[x][y].playerInArea);
+				saver.write("\n" + areaCount + " areaEnemyInArea " + Map.map[x][y].enemyInArea);
 				
-				if (Map.map[x][y].enemyInArea == true) {
-					saver.write("\n" + "area areaEnemy " + Map.map[x][y].areaEnemy.name);
+				if (Map.map[x][y].enemyInArea == true && Map.map[x][y].areaEnemy == null) {
+					System.out.println("SOMETHING IS WRONG.");
 				}
 				
-				saver.write("\n" + "area areaConsumable " + Map.map[x][y].consumableInArea);
+				if (Map.map[x][y].enemyInArea == true && Map.map[x][y].areaEnemy != null) {
+					saver.write("\n" + areaCount + " areaAreaEnemy " + Map.map[x][y].areaEnemy.name);
+				}
+				
+				saver.write("\n" + areaCount + " areaConsumableInArea " + Map.map[x][y].consumableInArea);
 				
 				if (Map.map[x][y].consumableInArea == true) {
-					saver.write("\n" + "area areaConsumable " + Map.map[x][y].areaConsumbale.name);
+					saver.write("\n" + areaCount + " areaAreaConsumable " + Map.map[x][y].areaConsumbale.name);
 				}
 				
-				saver.write("\n" + "area isRestArea " + Map.map[x][y].isRestArea);
+				saver.write("\n" + areaCount + " areaIsRestArea " + Map.map[x][y].isRestArea);
 				
 				saver.write("\n");
 			}
