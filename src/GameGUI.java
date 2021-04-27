@@ -666,9 +666,13 @@ public class GameGUI {
 				Enemies enemy = Map.map[GamePlay.player.position[0]][GamePlay.player.position[1]].areaEnemy;
 				
 				pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>");
-				if (BattleBackEnd.attack(GamePlay.player, Map.map[GamePlay.player.position[0]][GamePlay.player.position[1]].areaEnemy, pMessage_l)) {
-					frame.add(leave_b);
-					frame.repaint();
+				if (BattleBackEnd.attack(GamePlay.player, enemy, pMessage_l)) {
+					if (enemy.getClass() == Boss.class)
+						quitScreen(true);
+					else {
+						frame.add(leave_b);
+						frame.repaint();
+					}
 				}
 				pMessage_l.setText(pMessage_l.getText() + "</html>");
 				
@@ -845,7 +849,13 @@ public class GameGUI {
 		ExploreMapBackEnd.postGameStats(GamePlay.player, bossDefeated, message_l);
 
 		JButton quit_b = new JButton("Quit");
-		quit_b.setBounds(WIDTH / 2 - BUTTON_W / 2, 2 * HEIGHT / 3 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		quit_b.setBounds(3 * WIDTH / 4 - BUTTON_W / 2, 2 * HEIGHT / 3 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		
+		JButton scores_b = new JButton("High Scores");
+		scores_b.setBounds(WIDTH / 4 - BUTTON_W / 2, 2 * HEIGHT / 3 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
+
+		JButton save_b = new JButton("Save Score");
+		save_b.setBounds(WIDTH / 2 - BUTTON_W / 2, 2 * HEIGHT / 3 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
 
 		quit_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -853,7 +863,48 @@ public class GameGUI {
 			}
 		});
 
+		scores_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//High score screen
+				highScoreScreen(bossDefeated);
+			}
+		});
+
+		save_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HighScoreBackEnd.addScore(GamePlay.player, ExploreMapBackEnd.score(GamePlay.player, bossDefeated));
+			}
+		});
+
 		frame.add(message_l);
 		frame.add(quit_b);
+		frame.add(scores_b);
+		frame.add(save_b);
+	}
+
+	public void highScoreScreen(boolean boss) {
+		clearFrame();
+
+		JLabel scores_l = new JLabel();
+		scores_l.setBounds(WIDTH / 3, 0, WIDTH / 3, HEIGHT);
+
+		JButton back_b = new JButton("Back");
+		back_b.setBounds(50, 50, BUTTON_W * 3/4, BUTTON_H * 3/4);
+
+		try {
+			scores_l.setText(HighScoreBackEnd.getScores());
+		}
+		catch (Exception e) {
+			scores_l.setText("Error in retrieving high scores");
+		}
+
+		back_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				quitScreen(boss);
+			}
+		});
+
+		frame.add(scores_l);
+		frame.add(back_b);
 	}
 }
