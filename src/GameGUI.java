@@ -320,13 +320,13 @@ public class GameGUI {
 		
 		//Add things
 		JButton spend_b = new JButton("Spend AP");
-		spend_b.setBounds(50, 50, BUTTON_W * 3 / 4, BUTTON_H * 3 / 4);
+		spend_b.setBounds(50, 50, BUTTON_W, BUTTON_H * 3 / 4);
 		
 		JButton save_b = new JButton("Save");
 		save_b.setBounds(WIDTH - BUTTON_W - 50, 50, BUTTON_W * 3 / 4, BUTTON_H);
 		
 		JButton use_b = new JButton("Use Item");
-		use_b.setBounds(50, HEIGHT - BUTTON_H - 75, BUTTON_W * 3 / 4, BUTTON_H);
+		use_b.setBounds(50, HEIGHT - BUTTON_H - 75, BUTTON_W, BUTTON_H);
 		
 		JButton quit_b = new JButton("Quit");
 		quit_b.setBounds(WIDTH - BUTTON_W - 50, HEIGHT - BUTTON_H - 75, BUTTON_W * 3 / 4, BUTTON_H);
@@ -546,7 +546,7 @@ public class GameGUI {
 		message_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JLabel amount_l = new JLabel();
-		amount_l.setBounds(WIDTH - 300, 50, 200, 50);
+		amount_l.setBounds(WIDTH - 300, 25, 200, 50);
 		amount_l.setVerticalAlignment(JLabel.CENTER);
 		amount_l.setHorizontalAlignment(JLabel.CENTER);
 		amount_l.setText("You have " + GamePlay.player.APpool + " Attribute Points!");
