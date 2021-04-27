@@ -118,7 +118,7 @@ public class GameGUI {
 		password_t.setBounds(WIDTH / 3, HEIGHT / 2 + BUTTON_H / 2, BUTTON_W * 2, 30);
 		
 		JButton login_b = new JButton("Login");
-		login_b.setBounds(WIDTH / 2, 4 * HEIGHT / 5, BUTTON_W, BUTTON_H);
+		login_b.setBounds(WIDTH / 2, 4 * HEIGHT / 5 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JLabel warning_l = new JLabel();
 		warning_l.setBounds(WIDTH / 3, HEIGHT / 8, WIDTH / 3, HEIGHT / 4);
