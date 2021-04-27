@@ -212,6 +212,15 @@ public class GameGUI {
 		//Load game button
 		load_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				File temp = new File("src/" + GamePlay.player.name + ".txt");
+				
+				if (!temp.exists()) {
+					
+					
+					return;
+				}
+				
 				//load the user's save file
 				LoadSavedGame.loadSave();
 				
