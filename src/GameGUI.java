@@ -5,7 +5,7 @@ import java.io.*;
 
 public class GameGUI {
 	private JFrame frame;
-	private final int WIDTH = 800, HEIGHT = 600;
+	private final int WIDTH = 600, HEIGHT = 400;
 	private final int BUTTON_W = 100, BUTTON_H = 50;
 	
 	protected String playerName;
@@ -197,7 +197,7 @@ public class GameGUI {
 		
 		//create labels, buttons
 		JLabel welcome_l = new JLabel("Welcome, Warrior");
-		welcome_l.setBounds(0, 0, 800, 300);
+		welcome_l.setBounds(0, 0, WIDTH, HEIGHT / 2);
 		welcome_l.setVerticalAlignment(JLabel.CENTER);
 		welcome_l.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -206,6 +206,9 @@ public class GameGUI {
 		
 		JButton new_b = new JButton("New Game");
 		new_b.setBounds(2 * WIDTH / 3 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+
+		JLabel warning_b = new JLabel();
+		warning_b.setBounds(0, 100, WIDTH, HEIGHT / 2 - 100);
 		
 		//--------------------------------------------------------
 		
@@ -213,19 +216,13 @@ public class GameGUI {
 		load_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				File temp = new File("src/" + GamePlay.player.name + ".txt");
-				
-				if (!temp.exists()) {
-					
-					
-					return;
-				}
-				
 				//load the user's save file
-				LoadSavedGame.loadSave();
-				
-				// explore screen
-				exploreScreen();
+				if (LoadSavedGame.loadSave())
+					// explore screen
+					exploreScreen();
+				else
+					// state that something went wrong
+					warning_b.setText("Something went wrong loading the file. Please create a new game. :(");
 			}
 		});
 		

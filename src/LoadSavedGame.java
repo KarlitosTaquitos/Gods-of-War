@@ -27,37 +27,41 @@ public class LoadSavedGame {
 	static String line;
 	
 	//function that will load the player's save file according to their username------------------------
-	public static void loadSave() {
+	public static boolean loadSave() {
 		//System.out.println("Loading Player...");
+		try {
 		
-		
-		loadPlayer();
-		
-		//System.out.println("Player Loaded.");
-		//System.out.println("Creating Player...");
-		
-		GamePlay.player = Player.makePlayer(playerName, playerPosX, playerPosY,
-				playerAPpool, playerHP, playerBD, playerEnemiesDefeated, playerPlayerDefeat,
-				playerSTR, playerINT, playerCON, playerSPD,
-				playerFood, playerSMPot, playerLGPot,
-				playerLastRestAreaX, playerLastRestAreaY);
-		
-		//System.out.println("Player created.");
-		//System.out.println("Loading map.");
-		
-		loadMap();
+			loadPlayer();
+			
+			//System.out.println("Player Loaded.");
+			//System.out.println("Creating Player...");
+			
+			GamePlay.player = Player.makePlayer(playerName, playerPosX, playerPosY,
+					playerAPpool, playerHP, playerBD, playerEnemiesDefeated, playerPlayerDefeat,
+					playerSTR, playerINT, playerCON, playerSPD,
+					playerFood, playerSMPot, playerLGPot,
+					playerLastRestAreaX, playerLastRestAreaY);
+			
+			//System.out.println("Player created.");
+			//System.out.println("Loading map.");
+			
+			loadMap();
 
-		//System.out.println("Map Loaded.");
-		//System.out.println("Creating Map...");
-		
-		GamePlay.map = Map.makeMap(mapSize + 1);
+			//System.out.println("Map Loaded.");
+			//System.out.println("Creating Map...");
+			
+			GamePlay.map = Map.makeMap(mapSize + 1);
 
-		//System.out.println("Map Created.");
-		//System.out.println("Loading Areas...");
-		
-		loadAreas();
+			//System.out.println("Map Created.");
+			//System.out.println("Loading Areas...");
+			
+			loadAreas();
 
-		//System.out.println("Areas Loaded.");
+			//System.out.println("Areas Loaded.");
+			return true;
+		}
+		catch (Exception e)
+		{ return false; }
 		
 	}
 	
