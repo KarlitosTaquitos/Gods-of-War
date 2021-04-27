@@ -77,7 +77,7 @@ public class HighScoreBackEnd {
 
         //limit the size
         while (arr.size() > 5)
-            arr.remove(arr.lastElement());
+            arr.remove(arr.size() - 1);
 
         return arr;
     }
