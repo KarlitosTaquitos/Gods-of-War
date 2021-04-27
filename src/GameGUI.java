@@ -204,17 +204,23 @@ public class GameGUI {
 		
 		JButton new_b = new JButton("New Game");
 		new_b.setBounds(2 * WIDTH / 3 - BUTTON_W / 2, 2 * HEIGHT / 3 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
+
+		JLabel warning_b = new JLabel();
+		warning_b.setBounds(0, 100, WIDTH, HEIGHT / 2 - 100);
 		
 		//--------------------------------------------------------
 		
 		//Load game button
 		load_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				//load the user's save file
-				LoadSavedGame.loadSave();
-				
-				// explore screen
-				exploreScreen();
+				if (LoadSavedGame.loadSave())
+					// explore screen
+					exploreScreen();
+				else
+					// state that something went wrong
+					warning_b.setText("Something went wrong loading the file. Please create a new game. :(");
 			}
 		});
 		
