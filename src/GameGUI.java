@@ -178,11 +178,12 @@ public class GameGUI {
 		password_t.setBounds(WIDTH / 3, HEIGHT / 2 + BUTTON_H / 2, BUTTON_W * 2, 30);
 		
 		JButton register_b = new JButton("Register");
-		register_b.setBounds(WIDTH / 2, 4 * HEIGHT / 5, BUTTON_W, BUTTON_H);
+		register_b.setBounds(WIDTH / 2, 4 * HEIGHT / 5 - BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JLabel warning_l = new JLabel();
-		warning_l.setBounds(WIDTH / 3, HEIGHT / 8, WIDTH / 3, HEIGHT / 4);
+		warning_l.setBounds(0, HEIGHT / 4, WIDTH, HEIGHT / 4);
 		warning_l.setVerticalAlignment(JLabel.CENTER);
+		warning_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		//-----------------------------------------------------
 		
@@ -687,12 +688,12 @@ public class GameGUI {
 		leave_b.setBounds(WIDTH / 2 - BUTTON_W / 2, HEIGHT / 2 + 50, BUTTON_W, BUTTON_H);
 		
 		JLabel pMessage_l = new JLabel();
-		pMessage_l.setBounds(WIDTH / 5, 10, WIDTH / 5, HEIGHT / 2 - BUTTON_H);
+		pMessage_l.setBounds(0, 0, WIDTH / 2, HEIGHT / 2 - BUTTON_H);
 		pMessage_l.setVerticalAlignment(JLabel.CENTER);
 		pMessage_l.setHorizontalAlignment(JLabel.CENTER);
 		
 		JLabel eMessage_l = new JLabel();
-		eMessage_l.setBounds(3 * WIDTH / 5, 10, WIDTH / 5, HEIGHT / 2 - BUTTON_H);
+		eMessage_l.setBounds(WIDTH / 2, 0, WIDTH / 2, HEIGHT / 2 - BUTTON_H);
 		eMessage_l.setVerticalAlignment(JLabel.CENTER);
 		eMessage_l.setHorizontalAlignment(JLabel.CENTER);
 		
@@ -710,7 +711,12 @@ public class GameGUI {
 				
 				pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>");
 				if (BattleBackEnd.attack(GamePlay.player, enemy, pMessage_l)) {
-					if (enemy.getClass() == Boss.class)
+					boolean isBoss = enemy.getClass() == Klaus.class ||
+									enemy.getClass() == Khan.class ||
+									enemy.getClass() == Ursa.class ||
+									enemy.getClass() == Leo.class;
+
+					if (isBoss)
 						quitScreen(true);
 					else {
 						frame.add(leave_b);
@@ -895,7 +901,7 @@ public class GameGUI {
 		quit_b.setBounds(3 * WIDTH / 4 - BUTTON_W / 2, 2 * HEIGHT / 3 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
 		
 		JButton scores_b = new JButton("High Scores");
-		scores_b.setBounds(WIDTH / 4 - BUTTON_W / 2, 2 * HEIGHT / 3 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
+		scores_b.setBounds(WIDTH / 4 - BUTTON_W * 4 / 3 / 2, 2 * HEIGHT / 3 + BUTTON_H / 2, BUTTON_W * 4 / 3, BUTTON_H);
 
 		JButton save_b = new JButton("Save Score");
 		save_b.setBounds(WIDTH / 2 - BUTTON_W / 2, 2 * HEIGHT / 3 + BUTTON_H / 2, BUTTON_W, BUTTON_H);
