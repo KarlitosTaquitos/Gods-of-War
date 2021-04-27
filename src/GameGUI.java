@@ -207,6 +207,8 @@ public class GameGUI {
 
 		JLabel warning_b = new JLabel();
 		warning_b.setBounds(0, 100, WIDTH, HEIGHT / 2 - 100);
+		warning_b.setVerticalAlignment(JLabel.CENTER);
+		warning_b.setHorizontalAlignment(JLabel.CENTER);
 		
 		//--------------------------------------------------------
 		
@@ -239,6 +241,7 @@ public class GameGUI {
 		frame.add(welcome_l);
 		frame.add(load_b);
 		frame.add(new_b);
+		frame.add(warning_b);
 	}
 	
 	private void newGameScreen() {
