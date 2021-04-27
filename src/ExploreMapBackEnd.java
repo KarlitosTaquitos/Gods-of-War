@@ -194,9 +194,9 @@ public class ExploreMapBackEnd {
 		player.position[1] += 1;
 		
 		//checks if the area has been discovered, and updates player's attributes accordiingly
-		if (!map.map[player.position[0]][player.position[1]].discovered) {
+		if (!Map.map[player.position[0]][player.position[1]].discovered) {
 			player.areasFound++;
-			map.map[player.position[0]][player.position[1]].discovered = true;
+			Map.map[player.position[0]][player.position[1]].discovered = true;
 		}
 		
 		afterMoveDisplayUpdate(player, map, pos_l);
@@ -222,9 +222,9 @@ public class ExploreMapBackEnd {
 		player.position[1] -= 1;
 			
 		//checks if the area has been discovered, and updates player's attributes accordiingly
-		if (!map.map[player.position[0]][player.position[1]].discovered) {
+		if (!Map.map[player.position[0]][player.position[1]].discovered) {
 			player.areasFound++;
-			map.map[player.position[0]][player.position[1]].discovered = true;
+			Map.map[player.position[0]][player.position[1]].discovered = true;
 		}
 
 		
@@ -251,9 +251,9 @@ public class ExploreMapBackEnd {
 		player.position[0] -= 1;
 		
 		//checks if the area has been discovered, and updates player's attributes accordiingly
-		if (!map.map[player.position[0]][player.position[1]].discovered) {
+		if (!Map.map[player.position[0]][player.position[1]].discovered) {
 			player.areasFound++;
-			map.map[player.position[0]][player.position[1]].discovered = true;
+			Map.map[player.position[0]][player.position[1]].discovered = true;
 		}
 
 		afterMoveDisplayUpdate(player, map, pos_l);
@@ -279,9 +279,9 @@ public class ExploreMapBackEnd {
 		player.position[0] += 1;
 
 		//checks if the area has been discovered, and updates player's attributes accordiingly
-		if (!map.map[player.position[0]][player.position[1]].discovered) {
+		if (!Map.map[player.position[0]][player.position[1]].discovered) {
 			player.areasFound++;
-			map.map[player.position[0]][player.position[1]].discovered = true;
+			Map.map[player.position[0]][player.position[1]].discovered = true;
 		}
 		
 		
