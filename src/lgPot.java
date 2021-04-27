@@ -23,7 +23,7 @@ public class lgPot extends Consumables{
 	}		
 	
 	@Override
-	public void write() {
+	public void write(String filename) {
 		// TODO Auto-generated method stub
 		
 	}

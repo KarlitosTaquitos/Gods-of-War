@@ -67,7 +67,7 @@ public class UserPassBackEnd {
 			}
 			
 			//searches UserPass.txt for matching username------
-			while((line = bufferedReader.readLine()) != null) {
+			while ((line = bufferedReader.readLine()) != null) {
 				tokens = line.split(" ");
 				
 				if (tokens[0].equals(username)) {

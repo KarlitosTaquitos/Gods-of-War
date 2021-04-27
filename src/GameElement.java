@@ -1,4 +1,5 @@
+import java.io.IOException;
 
 public interface GameElement {
-	void write();
+	void write(String filename) throws IOException;
 }

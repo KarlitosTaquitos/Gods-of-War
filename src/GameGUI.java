@@ -210,9 +210,11 @@ public class GameGUI {
 		//Load game button
 		load_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// load file
+				//load the user's save file
+				LoadSavedGame.loadSave();
 				
 				// explore screen
+				exploreScreen();
 			}
 		});
 		
@@ -394,6 +396,7 @@ public class GameGUI {
 		save_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//save
+				SaveGame.saveGameFile(GamePlay.player, GamePlay.map);
 			}
 		});
 		

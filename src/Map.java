@@ -1,3 +1,4 @@
+import java.io.*;
 
 public class Map {
 	
@@ -35,7 +36,7 @@ public class Map {
 		}
 		
 		//sets boolean of starting area for player being there to true
-		map[0][0].playerInArea = true;
+		Map.map[1][1].playerInArea = true;
 	}
 	
 	//function that constructs a map from given size
@@ -50,10 +51,9 @@ public class Map {
 		return gameMap;
 	}
 
-	static //function that populates map with enemies, consumables, and rest areas,
+	//function that populates map with enemies, consumables, and rest areas,
 	// given the size of the map
-	void fillMap(Map map)
-	{
+	static void fillMap(Map map){
 
 		ExploreMapBackEnd.fillMapRestAreas(map);
 		
@@ -62,6 +62,49 @@ public class Map {
 		ExploreMapBackEnd.fillMapEnemies(map);
 		
 		ExploreMapBackEnd.fillMapConsumables(map);
+	}
+	
+	public void write(String filename) throws IOException {
+		BufferedWriter saver = new BufferedWriter(new FileWriter(filename, true));
+		
+		saver.write("\n" + "Map information");
+		saver.write("\n" + "mapSize " + (GamePlay.map.size - 1));
+		saver.write("\n");
+		
+		int areaCount = 0;
+		
+		for (int x = 1; x <= GamePlay.map.size - 1; x++) {
+			for (int y = 1; y <= GamePlay.map.size - 1; y++) {
+				areaCount++;
+				saver.write("\n" + "Area " + areaCount + " Information");
+				saver.write("\n"+ areaCount + " areaPositionX " + x);
+				saver.write("\n" + areaCount + " areaPositionY " + y);
+				saver.write("\n" + areaCount + " areaPlayerInArea " + Map.map[x][y].playerInArea);
+				saver.write("\n" + areaCount + " areaEnemyInArea " + Map.map[x][y].enemyInArea);
+				
+				if (Map.map[x][y].enemyInArea == true && Map.map[x][y].areaEnemy == null) {
+					System.out.println("SOMETHING IS WRONG.");
+				}
+				
+				if (Map.map[x][y].enemyInArea == true && Map.map[x][y].areaEnemy != null) {
+					saver.write("\n" + areaCount + " areaAreaEnemy " + Map.map[x][y].areaEnemy.name);
+				}
+				
+				saver.write("\n" + areaCount + " areaConsumableInArea " + Map.map[x][y].consumableInArea);
+				
+				if (Map.map[x][y].consumableInArea == true) {
+					saver.write("\n" + areaCount + " areaAreaConsumable " + Map.map[x][y].areaConsumbale.name);
+				}
+				
+				saver.write("\n" + areaCount + " areaIsRestArea " + Map.map[x][y].isRestArea);
+				
+				saver.write("\n");
+			}
+		}
+		
+		saver.write("\n" + "End of Map information.");
+		
+		saver.close();
 	}
 	
 }
