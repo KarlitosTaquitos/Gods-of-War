@@ -472,6 +472,7 @@ public class GameGUI {
 					battlePMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
 					battleScreen();
 				}
+				pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>Your unspent AP: " + GamePlay.player.APpool + "<br/></html>");
 			}
 		});
 		
@@ -489,6 +490,8 @@ public class GameGUI {
 					battlePMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
 					battleScreen();
 				}
+				
+				pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>Your unspent AP: " + GamePlay.player.APpool + "<br/></html>");
 			}
 		});
 		
@@ -506,6 +509,8 @@ public class GameGUI {
 					battlePMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
 					battleScreen();
 				}
+				
+				pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>Your unspent AP: " + GamePlay.player.APpool + "<br/></html>");
 			}
 		});
 		
@@ -523,6 +528,8 @@ public class GameGUI {
 					battlePMessage = ExploreMapBackEnd.enemyHereMessage(GamePlay.player, GamePlay.map);
 					battleScreen();
 				}
+				
+				pMessage_l.setText("<html> Your hp: " + GamePlay.player.hp + "<br/>Your unspent AP: " + GamePlay.player.APpool + "<br/></html>");
 			}
 		});
 		
@@ -612,6 +619,7 @@ public class GameGUI {
 				SpendAPBackEnd.increaseSTR(GamePlay.player, message_l);
 				message_l.setText(message_l.getText() + "</html>");
 				str_l.setText("" + GamePlay.player.STR);
+				amount_l.setText("You have " + GamePlay.player.APpool + " Attribute Points!");
 				frame.repaint();
 			}
 		});
@@ -624,6 +632,7 @@ public class GameGUI {
 				SpendAPBackEnd.increaseCON(GamePlay.player, message_l);
 				message_l.setText(message_l.getText() + "</html>");
 				con_l.setText("" + GamePlay.player.CON);
+				amount_l.setText("You have " + GamePlay.player.APpool + " Attribute Points!");
 				frame.repaint();
 			}
 		});
@@ -636,6 +645,7 @@ public class GameGUI {
 				SpendAPBackEnd.increaseSPD(GamePlay.player, message_l);
 				message_l.setText(message_l.getText() + "</html>");
 				spd_l.setText("" + GamePlay.player.SPD);
+				amount_l.setText("You have " + GamePlay.player.APpool + " Attribute Points!");
 				frame.repaint();
 			}
 		});
@@ -648,6 +658,7 @@ public class GameGUI {
 				SpendAPBackEnd.increaseINT(GamePlay.player, message_l);
 				message_l.setText(message_l.getText() + "</html>");
 				int_l.setText("" + GamePlay.player.INT);
+				amount_l.setText("You have " + GamePlay.player.APpool + " Attribute Points!");
 				frame.repaint();
 			}
 		});
